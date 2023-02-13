@@ -38,7 +38,7 @@
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnShow = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -140,15 +140,15 @@
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
-            // button1
+            // btnShow
             // 
-            this.button1.Location = new System.Drawing.Point(12, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 60);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Show";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnShow.Location = new System.Drawing.Point(12, 75);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(150, 60);
+            this.btnShow.TabIndex = 1;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // btnAdd
             // 
@@ -187,7 +187,7 @@
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvUsers);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
@@ -200,7 +200,7 @@
         #endregion
 
         private DataGridView dgvUsers;
-        private Button button1;
+        private Button btnShow;
         private Button btnAdd;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn FirstName;

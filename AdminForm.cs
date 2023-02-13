@@ -30,7 +30,7 @@ namespace EyalonFinalProject
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShow_Click(object sender, EventArgs e)
         {
             updateUserDataGridView(dbc.getAllUsers());
         }
