@@ -31,15 +31,15 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvProjectBook = new System.Windows.Forms.DataGridView();
+            this.btnShow = new System.Windows.Forms.Button();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BooKName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookOpenPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnShow = new System.Windows.Forms.Button();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.dgvProjectBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjectBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
-            this.BooKName,
+            this.BookName,
             this.BookYear,
             this.BookOpenPage,
             this.Edit,
@@ -86,6 +86,35 @@
             this.dgvProjectBook.TabIndex = 34;
             this.dgvProjectBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectBook_CellContentClick);
             // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(12, 94);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(150, 60);
+            this.btnShow.TabIndex = 35;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSearch.Location = new System.Drawing.Point(575, 105);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(134, 46);
+            this.lblSearch.TabIndex = 37;
+            this.lblSearch.Text = "Search:";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(715, 102);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(314, 52);
+            this.txtSearch.TabIndex = 36;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
             // ID
             // 
             this.ID.FillWeight = 42.78075F;
@@ -96,11 +125,11 @@
             // 
             // BooKName
             // 
-            this.BooKName.FillWeight = 120F;
-            this.BooKName.HeaderText = "BooKName";
-            this.BooKName.MinimumWidth = 6;
-            this.BooKName.Name = "BooKName";
-            this.BooKName.ReadOnly = true;
+            this.BookName.FillWeight = 120F;
+            this.BookName.HeaderText = "BookName";
+            this.BookName.MinimumWidth = 6;
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
             // 
             // BookYear
             // 
@@ -136,34 +165,6 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(12, 94);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(150, 60);
-            this.btnShow.TabIndex = 35;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSearch.Location = new System.Drawing.Point(575, 105);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(134, 46);
-            this.lblSearch.TabIndex = 37;
-            this.lblSearch.Text = "Search:";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(715, 102);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(314, 52);
-            this.txtSearch.TabIndex = 36;
-            // 
             // LecturerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -189,13 +190,13 @@
         private Button btnAdd;
         private DataGridView dgvProjectBook;
         private Button btnShow;
+        private Label lblSearch;
+        private TextBox txtSearch;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn BooKName;
+        private DataGridViewTextBoxColumn BookName;
         private DataGridViewTextBoxColumn BookYear;
         private DataGridViewTextBoxColumn BookOpenPage;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
-        private Label lblSearch;
-        private TextBox txtSearch;
     }
 }

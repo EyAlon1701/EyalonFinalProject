@@ -7,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Drawing.Drawing2D;
+using System.Xml.Linq;
 
 
 namespace EyalonFinalProject
@@ -16,7 +18,7 @@ namespace EyalonFinalProject
         public static SqlConnection mySqlConnection = new SqlConnection("server = DESKTOP-EYALON1\\SQLEXPRESS02;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         //USERS
-        public int addUser(String id, String firstName, String lastName,String email, String password, String imgPath, int role)
+        public int addUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
         {
             try
             {
@@ -36,13 +38,13 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public void deleteUserByID(String userID)
+        public void deleteUserByID(string userID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.Users WHERE ID='" + userID + "';";
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.Userss WHERE UserID='" + userID + "';";
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show(num + " DELETED USER");
                 mySqlConnection.Close();
@@ -58,8 +60,8 @@ namespace EyalonFinalProject
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users";
                 mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users;";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -74,13 +76,14 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable login(String id,String password)
+        public DataTable login(string id, string password)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE ID='" + id + "' AND Password='" + password + "';";
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE UserID='" + id + "' AND Password='" + password + "';";
+                MessageBox.Show("loginSQL: " + mySqlCommand.CommandText);
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -95,13 +98,13 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getUsersByName(String name)
+        public DataTable getUsersByName(string name)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE FirstName LIKE '%"+name+"%' OR LastName LIKE '%"+name+"%';";
                 mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE FirstName LIKE '%" + name + "%' OR LastName LIKE '%" + name + "%';";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -116,8 +119,70 @@ namespace EyalonFinalProject
             }
             return null;
         }
-
-
+        public DataTable getAllUsersByRole(int role)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE Role=" + role + ";";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
+        public DataTable getUsersByRoleAndName(int role, string name)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE (FirstName LIKE '%" + name + "%' OR LastName LIKE '%" + name + "%') AND Role="+role+";";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
+        public DataRow getUserByID(string userID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE UserID='" + userID + "';";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table.Rows[0];
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
+        
         //PROJECTBOOK
         public int addProjectBook(string bookName, string bookYear, string bookOpenPage)
         {
@@ -139,14 +204,13 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-
         public DataTable getAllProjectBook()
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectBook";
                 mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectBook";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -161,6 +225,116 @@ namespace EyalonFinalProject
             }
             return null;
         }
+        public DataTable getProjectBookByName(string name)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectBook WHERE ProjectBookName LIKE '%" + name + "%';";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
+
+        //PROJECTPAGE
+        public int addProjectPage(string pageName,string pageData)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.ProjectPage VALUES('" + pageName + "', '" + pageData + "','" + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff") + "')";
+                MessageBox.Show("addProjectPage: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("addProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+        public int getLastProjectPageID()
+        {
+            int maxID = -1;
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT max(ProjectPageID) FROM projectDB.dbo.ProjectPage";
+                MessageBox.Show("getLastProjectPageID: " + mySqlCommand.CommandText);
+                maxID = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+                MessageBox.Show(maxID.ToString());
+                mySqlConnection.Close();
+                return maxID;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return maxID;
+        }
+        public DataTable getProjectPageByID(string userID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,pp.ProjectPageData FROM projectDB.dbo.ProjectPage pp,projectDB.dbo.StudentProjectPage spp WHERE pp.ProjectPageID = spp.ProjectPageID AND spp.StudentID='" + userID+"'";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
+        
+        //STUDENTPROJECTPAGE
+        public int addStudentProjectPage(string userID,int projectPageID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.StudentProjectPage VALUES('" + userID + "', " + projectPageID + ")";
+                MessageBox.Show("addStudentProjectPage: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("addStudentProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+
+        //PROJECTPAGEINBOOK
+
     }
 }
 

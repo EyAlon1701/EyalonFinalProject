@@ -13,40 +13,28 @@ namespace EyalonFinalProject
     public partial class UserForm : Form
     {
         DBConnection dbc = new DBConnection();
-        bool isAdd = false;//false(0) - update | true - add
+        bool isAdd = true;
 
         public UserForm()
         {
             InitializeComponent();
         }
-        public UserForm(Boolean isAdd)
+        public UserForm(int accessRole, string userID)
         {
             InitializeComponent();
-            this.isAdd = isAdd;
-            if (isAdd)
+            if(accessRole == int.Parse(Program.studentRole))
             {
-                btnSubmit.Text = "Add";
-            }
-        }
-        public UserForm(int role,Boolean isAdd)
-        {
-            InitializeComponent();
-            
-            cbRole.SelectedIndex = role;
-            if (role != int.Parse(Program.adminRole))
-            {
+                txtID.Enabled = false;
                 cbRole.Enabled = false;
             }
-            this.isAdd = isAdd;
-            if (isAdd)
-            {
-                btnSubmit.Text = "Add";
-            }
+            //ELSE LEC NOT ABLE PUT ADMIN!!!
+
+            DataRow userRow = dbc.getUserByID(userID);
+            setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
         }
 
-        public UserForm(String id, String firstName, String lastName, String email, String password, String imgPath, int role)
+        private void setData(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
         {
-            InitializeComponent();
             txtID.Text = id;
             txtFirstName.Text = firstName;
             txtLastName.Text = lastName;
@@ -61,6 +49,8 @@ namespace EyalonFinalProject
             {
             }
             cbRole.SelectedIndex = role;
+            btnSubmit.Text = "Update";
+            isAdd = false;
         }
 
 

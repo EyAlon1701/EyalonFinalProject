@@ -10,33 +10,37 @@ using System.Windows.Forms;
 
 namespace EyalonFinalProject
 {
-    public partial class BookForm : Form
+    public partial class PageForm : Form
     {
         DBConnection dbc = new DBConnection();
         bool isAdd = true;
-        public BookForm()
+        string userID="";
+
+        public PageForm()
         {
             InitializeComponent();
         }
-
-        public BookForm(string bookName,string bookYear,string bookOpenPage)
+        public PageForm(string userID)
         {
             InitializeComponent();
-            txtBookName.Text = bookName;
-            txtBookYear.Text = bookYear;
-            txtOpenPage.Text = bookOpenPage;
-            btnSumbit.Text = "Update";
-            isAdd = false;
+            this.userID = userID;
         }
-
         private void btnSumbit_Click(object sender, EventArgs e)
         {
             if (isAdd)//true - add project book
             {
-                int num = dbc.addProjectBook(txtBookName.Text, txtBookYear.Text, txtOpenPage.Text);
+                int num = dbc.addProjectPage(txtPageName.Text, txtPageData.Text);
                 if (num == 1)
                 {
-                    this.Close();
+                    num = dbc.addStudentProjectPage(userID,dbc.getLastProjectPageID());
+                    if (num == 1)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        //NEED TO BE ERROR
+                    }
                 }
             }
             else // false - update project book

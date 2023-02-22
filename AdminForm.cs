@@ -25,7 +25,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvUsers.Rows.Add(dt.Rows[row]["ID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"], "Edit", "Delete");
+                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"], "Edit", "Delete");
                 }
             }
         }
@@ -40,15 +40,14 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvUsers.Rows[e.RowIndex];
             if (dgvUsers.Columns[e.ColumnIndex].Name == "Edit")
             {
-                UserForm userForm = new UserForm(selectedRow.Cells["ID"].Value.ToString(),
-                    selectedRow.Cells["FirstName"].Value.ToString(), selectedRow.Cells["LastName"].Value.ToString(), selectedRow.Cells["Email"].Value.ToString(), selectedRow.Cells["Password"].Value.ToString(), selectedRow.Cells["Image"].Value.ToString(), int.Parse(selectedRow.Cells["Role"].Value.ToString()));
+                UserForm userForm = new UserForm(int.Parse(Program.adminRole), selectedRow.Cells["UserID"].Value.ToString());
                 userForm.ShowDialog();
             }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) ;
+                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
                 {
-                    dbc.deleteUserByID(selectedRow.Cells["ID"].Value.ToString());
+                    dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
                 }
             }
             updateUserDataGridView(dbc.getAllUsers());
@@ -56,7 +55,7 @@ namespace EyalonFinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm(true);
+            UserForm userForm = new UserForm();
             userForm.ShowDialog();
             updateUserDataGridView(dbc.getAllUsers());
         }

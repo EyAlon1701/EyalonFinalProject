@@ -35,7 +35,7 @@
             this.lblFirstName = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
             this.txtBookName = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnSumbit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -96,22 +96,22 @@
             this.txtBookName.Size = new System.Drawing.Size(125, 27);
             this.txtBookName.TabIndex = 25;
             // 
-            // btnSubmit
+            // btnSumbit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(603, 12);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(185, 55);
-            this.btnSubmit.TabIndex = 32;
-            this.btnSubmit.Text = "Update";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSumbit.Location = new System.Drawing.Point(603, 12);
+            this.btnSumbit.Name = "btnSumbit";
+            this.btnSumbit.Size = new System.Drawing.Size(185, 55);
+            this.btnSumbit.TabIndex = 32;
+            this.btnSumbit.Text = "Add";
+            this.btnSumbit.UseVisualStyleBackColor = true;
+            this.btnSumbit.Click += new System.EventHandler(this.btnSumbit_Click);
             // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 479);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnSumbit);
             this.Controls.Add(this.txtOpenPage);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtBookYear);
@@ -134,6 +134,6 @@
         private Label lblFirstName;
         private Label lblID;
         private TextBox txtBookName;
-        private Button btnSubmit;
+        private Button btnSumbit;
     }
 }

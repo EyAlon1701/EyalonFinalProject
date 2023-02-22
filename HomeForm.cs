@@ -30,7 +30,7 @@ namespace EyalonFinalProject
                 this.Hide();
                 if (dt.Rows[0]["Role"].ToString() == Program.studentRole)
                 {
-                    StudentForm studentForm = new StudentForm();
+                    StudentForm studentForm = new StudentForm(dt.Rows[0]);
                     studentForm.ShowDialog();
                 }
                 else if (dt.Rows[0]["Role"].ToString() == Program.lecturerRole)

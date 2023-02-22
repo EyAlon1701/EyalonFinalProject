@@ -13,9 +13,18 @@ namespace EyalonFinalProject
     public partial class LecturerForm : Form
     {
         DBConnection dbc = new DBConnection();
+        string userID = "";
+        DataRow userRow = null;
         public LecturerForm()
         {
             InitializeComponent();
+        }
+        public LecturerForm(DataRow userRow)
+        {
+            InitializeComponent();
+            this.userRow = userRow;
+            this.userID = userRow["UserID"].ToString();
+            lblWelcome.Text += " " + userRow["FirstName"].ToString();
         }
 
         private void updateProjectBookDataGridView(DataTable dt)
@@ -33,12 +42,26 @@ namespace EyalonFinalProject
  
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
+            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                BookForm bookForm = new BookForm(selectedRow.Cells["BookName"].Value.ToString(),
+                    selectedRow.Cells["BookYear"].Value.ToString(), selectedRow.Cells["BookOpenPage"].Value.ToString());
+                bookForm.ShowDialog();
+            }
+            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) ;
+                {
+                    dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
+                }
+            }
+            updateProjectBookDataGridView(dbc.getAllUsers());
         }
         
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            BookForm bookForm = new BookForm(true);
+            BookForm bookForm = new BookForm();
             bookForm.ShowDialog();
             //updateUserDataGridView(dbc.getAllUsers());
         }
@@ -46,6 +69,11 @@ namespace EyalonFinalProject
         private void btnShow_Click(object sender, EventArgs e)
         {
             updateProjectBookDataGridView(dbc.getAllProjectBook());
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
         }
     }
 }
