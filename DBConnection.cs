@@ -83,7 +83,6 @@ namespace EyalonFinalProject
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
                 mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE UserID='" + id + "' AND Password='" + password + "';";
-                MessageBox.Show("loginSQL: " + mySqlCommand.CommandText);
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);

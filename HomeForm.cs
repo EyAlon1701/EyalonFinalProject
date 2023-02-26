@@ -35,7 +35,7 @@ namespace EyalonFinalProject
                 }
                 else if (dt.Rows[0]["Role"].ToString() == Program.lecturerRole)
                 {
-                    LecturerForm lecturerForm = new LecturerForm();
+                    LecturerForm lecturerForm = new LecturerForm(dt.Rows[0]);
                     lecturerForm.ShowDialog();
                 }
                 else if (dt.Rows[0]["Role"].ToString() == Program.adminRole)
