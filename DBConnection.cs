@@ -288,13 +288,35 @@ namespace EyalonFinalProject
             }
             return maxID;
         }
-        public DataTable getProjectPageByID(string userID)
+        
+        //STUDENTPROJECTPAGE
+        public int addStudentProjectPage(string studentID,int projectPageID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,pp.ProjectPageData FROM projectDB.dbo.ProjectPage pp,projectDB.dbo.StudentProjectPage spp WHERE pp.ProjectPageID = spp.ProjectPageID AND spp.StudentID='" + userID+"'";
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.StudentProjectPage VALUES('" + studentID + "', " + projectPageID + ")";
+                MessageBox.Show("addStudentProjectPage: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("addStudentProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+        public DataTable getProjectPageByStudentID(string studentID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,pp.ProjectPageData FROM projectDB.dbo.ProjectPage pp,projectDB.dbo.StudentProjectPage spp WHERE pp.ProjectPageID = spp.ProjectPageID AND spp.StudentID='" + studentID + "'";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -308,28 +330,6 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return null;
-        }
-        
-        //STUDENTPROJECTPAGE
-        public int addStudentProjectPage(string StudentID,int projectPageID)
-        {
-            try
-            {
-                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
-                mySqlConnection.Open();
-                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.StudentProjectPage VALUES('" + StudentID + "', " + projectPageID + ")";
-                MessageBox.Show("addStudentProjectPage: " + mySqlCommand.CommandText);
-                int num = mySqlCommand.ExecuteNonQuery();
-                MessageBox.Show("addStudentProjectPage: " + num);
-                mySqlConnection.Close();
-                return num;
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.Message);
-                mySqlConnection.Close();
-            }
-            return -1;
         }
 
         //PROJECTPAGEINBOOK
@@ -352,6 +352,27 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return -1;
+        }
+        public DataTable getProjectPageByProjectBookID(int projectBookID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT ProjectPageID FROM projectDB.dbo.ProjectPageInBook ppib WHERE ppib.ProjectBookID=" + projectBookID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
         }
     }
 }

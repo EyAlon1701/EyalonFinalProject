@@ -50,7 +50,7 @@ namespace EyalonFinalProject
 
         private void btnPages_Click(object sender, EventArgs e)
         {
-            PagesInBook pagesInBook = new PagesInBook();
+            PagesInBook pagesInBook = new PagesInBook(bookID);
             pagesInBook.ShowDialog();
         }
     }

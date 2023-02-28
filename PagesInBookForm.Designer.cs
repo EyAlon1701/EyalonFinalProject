@@ -37,6 +37,7 @@
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagesInBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblTitle
             // 
@@ -137,11 +139,22 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(12, 77);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(150, 60);
+            this.btnShow.TabIndex = 37;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // PagesInBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 486);
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvPagesInBook);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnAdd);
@@ -164,5 +177,6 @@
         private DataGridViewTextBoxColumn PageID;
         private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Delete;
+        private Button btnShow;
     }
 }

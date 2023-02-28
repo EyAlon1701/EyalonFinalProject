@@ -52,7 +52,7 @@ namespace EyalonFinalProject
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            updateProjectPageDataGridView(dbc.getProjectPageByID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPageByStudentID(userID));
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
