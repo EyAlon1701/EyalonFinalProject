@@ -45,8 +45,7 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Edit")
             {
-                BookForm bookForm = new BookForm(selectedRow.Cells["BookName"].Value.ToString(),
-                    selectedRow.Cells["BookYear"].Value.ToString(), selectedRow.Cells["BookOpenPage"].Value.ToString());
+                BookForm bookForm = new BookForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), selectedRow.Cells["BookName"].Value.ToString(), selectedRow.Cells["BookYear"].Value.ToString(), selectedRow.Cells["BookOpenPage"].Value.ToString());
                 bookForm.ShowDialog();
             }
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")

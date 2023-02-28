@@ -44,7 +44,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.Userss WHERE UserID='" + userID + "';";
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.Users WHERE UserID='" + userID + "';";
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show(num + " DELETED USER");
                 mySqlConnection.Close();
@@ -118,7 +118,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getAllUsersByRole(int role)
+        public DataTable getUsersByRole(int role)
         {
             try
             {
@@ -311,13 +311,13 @@ namespace EyalonFinalProject
         }
         
         //STUDENTPROJECTPAGE
-        public int addStudentProjectPage(string userID,int projectPageID)
+        public int addStudentProjectPage(string StudentID,int projectPageID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.StudentProjectPage VALUES('" + userID + "', " + projectPageID + ")";
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.StudentProjectPage VALUES('" + StudentID + "', " + projectPageID + ")";
                 MessageBox.Show("addStudentProjectPage: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("addStudentProjectPage: " + num);
@@ -333,7 +333,26 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGEINBOOK
-
+        public int addProjectPageInBook(int projectPageID,int projectBookID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.ProjectPageInBook VALUES(" + projectPageID + ", " + projectBookID + ")";
+                MessageBox.Show("addProjectPageInBook: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("addProjectPageInBook: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
     }
 }
 

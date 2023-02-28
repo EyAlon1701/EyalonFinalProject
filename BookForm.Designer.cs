@@ -36,6 +36,7 @@
             this.lblID = new System.Windows.Forms.Label();
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.btnSumbit = new System.Windows.Forms.Button();
+            this.btnPages = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -106,11 +107,22 @@
             this.btnSumbit.UseVisualStyleBackColor = true;
             this.btnSumbit.Click += new System.EventHandler(this.btnSumbit_Click);
             // 
+            // btnPages
+            // 
+            this.btnPages.Location = new System.Drawing.Point(412, 12);
+            this.btnPages.Name = "btnPages";
+            this.btnPages.Size = new System.Drawing.Size(185, 55);
+            this.btnPages.TabIndex = 33;
+            this.btnPages.Text = "Pages";
+            this.btnPages.UseVisualStyleBackColor = true;
+            this.btnPages.Click += new System.EventHandler(this.btnPages_Click);
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 479);
+            this.Controls.Add(this.btnPages);
             this.Controls.Add(this.btnSumbit);
             this.Controls.Add(this.txtOpenPage);
             this.Controls.Add(this.lblLastName);
@@ -135,5 +147,6 @@
         private Label lblID;
         private TextBox txtBookName;
         private Button btnSumbit;
+        private Button btnPages;
     }
 }

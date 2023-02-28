@@ -14,14 +14,17 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         bool isAdd = true;
+        int bookID = -1;
         public BookForm()
         {
             InitializeComponent();
+            btnPages.Enabled = false;
         }
 
-        public BookForm(string bookName,string bookYear,string bookOpenPage)
+        public BookForm(int bookID,string bookName,string bookYear,string bookOpenPage)
         {
             InitializeComponent();
+            this.bookID = bookID;
             txtBookName.Text = bookName;
             txtBookYear.Text = bookYear;
             txtOpenPage.Text = bookOpenPage;
@@ -43,6 +46,12 @@ namespace EyalonFinalProject
             {
 
             }
+        }
+
+        private void btnPages_Click(object sender, EventArgs e)
+        {
+            PagesInBook pagesInBook = new PagesInBook();
+            pagesInBook.ShowDialog();
         }
     }
 }

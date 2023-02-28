@@ -29,3 +29,4 @@ C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\E
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.Properties.Resources.resources
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.BookForm.resources
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.PageForm.resources
+C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.PagesInBook.resources
