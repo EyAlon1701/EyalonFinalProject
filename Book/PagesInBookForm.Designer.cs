@@ -31,13 +31,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.dgvPagesInBook = new System.Windows.Forms.DataGridView();
+            this.btnShow = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnShow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPagesInBook)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.ID,
             this.StudentID,
             this.StudentName,
-            this.PageID,
+            this.PageName,
             this.View,
             this.Delete});
             this.dgvPagesInBook.Location = new System.Drawing.Point(0, 143);
@@ -82,6 +82,16 @@
             this.dgvPagesInBook.RowTemplate.Height = 29;
             this.dgvPagesInBook.Size = new System.Drawing.Size(800, 342);
             this.dgvPagesInBook.TabIndex = 35;
+            // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(12, 77);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(150, 60);
+            this.btnShow.TabIndex = 37;
+            this.btnShow.Text = "Show";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // ID
             // 
@@ -95,31 +105,31 @@
             // 
             // StudentID
             // 
-            this.StudentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.StudentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.StudentID.FillWeight = 120F;
             this.StudentID.HeaderText = "StudentID";
             this.StudentID.MinimumWidth = 6;
             this.StudentID.Name = "StudentID";
             this.StudentID.ReadOnly = true;
-            this.StudentID.Width = 214;
+            this.StudentID.Width = 104;
             // 
             // StudentName
             // 
+            this.StudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.StudentName.FillWeight = 43.31802F;
             this.StudentName.HeaderText = "StudentName";
-            this.StudentName.MinimumWidth = 6;
+            this.StudentName.MinimumWidth = 30;
             this.StudentName.Name = "StudentName";
             this.StudentName.ReadOnly = true;
+            this.StudentName.Width = 129;
             // 
-            // PageID
+            // PageName
             // 
-            this.PageID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.PageID.FillWeight = 156.9506F;
-            this.PageID.HeaderText = "PageID";
-            this.PageID.MinimumWidth = 6;
-            this.PageID.Name = "PageID";
-            this.PageID.ReadOnly = true;
-            this.PageID.Width = 85;
+            this.PageName.FillWeight = 156.9506F;
+            this.PageName.HeaderText = "PageName";
+            this.PageName.MinimumWidth = 10;
+            this.PageName.Name = "PageName";
+            this.PageName.ReadOnly = true;
             // 
             // View
             // 
@@ -138,16 +148,6 @@
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
-            // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(12, 77);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(150, 60);
-            this.btnShow.TabIndex = 37;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // PagesInBook
             // 
@@ -171,12 +171,12 @@
         private Button btnAdd;
         private Label lblTitle;
         private DataGridView dgvPagesInBook;
+        private Button btnShow;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn StudentID;
         private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn PageID;
+        private DataGridViewTextBoxColumn PageName;
         private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Delete;
-        private Button btnShow;
     }
 }

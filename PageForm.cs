@@ -32,6 +32,8 @@ namespace EyalonFinalProject
             this.userID = userID;
             txtPageName.Text = pageName;    
             txtPageData.Text = pageData;
+            btnSumbit.Text = "Update";
+            isAdd = false;
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)

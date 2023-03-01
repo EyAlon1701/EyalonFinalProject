@@ -23,6 +23,7 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.bookID = bookID;
+            updatePagesInBookDataGridView(dbc.getProjectPageByProjectBookID(bookID));
         }
 
         private void updatePagesInBookDataGridView(DataTable dt)
@@ -32,7 +33,14 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvPagesInBook.Rows.Add(1, "1", "1", dt.Rows[row]["ProjectPageID"], "View", "Delete");
+                    DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    string stuID = "",stuName="";
+                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)//RN ONLY ONE USER PER PAGE
+                    {
+                        stuID = stu.Rows[stuRow]["UserID"].ToString();
+                        stuName = stu.Rows[stuRow]["FirstName"].ToString() +  " " + stu.Rows[stuRow]["LastName"].ToString();
+                    }
+                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ID"], stuID, stuName, dbc.getProjectPageNameByID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
                 }
             }
         }

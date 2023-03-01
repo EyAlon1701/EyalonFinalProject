@@ -25,6 +25,7 @@ namespace EyalonFinalProject
             this.userRow = userRow;
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
+            updateProjectBookDataGridView(dbc.getAllProjectBook());
         }
 
         private void updateProjectBookDataGridView(DataTable dt)
@@ -62,11 +63,6 @@ namespace EyalonFinalProject
         {
             BookForm bookForm = new BookForm();
             bookForm.ShowDialog();
-            //updateUserDataGridView(dbc.getAllUsers());
-        }
-
-        private void btnShow_Click(object sender, EventArgs e)
-        {
             updateProjectBookDataGridView(dbc.getAllProjectBook());
         }
 

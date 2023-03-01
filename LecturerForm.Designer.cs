@@ -37,7 +37,6 @@
             this.BookOpenPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnShow = new System.Windows.Forms.Button();
             this.lblSearch = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
@@ -59,7 +58,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(185, 55);
             this.btnAdd.TabIndex = 33;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Book";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -77,7 +76,7 @@
             this.BookOpenPage,
             this.Edit,
             this.Delete});
-            this.dgvProjectBook.Location = new System.Drawing.Point(0, 160);
+            this.dgvProjectBook.Location = new System.Drawing.Point(0, 141);
             this.dgvProjectBook.Name = "dgvProjectBook";
             this.dgvProjectBook.ReadOnly = true;
             this.dgvProjectBook.RowHeadersWidth = 51;
@@ -136,21 +135,11 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(12, 94);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(150, 60);
-            this.btnShow.TabIndex = 35;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSearch.Location = new System.Drawing.Point(575, 105);
+            this.lblSearch.Location = new System.Drawing.Point(12, 86);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(134, 46);
             this.lblSearch.TabIndex = 37;
@@ -159,7 +148,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(715, 102);
+            this.txtSearch.Location = new System.Drawing.Point(151, 83);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(314, 52);
             this.txtSearch.TabIndex = 36;
@@ -169,10 +158,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 571);
+            this.ClientSize = new System.Drawing.Size(1041, 552);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvProjectBook);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblWelcome);
@@ -189,7 +177,6 @@
         private Label lblWelcome;
         private Button btnAdd;
         private DataGridView dgvProjectBook;
-        private Button btnShow;
         private Label lblSearch;
         private TextBox txtSearch;
         private DataGridViewTextBoxColumn ID;

@@ -37,7 +37,7 @@ namespace EyalonFinalProject
                 {
                     dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], "View" ,"Edit", "Delete");
 
-                    if(dbc.isProjectPageLink(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
+                    if(dbc.isProjectPageLinkToBook(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
                         dgvProjectPage.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
                     }
@@ -62,9 +62,9 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (!(dbc.isProjectPageLink(int.Parse(selectedRow.Cells["ID"].Value.ToString()))))
+                if (!(dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["ID"].Value.ToString()))))
                 {
-                    if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) ;
+                    if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
                     {
                         dbc.deleteStudentProjectPageByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
                     }
