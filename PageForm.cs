@@ -25,6 +25,15 @@ namespace EyalonFinalProject
             InitializeComponent();
             this.userID = userID;
         }
+
+        public PageForm(string userID, string pageName, string pageData)
+        {
+            InitializeComponent();
+            this.userID = userID;
+            txtPageName.Text = pageName;    
+            txtPageData.Text = pageData;
+        }
+
         private void btnSumbit_Click(object sender, EventArgs e)
         {
             if (isAdd)//true - add project book

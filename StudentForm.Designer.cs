@@ -35,9 +35,9 @@
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnShow = new System.Windows.Forms.Button();
             this.btnEditUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +54,11 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(844, 120);
+            this.btnAdd.Location = new System.Drawing.Point(844, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(185, 55);
             this.btnAdd.TabIndex = 34;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Page";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -74,6 +74,7 @@
             this.PageName,
             this.PageCreationDate,
             this.PageData,
+            this.View,
             this.Edit,
             this.Delete});
             this.dgvProjectPage.Location = new System.Drawing.Point(0, 181);
@@ -120,6 +121,15 @@
             this.PageData.Name = "PageData";
             this.PageData.ReadOnly = true;
             // 
+            // View
+            // 
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.View.HeaderText = "View";
+            this.View.MinimumWidth = 6;
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Width = 47;
+            // 
             // Edit
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -138,19 +148,9 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
-            // btnShow
-            // 
-            this.btnShow.Location = new System.Drawing.Point(12, 115);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(150, 60);
-            this.btnShow.TabIndex = 36;
-            this.btnShow.Text = "Show";
-            this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
-            // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(844, 12);
+            this.btnEditUser.Location = new System.Drawing.Point(653, 12);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(185, 55);
             this.btnEditUser.TabIndex = 37;
@@ -164,7 +164,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 654);
             this.Controls.Add(this.btnEditUser);
-            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvProjectPage);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblWelcome);
@@ -181,13 +180,13 @@
         private Label lblWelcome;
         private Button btnAdd;
         private DataGridView dgvProjectPage;
+        private Button btnEditUser;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn PageCreationDate;
         private DataGridViewTextBoxColumn PageData;
+        private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
-        private Button btnShow;
-        private Button btnEditUser;
     }
 }

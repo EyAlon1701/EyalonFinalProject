@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing.Drawing2D;
 using System.Xml.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace EyalonFinalProject
@@ -25,7 +26,6 @@ namespace EyalonFinalProject
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
                 mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.Users VALUES('" + id + "', '" + firstName + "', '" + lastName + "', '" + email + "', '" + password + "', '" + imgPath + "', " + role + ")";
-                MessageBox.Show("addUserSQL: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("addUser: " + num);
                 mySqlConnection.Close();
@@ -245,6 +245,30 @@ namespace EyalonFinalProject
             }
             return null;
         }
+        public string getProjectBookNameByID(int bookID)
+        {
+            string result = "";
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT ProjectBookName FROM projectDB.dbo.ProjectBook WHERE ProjectBookID="+bookID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    result += mySqlDataReader["ProjectBookName"].ToString();//need to be 1 time bc ProjectBookID IS PK
+                }
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return result;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return result;
+        }
 
         //PROJECTPAGE
         public int addProjectPage(string pageName,string pageData)
@@ -300,6 +324,26 @@ namespace EyalonFinalProject
                 MessageBox.Show("addStudentProjectPage: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("addStudentProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+        public int deleteStudentProjectPageByProjectPageID(int projectPageID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.StudentProjectPage WHERE ProjectPageID="+projectPageID;
+                MessageBox.Show("deleteStudentProjectPage: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("deleteStudentProjectPage: " + num);
                 mySqlConnection.Close();
                 return num;
             }
@@ -373,6 +417,25 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return null;
+        }
+        public bool isProjectPageLink(int projectPageID)
+        {
+            bool ans = false;
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT COUNT(*) FROM projectDB.dbo.ProjectPageInBook WHERE ProjectPageID=" + projectPageID;
+                ans = Convert.ToInt32(mySqlCommand.ExecuteScalar()) > 0 ? true : false;
+                mySqlConnection.Close();
+                return ans;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return ans;
         }
     }
 }

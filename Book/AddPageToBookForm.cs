@@ -24,21 +24,27 @@ namespace EyalonFinalProject
         private void updateStudentsPagesDataGridView(DataTable dt)
         {
             dgvStudentsPages.Rows.Clear();
-            DataGridViewComboBoxColumn combo = null;
             if (dt != null)
             {
-                combo = new DataGridViewComboBoxColumn();
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    combo.Items.Add("New Page");
-                    dgvStudentsPages.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], combo, "Add");
+                    dgvStudentsPages.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"],"Add");
                 }
             }
         }
 
         private void dgvStudentsPages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            DataGridViewRow selectedRow = dgvStudentsPages.Rows[e.RowIndex];
+            if (dgvStudentsPages.Columns[e.ColumnIndex].Name == "Add")
+            {
+                int res = dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
+                if (res == 1)
+                {
+                    dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
+                    dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
+                }
+            }
         }
     }
 }

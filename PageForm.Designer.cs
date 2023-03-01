@@ -48,7 +48,7 @@
             // 
             // txtPageData
             // 
-            this.txtPageData.Location = new System.Drawing.Point(158, 112);
+            this.txtPageData.Location = new System.Drawing.Point(158, 153);
             this.txtPageData.Name = "txtPageData";
             this.txtPageData.Size = new System.Drawing.Size(125, 27);
             this.txtPageData.TabIndex = 36;
@@ -56,7 +56,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 80);
+            this.lblID.Location = new System.Drawing.Point(12, 121);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(88, 20);
             this.lblID.TabIndex = 34;
@@ -64,7 +64,7 @@
             // 
             // txtPageName
             // 
-            this.txtPageName.Location = new System.Drawing.Point(158, 77);
+            this.txtPageName.Location = new System.Drawing.Point(158, 118);
             this.txtPageName.Name = "txtPageName";
             this.txtPageName.Size = new System.Drawing.Size(125, 27);
             this.txtPageName.TabIndex = 35;
@@ -82,7 +82,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(12, 115);
+            this.lblFirstName.Location = new System.Drawing.Point(12, 156);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(80, 20);
             this.lblFirstName.TabIndex = 37;

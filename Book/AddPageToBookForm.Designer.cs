@@ -32,7 +32,6 @@
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pages = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsPages)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +47,6 @@
             this.UserID,
             this.FirstName,
             this.LastName,
-            this.Pages,
             this.Add});
             this.dgvStudentsPages.Location = new System.Drawing.Point(0, 65);
             this.dgvStudentsPages.Name = "dgvStudentsPages";
@@ -82,15 +80,6 @@
             this.LastName.Name = "LastName";
             this.LastName.ReadOnly = true;
             // 
-            // Pages
-            // 
-            this.Pages.HeaderText = "Pages";
-            this.Pages.MinimumWidth = 6;
-            this.Pages.Name = "Pages";
-            this.Pages.ReadOnly = true;
-            this.Pages.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Pages.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // Add
             // 
             this.Add.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -119,7 +108,6 @@
         private DataGridViewTextBoxColumn UserID;
         private DataGridViewTextBoxColumn FirstName;
         private DataGridViewTextBoxColumn LastName;
-        private DataGridViewComboBoxColumn Pages;
         private DataGridViewButtonColumn Add;
     }
 }
