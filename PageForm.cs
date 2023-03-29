@@ -14,7 +14,8 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         bool isAdd = true;
-        string userID="";
+        string userID="";//???
+        int pageID = -1;
 
         public PageForm()
         {
@@ -26,21 +27,26 @@ namespace EyalonFinalProject
             this.userID = userID;
         }
 
-        public PageForm(string userID, string pageName, string pageData)
+        public PageForm(int pageID,string userID, string pageName, string pageData, bool isLinkToBook)
         {
             InitializeComponent();
-            this.userID = userID;
+            this.pageID = pageID;//??
+            this.userID = userID;//??
             txtPageName.Text = pageName;    
-            txtPageData.Text = pageData;
+            rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";
             isAdd = false;
+            if(isLinkToBook)
+            {
+                lblBook.Text += dbc.getLinkedProjectBookNameByProjectPageID(pageID);
+            }
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)
         {
             if (isAdd)//true - add project book
             {
-                int num = dbc.addProjectPage(txtPageName.Text, txtPageData.Text);
+                int num = dbc.addProjectPage(txtPageName.Text, rtfPageData.Text);
                 if (num == 1)
                 {
                     num = dbc.addStudentProjectPage(userID,dbc.getLastProjectPageID());
@@ -56,7 +62,11 @@ namespace EyalonFinalProject
             }
             else // false - update project book
             {
-
+                int num = dbc.updateProjectPage(pageID, txtPageName.Text, rtfPageData.Text);
+                if(num == 1)
+                {
+                    this.Close();
+                }
             }
         }
     }

@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.btnSumbit = new System.Windows.Forms.Button();
-            this.txtPageData = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.txtPageName = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblBook = new System.Windows.Forms.Label();
+            this.rtfPageData = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // btnSumbit
@@ -45,13 +46,6 @@
             this.btnSumbit.Text = "Add";
             this.btnSumbit.UseVisualStyleBackColor = true;
             this.btnSumbit.Click += new System.EventHandler(this.btnSumbit_Click);
-            // 
-            // txtPageData
-            // 
-            this.txtPageData.Location = new System.Drawing.Point(158, 153);
-            this.txtPageData.Name = "txtPageData";
-            this.txtPageData.Size = new System.Drawing.Size(125, 27);
-            this.txtPageData.TabIndex = 36;
             // 
             // lblID
             // 
@@ -66,7 +60,8 @@
             // 
             this.txtPageName.Location = new System.Drawing.Point(158, 118);
             this.txtPageName.Name = "txtPageName";
-            this.txtPageName.Size = new System.Drawing.Size(125, 27);
+            this.txtPageName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPageName.Size = new System.Drawing.Size(564, 27);
             this.txtPageName.TabIndex = 35;
             // 
             // lblTitle
@@ -88,13 +83,34 @@
             this.lblFirstName.TabIndex = 37;
             this.lblFirstName.Text = "Page Data:";
             // 
+            // lblBook
+            // 
+            this.lblBook.AutoSize = true;
+            this.lblBook.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBook.Location = new System.Drawing.Point(12, 66);
+            this.lblBook.Name = "lblBook";
+            this.lblBook.Size = new System.Drawing.Size(173, 37);
+            this.lblBook.TabIndex = 41;
+            this.lblBook.Text = "BookName: ";
+            // 
+            // rtfPageData
+            // 
+            this.rtfPageData.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rtfPageData.Location = new System.Drawing.Point(158, 153);
+            this.rtfPageData.Name = "rtfPageData";
+            this.rtfPageData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rtfPageData.Size = new System.Drawing.Size(564, 230);
+            this.rtfPageData.TabIndex = 42;
+            this.rtfPageData.Text = "";
+            // 
             // PageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rtfPageData);
+            this.Controls.Add(this.lblBook);
             this.Controls.Add(this.btnSumbit);
-            this.Controls.Add(this.txtPageData);
             this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.txtPageName);
@@ -109,10 +125,11 @@
         #endregion
 
         private Button btnSumbit;
-        private TextBox txtPageData;
         private Label lblID;
         private TextBox txtPageName;
         private Label lblTitle;
         private Label lblFirstName;
+        private Label lblBook;
+        private RichTextBox rtfPageData;
     }
 }

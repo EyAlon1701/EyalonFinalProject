@@ -55,9 +55,13 @@ namespace EyalonFinalProject
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
+            if (dgvProjectPage.Columns[e.ColumnIndex].Name == "View")
+            {
+                ViewPageForm viewPageForm = 
+            }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Edit")
             {
-                PageForm bookForm = new PageForm(userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString());
+                PageForm bookForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(),(selectedRow.DefaultCellStyle.BackColor == Color.Gray ? true : false));
                 bookForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Delete")

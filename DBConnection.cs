@@ -336,6 +336,26 @@ namespace EyalonFinalProject
             }
             return result;
         }
+        public int updateProjectPage(int projectPageID, string pageName, string pageData)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectPage SET ProjectPageName=N'"+pageName +"',ProjectPageData=N'"+ pageData + "' WHERE ProjectPageID=" + projectPageID;
+                MessageBox.Show("updateProjectPage: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("updateProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
         
         //STUDENTPROJECTPAGE
         public int addStudentProjectPage(string studentID,int projectPageID)
@@ -481,6 +501,30 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return ans;
+        }
+        public string getLinkedProjectBookNameByProjectPageID(int projectPageID)
+        {
+            string result = "";
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT pb.ProjectBookName FROM projectDB.dbo.ProjectPageInBook ppib,projectDB.dbo.ProjectBook pb WHERE ppib.ProjectBookID=pb.ProjectBookID AND ProjectPageID=" + projectPageID ;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    result += mySqlDataReader["ProjectBookName"].ToString();
+                }
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return result;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return result;
         }
 
         //OTHER
