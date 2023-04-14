@@ -66,7 +66,11 @@ namespace EyalonFinalProject
             }
             else // false - update user
             {
-
+                int num = dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                if (num == 1)
+                {
+                    this.Close();
+                }
             }
         }
 

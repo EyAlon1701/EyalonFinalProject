@@ -14,7 +14,6 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         string userID="";
-        DataRow userRow = null;
         public StudentForm()
         {
             InitializeComponent();
@@ -22,7 +21,6 @@ namespace EyalonFinalProject
         public StudentForm(DataRow userRow)
         {
             InitializeComponent();
-            this.userRow = userRow;
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
             updateProjectPageDataGridView(dbc.getProjectPageByStudentID(userID));
@@ -57,7 +55,8 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "View")
             {
-                ViewPageForm viewPageForm = 
+                ViewPageForm viewPageForm = new ViewPageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString());
+                viewPageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -85,6 +84,7 @@ namespace EyalonFinalProject
         {
             UserForm userForm = new UserForm(int.Parse(Program.studentRole), userID);
             userForm.ShowDialog();
+            lblWelcome.Text = "Welcome " + dbc.getUserByID(userID)["FirstName"].ToString();//name can change after update
         }
     }
 }

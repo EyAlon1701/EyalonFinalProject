@@ -76,7 +76,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable login(string id, string password)
+        public DataTable login(string id, string password)//data table???
         {
             try
             {
@@ -180,6 +180,26 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return null;
+        }
+        public int updateUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.Users SET UserID='" + id + "',FirstName='" + firstName + "',LastName='" + lastName + "',Email='" +email+ "',Password='" + password +"',Image='"+ imgPath + "',Role=" + role + " WHERE UserID='" + id+"';";
+                MessageBox.Show("updateUser: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("updateUser: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
         }
         
         //PROJECTBOOK
@@ -439,6 +459,31 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return null;
+        }
+        public string getStudentNameByProjectPageID(int projectPageID)
+        {
+            string result = "";
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT u.UserID,u.FirstName,u.LastName FROM projectDB.dbo.Users u,projectDB.dbo.StudentProjectPage spp WHERE u.UserID = spp.StudentID AND spp.ProjectPageID=" + projectPageID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                while (mySqlDataReader.Read())
+                {
+                    result += mySqlDataReader["FirstName"].ToString() + " " + mySqlDataReader["LastName"].ToString()+", ";
+                }
+                result = result.Remove(result.Length - 2);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return result;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return result;
         }
 
         //PROJECTPAGEINBOOK
