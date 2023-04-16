@@ -28,7 +28,10 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvStudentsPages.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"],"Add");
+                    if (!dbc.isStudentLinkToBook(dt.Rows[row]["UserID"].ToString(), bookID))//TO NOT SHOW STUDENT THAT ALREADY LINK TO THE BOOK
+                    {
+                        dgvStudentsPages.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], "Add");
+                    }
                 }
             }
         }

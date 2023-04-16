@@ -23,7 +23,7 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.bookID = bookID;
-            updatePagesInBookDataGridView(dbc.getProjectPageByProjectBookID(bookID));
+            updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
         }
 
         private void updatePagesInBookDataGridView(DataTable dt)
@@ -41,7 +41,7 @@ namespace EyalonFinalProject
                         stuID = stu.Rows[stuRow]["UserID"].ToString();
                         stuName = stu.Rows[stuRow]["FirstName"].ToString() +  " " + stu.Rows[stuRow]["LastName"].ToString();
                     }
-                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ID"], stuID, stuName, dbc.getProjectPageNameByID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
+                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.getProjectPageNameByID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
                 }
             }
         }
@@ -50,11 +50,17 @@ namespace EyalonFinalProject
         {
             AddPageToBookForm addPageToBookForm = new AddPageToBookForm(bookID);
             addPageToBookForm.ShowDialog();
+            updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
+        private void dgvPagesInBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            updatePagesInBookDataGridView(dbc.getProjectPageByProjectBookID(bookID));
+            DataGridViewRow selectedRow = dgvPagesInBook.Rows[e.RowIndex];
+            if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "View")
+            {
+                ViewPageForm viewPageForm = new ViewPageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), selectedRow.Cells["PageName"].Value.ToString(), (dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"]).ToString());
+                viewPageForm.ShowDialog();
+            }
         }
     }
 }

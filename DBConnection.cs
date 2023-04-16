@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing.Drawing2D;
 using System.Xml.Linq;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 namespace EyalonFinalProject
@@ -356,6 +357,27 @@ namespace EyalonFinalProject
             }
             return result;
         }
+        public DataRow getProjectPageByID(int projectPageID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectPage WHERE ProjectPageID=" + projectPageID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table.Rows[0];
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
         public int updateProjectPage(int projectPageID, string pageName, string pageData)
         {
             try
@@ -507,13 +529,13 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getProjectPageByProjectBookID(int projectBookID)
+        public DataTable getProjectPageIDByProjectBookID(int projectBookID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT ID,ProjectPageID FROM projectDB.dbo.ProjectPageInBook ppib WHERE ppib.ProjectBookID=" + projectBookID;
+                mySqlCommand.CommandText = "SELECT ProjectPageID FROM projectDB.dbo.ProjectPageInBook ppib WHERE ppib.ProjectBookID=" + projectBookID;
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
