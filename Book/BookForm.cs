@@ -27,7 +27,8 @@ namespace EyalonFinalProject
             this.bookID = bookID;
             txtBookName.Text = bookName;
             txtBookYear.Text = bookYear;
-            txtOpenPage.Text = bookOpenPage;
+            MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(bookOpenPage));
+            rtbOpenPage.LoadFile(stream, RichTextBoxStreamType.RichText);
             btnSumbit.Text = "Update";
             isAdd = false;
         }
@@ -36,7 +37,7 @@ namespace EyalonFinalProject
         {
             if (isAdd)//true - add project book
             {
-                int num = dbc.addProjectBook(txtBookName.Text, txtBookYear.Text, txtOpenPage.Text);
+                int num = dbc.addProjectBook(txtBookName.Text, txtBookYear.Text, rtbOpenPage.Rtf);
                 if (num == 1)
                 {
                     this.Close();
@@ -52,6 +53,14 @@ namespace EyalonFinalProject
         {
             PagesInBook pagesInBook = new PagesInBook(bookID);
             pagesInBook.ShowDialog();
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                rtbOpenPage.SelectionFont = fontDialog1.Font;
+            }
         }
     }
 }

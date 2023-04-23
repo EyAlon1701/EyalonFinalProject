@@ -40,6 +40,7 @@
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.More = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -60,6 +61,7 @@
             this.Password,
             this.Image,
             this.Role,
+            this.More,
             this.Edit,
             this.Delete});
             this.dgvUsers.Location = new System.Drawing.Point(0, 144);
@@ -161,6 +163,15 @@
             this.Role.Name = "Role";
             this.Role.ReadOnly = true;
             // 
+            // More
+            // 
+            this.More.HeaderText = "More";
+            this.More.MinimumWidth = 6;
+            this.More.Name = "More";
+            this.More.ReadOnly = true;
+            this.More.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.More.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // Edit
             // 
             this.Edit.HeaderText = "Edit";
@@ -211,6 +222,7 @@
         private DataGridViewTextBoxColumn Password;
         private DataGridViewTextBoxColumn Image;
         private DataGridViewTextBoxColumn Role;
+        private DataGridViewButtonColumn More;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
     }

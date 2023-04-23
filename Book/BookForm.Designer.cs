@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtOpenPage = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
             this.txtBookYear = new System.Windows.Forms.TextBox();
             this.lblFirstName = new System.Windows.Forms.Label();
@@ -37,6 +37,11 @@
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.btnSumbit = new System.Windows.Forms.Button();
             this.btnPages = new System.Windows.Forms.Button();
+            this.rtbOpenPage = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -48,13 +53,6 @@
             this.lblTitle.Size = new System.Drawing.Size(263, 54);
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Project Book";
-            // 
-            // txtOpenPage
-            // 
-            this.txtOpenPage.Location = new System.Drawing.Point(158, 146);
-            this.txtOpenPage.Name = "txtOpenPage";
-            this.txtOpenPage.Size = new System.Drawing.Size(125, 27);
-            this.txtOpenPage.TabIndex = 28;
             // 
             // lblLastName
             // 
@@ -117,14 +115,40 @@
             this.btnPages.UseVisualStyleBackColor = true;
             this.btnPages.Click += new System.EventHandler(this.btnPages_Click);
             // 
+            // rtbOpenPage
+            // 
+            this.rtbOpenPage.ContextMenuStrip = this.contextMenuStrip1;
+            this.rtbOpenPage.Location = new System.Drawing.Point(158, 146);
+            this.rtbOpenPage.Name = "rtbOpenPage";
+            this.rtbOpenPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rtbOpenPage.Size = new System.Drawing.Size(630, 462);
+            this.rtbOpenPage.TabIndex = 34;
+            this.rtbOpenPage.Text = "";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(157, 28);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 479);
+            this.ClientSize = new System.Drawing.Size(800, 620);
+            this.Controls.Add(this.rtbOpenPage);
             this.Controls.Add(this.btnPages);
             this.Controls.Add(this.btnSumbit);
-            this.Controls.Add(this.txtOpenPage);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.txtBookYear);
             this.Controls.Add(this.lblFirstName);
@@ -133,6 +157,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "BookForm";
             this.Text = "BookForm";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +165,6 @@
 
         #endregion
         private Label lblTitle;
-        private TextBox txtOpenPage;
         private Label lblLastName;
         private TextBox txtBookYear;
         private Label lblFirstName;
@@ -148,5 +172,9 @@
         private TextBox txtBookName;
         private Button btnSumbit;
         private Button btnPages;
+        private RichTextBox rtbOpenPage;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem fontToolStripMenuItem;
+        private FontDialog fontDialog1;
     }
 }

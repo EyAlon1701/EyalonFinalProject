@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace EyalonFinalProject
         public AdminForm()
         {
             InitializeComponent();
+            updateUserDataGridView(dbc.getAllUsers());
         }
 
         private void updateUserDataGridView(DataTable dt)
@@ -25,7 +27,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"], "Edit", "Delete");
+                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"].ToString() == Program.studentRole ? "Student" : dt.Rows[row]["Role"].ToString() == Program.lecturerRole ? "Lecturer" : "Admin" , "More", "Edit", "Delete");
                 }
             }
         }
@@ -38,6 +40,18 @@ namespace EyalonFinalProject
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvUsers.Rows[e.RowIndex];
+            if (dgvUsers.Columns[e.ColumnIndex].Name == "More")
+            {
+                if (selectedRow.Cells["Role"].Value.ToString() == "Student")
+                {
+                    ViewStudentPages viewStudentPages = new ViewStudentPages(selectedRow.Cells["UserID"].Value.ToString());
+                    viewStudentPages.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("There is no more information");
+                }
+            }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "Edit")
             {
                 UserForm userForm = new UserForm(int.Parse(Program.adminRole), selectedRow.Cells["UserID"].Value.ToString());
@@ -45,9 +59,16 @@ namespace EyalonFinalProject
             }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
+                    if (selectedRow.Cells["Role"].Value.ToString() != "Admin")
+                    {
+                        dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't delete admin");
+                    }
                 }
             }
             updateUserDataGridView(dbc.getAllUsers());

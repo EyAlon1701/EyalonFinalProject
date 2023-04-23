@@ -16,19 +16,15 @@ namespace EyalonFinalProject
     public partial class ViewPageForm : Form
     {
         DBConnection dbc = new DBConnection();
-        int pageID = -1;
-        string pageName = "";
-        string pageData = "";
+
         public ViewPageForm(int pageID, string pageName, string pageData)
         {
             InitializeComponent();
-            this.pageID = pageID;
-            this.pageName = pageName;
-            this.pageData = pageData;
             rtbPageData.SelectionAlignment = HorizontalAlignment.Right;
             Font titleFont = new Font("Calibri", 14, FontStyle.Bold);
             Font dataFont = new Font("Calibri", 11, FontStyle.Regular);
             rtbPageData.Font = titleFont;
+            saveFileDialog1.FileName = dbc.getStudentNameByProjectPageID(pageID) + " - " + pageName;
             AppendText(dbc.getStudentNameByProjectPageID(pageID) + " - " + pageName + "\n", titleFont);
             AppendText(pageData,dataFont);
         }
