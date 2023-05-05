@@ -35,7 +35,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "Edit", "Delete");
+                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View","Edit", "Delete");
                 }
             }
         }
@@ -44,9 +44,14 @@ namespace EyalonFinalProject
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
+            if(dgvProjectBook.Columns[e.ColumnIndex].Name == "View")
+            {
+                ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), false);
+                viewPageForm.ShowDialog();
+            }
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Edit")
             {
-                BookForm bookForm = new BookForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), selectedRow.Cells["BookName"].Value.ToString(), selectedRow.Cells["BookYear"].Value.ToString(), selectedRow.Cells["BookOpenPage"].Value.ToString());
+                BookForm bookForm = new BookForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), selectedRow.Cells["BookName"].Value.ToString(), int.Parse(selectedRow.Cells["BookYear"].Value.ToString()), selectedRow.Cells["BookOpenPage"].Value.ToString());
                 bookForm.ShowDialog();
             }
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")

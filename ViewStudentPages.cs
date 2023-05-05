@@ -31,7 +31,7 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvStuPages.Rows[e.RowIndex];
             if (dgvStuPages.Columns[e.ColumnIndex].Name == "View")
             {
-                ViewPageForm viewPageForm = new ViewPageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), selectedRow.Cells["PageName"].Value.ToString(), (dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"]).ToString());
+                ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),true);
                 viewPageForm.ShowDialog();
             }
         }

@@ -204,7 +204,7 @@ namespace EyalonFinalProject
         }
         
         //PROJECTBOOK
-        public int addProjectBook(string bookName, string bookYear, string bookOpenPage)
+        public int addProjectBook(string bookName, int bookYear, string bookOpenPage)
         {
             try
             {
@@ -266,6 +266,27 @@ namespace EyalonFinalProject
             }
             return null;
         }
+        public DataRow getProjectBookByID(int projectBookID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectBook WHERE ProjectBookID=" + projectBookID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table.Rows[0];
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
         public string getProjectBookNameByID(int projectBookID)
         {
             string result = "";
@@ -289,6 +310,26 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return result;
+        }
+        public int updateProjectBook(int projectBookID, string bookName, int bookYear, string bookOpenPage)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectBook SET ProjectBookName='" + bookName + "',ProjectBookOpenPage='" + bookOpenPage.Replace("'", "''") + "',ProjectBookYear=" + bookYear + " WHERE ProjectBookID=" + projectBookID;
+                MessageBox.Show("updateProjectBook: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("updateProjectBook: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
         }
 
         //PROJECTPAGE

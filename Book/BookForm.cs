@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,33 +22,52 @@ namespace EyalonFinalProject
             btnPages.Enabled = false;
         }
 
-        public BookForm(int bookID,string bookName,string bookYear,string bookOpenPage)
+        public BookForm(int bookID, string bookName, int bookYear, string bookOpenPage)
         {
             InitializeComponent();
             this.bookID = bookID;
             txtBookName.Text = bookName;
-            txtBookYear.Text = bookYear;
-            MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(bookOpenPage));
-            rtbOpenPage.LoadFile(stream, RichTextBoxStreamType.RichText);
+            txtBookYear.Text = bookYear.ToString();
+            try
+            {
+                MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(bookOpenPage));
+                rtbOpenPage.LoadFile(stream, RichTextBoxStreamType.RichText);
+            }
+            catch
+            {
+                rtbOpenPage.Text = "";
+            }
             btnSumbit.Text = "Update";
             isAdd = false;
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)
         {
-            if (isAdd)//true - add project book
+            try
             {
-                int num = dbc.addProjectBook(txtBookName.Text, txtBookYear.Text, rtbOpenPage.Rtf);
-                if (num == 1)
+                if (isAdd)//true - add project book
                 {
-                    this.Close();
+                    int num = dbc.addProjectBook(txtBookName.Text, int.Parse(txtBookYear.Text), rtbOpenPage.Rtf);
+                    if (num == 1)
+                    {
+                        this.Close();
+                    }
+                }
+                else // false - update project books
+                {
+                    int num = dbc.updateProjectBook(bookID, txtBookName.Text, int.Parse(txtBookYear.Text), rtbOpenPage.Rtf);
+                    if (num == 1)
+                    {
+                        this.Close();
+                    }
                 }
             }
-            else // false - update project book
+            catch(Exception error)
             {
-
+                MessageBox.Show("You need to enter a year as an integer","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+
 
         private void btnPages_Click(object sender, EventArgs e)
         {
@@ -64,3 +84,4 @@ namespace EyalonFinalProject
         }
     }
 }
+
