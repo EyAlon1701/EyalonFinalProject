@@ -61,6 +61,14 @@ namespace EyalonFinalProject
                 ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), true);
                 viewPageForm.ShowDialog();
             }
+            if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this project page from the book?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+                {
+                    dbc.deleteProjectPageInBookByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
+                    updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
+                }
+            }
         }
     }
 }

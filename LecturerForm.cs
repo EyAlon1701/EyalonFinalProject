@@ -56,9 +56,9 @@ namespace EyalonFinalProject
             }
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")
             {
-                if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+                if (MessageBox.Show("Are you sure you want to delete this book?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
                 {
-                    dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());//CHANGE TO DELETE BOOK!!!
+                    dbc.deleteProjectBookByProjectBookID(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
                 }
             }
             updateProjectBookDataGridView(dbc.getAllProjectBook());

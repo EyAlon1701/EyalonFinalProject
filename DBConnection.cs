@@ -39,22 +39,25 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public void deleteUserByID(string userID)
+        public int deleteUserByID(string userID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
                 mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.Users WHERE UserID='" + userID + "';";
+                MessageBox.Show("deleteUserByID: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
-                MessageBox.Show(num + " DELETED USER");
+                MessageBox.Show("deleteUserByID: " + num);
                 mySqlConnection.Close();
-                //CHANGE FUNC TO INT LIKE ADD
+                return num;
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
+                mySqlConnection.Close();
             }
+            return -1;
         }
         public DataTable getAllUsers()
         {
@@ -331,6 +334,33 @@ namespace EyalonFinalProject
             }
             return -1;
         }
+        public int deleteProjectBookByProjectBookID(int projectBookID)
+        {
+            try
+            {
+                DataTable pages = getProjectPageIDByProjectBookID(projectBookID);
+                { 
+                    for(int i = 0; i<pages.Rows.Count;i++)
+                    {
+                        deleteProjectPageInBookByProjectPageID(int.Parse(pages.Rows[i][0].ToString()));
+                    }
+                }
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectBook WHERE ProjectBookID=" + projectBookID;
+                MessageBox.Show("deleteProjectBookByProjectBookID: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("deleteProjectBookByProjectBookID: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
 
         //PROJECTPAGE
         public int addProjectPage(string pageName,string pageData)
@@ -439,6 +469,30 @@ namespace EyalonFinalProject
             }
             return -1;
         }
+        public int deleteProjectPageByProjectPageID(int projectPageID,string studentID)
+        {
+            try
+            {
+                deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID,studentID);
+                if (getStudentByProjectPageID(projectPageID).Rows.Count == 0)
+                {
+                    SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                    mySqlConnection.Open();
+                    mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectPage WHERE ProjectPageID=" + projectPageID;
+                    MessageBox.Show("deleteProjectPageByProjectPageID: " + mySqlCommand.CommandText);
+                    int num = mySqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("deleteProjectPageByProjectPageID: " + num);
+                    mySqlConnection.Close();
+                    return num;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
         
         //STUDENTPROJECTPAGE
         public int addStudentProjectPage(string studentID,int projectPageID)
@@ -471,6 +525,26 @@ namespace EyalonFinalProject
                 MessageBox.Show("deleteStudentProjectPage: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("deleteStudentProjectPage: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+        public int deleteStudentProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.StudentProjectPage WHERE ProjectPageID=" + projectPageID + " AND StudentID='" + studentID + "';";
+                MessageBox.Show("deleteStudentProjectPageByProjectPageIDAndStudentID: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("deleteStudentProjectPageByProjectPageIDAndStudentID: " + num);
                 mySqlConnection.Close();
                 return num;
             }
@@ -633,6 +707,26 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return result;
+        }
+        public int deleteProjectPageInBookByProjectPageID(int projectPageID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectPageInBook WHERE ProjectPageID=" + projectPageID;
+                MessageBox.Show("deleteProjectPageInBookByProjectPageID: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("deleteProjectPageInBookByProjectPageID: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
         }
 
         //OTHER

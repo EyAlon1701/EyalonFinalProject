@@ -67,9 +67,9 @@ namespace EyalonFinalProject
             {
                 if (!(dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["ID"].Value.ToString()))))
                 {
-                    if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes);
+                    if (MessageBox.Show("Are you sure you want to delete this page?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dbc.deleteStudentProjectPageByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
+                        dbc.deleteProjectPageByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID);
                     }
                 }
                 else

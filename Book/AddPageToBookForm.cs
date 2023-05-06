@@ -45,7 +45,10 @@ namespace EyalonFinalProject
                 if (res == 1)
                 {
                     dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
-                    dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
+                    if(dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID) == 1)
+                    {
+                        this.Close();
+                    }
                 }
             }
         }
