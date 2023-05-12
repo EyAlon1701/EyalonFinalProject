@@ -27,11 +27,10 @@ namespace EyalonFinalProject
             this.userID = userID;
         }
 
-        public PageForm(int pageID,string userID, string pageName, string pageData, bool isLinkToBook)
+        public PageForm(int pageID, string pageName, string pageData, bool isLinkToBook)
         {
             InitializeComponent();
             this.pageID = pageID;//??
-            this.userID = userID;//??
             txtPageName.Text = pageName;    
             rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";

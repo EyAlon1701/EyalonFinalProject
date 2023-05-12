@@ -149,7 +149,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE (FirstName LIKE '%" + name + "%' OR LastName LIKE '%" + name + "%') AND Role="+role+";";
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE (FirstName LIKE '%" + name + "%' OR LastName LIKE '%" + name + "%') AND Role=" + role + ";";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -191,7 +191,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "UPDATE projectDB.dbo.Users SET UserID='" + id + "',FirstName='" + firstName + "',LastName='" + lastName + "',Email='" +email+ "',Password='" + password +"',Image='"+ imgPath + "',Role=" + role + " WHERE UserID='" + id+"';";
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.Users SET UserID='" + id + "',FirstName='" + firstName + "',LastName='" + lastName + "',Email='" + email + "',Password='" + password + "',Image='" + imgPath + "',Role=" + role + " WHERE UserID='" + id + "';";
                 MessageBox.Show("updateUser: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("updateUser: " + num);
@@ -205,7 +205,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        
+
         //PROJECTBOOK
         public int addProjectBook(string bookName, int bookYear, string bookOpenPage)
         {
@@ -213,7 +213,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.ProjectBook VALUES('" + bookName + "', '" + bookOpenPage + "'," + bookYear + ")";
+                mySqlCommand.CommandText = "INSERT INTO projectDB.dbo.ProjectBook VALUES('" + bookName + "', '" + bookOpenPage.Replace("'", "''") + "'," + bookYear + ")";
                 MessageBox.Show("addProjectBook: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("addProjectBook: " + num);
@@ -297,7 +297,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT ProjectBookName FROM projectDB.dbo.ProjectBook WHERE ProjectBookID="+ projectBookID;
+                mySqlCommand.CommandText = "SELECT ProjectBookName FROM projectDB.dbo.ProjectBook WHERE ProjectBookID=" + projectBookID;
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
@@ -339,8 +339,8 @@ namespace EyalonFinalProject
             try
             {
                 DataTable pages = getProjectPageIDByProjectBookID(projectBookID);
-                { 
-                    for(int i = 0; i<pages.Rows.Count;i++)
+                {
+                    for (int i = 0; i < pages.Rows.Count; i++)
                     {
                         deleteProjectPageInBookByProjectPageID(int.Parse(pages.Rows[i][0].ToString()));
                     }
@@ -363,7 +363,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGE
-        public int addProjectPage(string pageName,string pageData)
+        public int addProjectPage(string pageName, string pageData)
         {
             try
             {
@@ -428,6 +428,27 @@ namespace EyalonFinalProject
             }
             return result;
         }
+        public DataTable getAllProjectPageAndProjectBookID()
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
+        }
         public DataRow getProjectPageByID(int projectPageID)
         {
             try
@@ -455,7 +476,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectPage SET ProjectPageName=N'"+pageName +"',ProjectPageData=N'"+ pageData + "' WHERE ProjectPageID=" + projectPageID;
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectPage SET ProjectPageName=N'" + pageName + "',ProjectPageData=N'" + pageData + "' WHERE ProjectPageID=" + projectPageID;
                 MessageBox.Show("updateProjectPage: " + mySqlCommand.CommandText);
                 int num = mySqlCommand.ExecuteNonQuery();
                 MessageBox.Show("updateProjectPage: " + num);
@@ -469,11 +490,38 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteProjectPageByProjectPageID(int projectPageID,string studentID)
+        //public int deleteProjectPageByProjectPageID(int projectPageID)
+        public int deleteProjectPageByProjectPageID(int projectPageID)
         {
             try
             {
-                deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID,studentID);
+                deleteProjectPageInBookByProjectPageID(projectPageID);
+                DataTable stutents = getStudentByProjectPageID(projectPageID);
+                for(int i = 0; i<stutents.Rows.Count; i++)
+                {
+                    deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, stutents.Rows[i]["UserID"].ToString());
+                }
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectPage WHERE ProjectPageID=" + projectPageID;
+                MessageBox.Show("deleteProjectPageByProjectPageID: " + mySqlCommand.CommandText);
+                int num = mySqlCommand.ExecuteNonQuery();
+                MessageBox.Show("deleteProjectPageByProjectPageID: " + num);
+                mySqlConnection.Close();
+                return num;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
+        }
+        public int deleteProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
+        {
+            try
+            {
+                deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, studentID);
                 if (getStudentByProjectPageID(projectPageID).Rows.Count == 0)
                 {
                     SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -493,9 +541,9 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        
+
         //STUDENTPROJECTPAGE
-        public int addStudentProjectPage(string studentID,int projectPageID)
+        public int addStudentProjectPage(string studentID, int projectPageID)
         {
             try
             {
@@ -535,7 +583,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteStudentProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
+        private int deleteStudentProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
         {
             try
             {
@@ -582,7 +630,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT u.UserID,u.FirstName,u.LastName FROM projectDB.dbo.Users u,projectDB.dbo.StudentProjectPage spp WHERE u.UserID = spp.StudentID AND spp.ProjectPageID="+projectPageID;
+                mySqlCommand.CommandText = "SELECT u.UserID,u.FirstName,u.LastName FROM projectDB.dbo.Users u,projectDB.dbo.StudentProjectPage spp WHERE u.UserID = spp.StudentID AND spp.ProjectPageID=" + projectPageID;
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -608,7 +656,7 @@ namespace EyalonFinalProject
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
-                    result += mySqlDataReader["FirstName"].ToString() + " " + mySqlDataReader["LastName"].ToString()+", ";
+                    result += mySqlDataReader["FirstName"].ToString() + " " + mySqlDataReader["LastName"].ToString() + ", ";
                 }
                 result = result.Remove(result.Length - 2);
                 mySqlDataReader.Close();
@@ -624,7 +672,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGEINBOOK
-        public int addProjectPageInBook(int projectPageID,int projectBookID)
+        public int addProjectPageInBook(int projectPageID, int projectBookID)
         {
             try
             {
@@ -691,7 +739,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT pb.ProjectBookName FROM projectDB.dbo.ProjectPageInBook ppib,projectDB.dbo.ProjectBook pb WHERE ppib.ProjectBookID=pb.ProjectBookID AND ProjectPageID=" + projectPageID ;
+                mySqlCommand.CommandText = "SELECT pb.ProjectBookName FROM projectDB.dbo.ProjectPageInBook ppib,projectDB.dbo.ProjectBook pb WHERE ppib.ProjectBookID=pb.ProjectBookID AND ProjectPageID=" + projectPageID;
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
@@ -730,14 +778,14 @@ namespace EyalonFinalProject
         }
 
         //OTHER
-        public bool isStudentLinkToBook(string studentID,int projectBookID)
+        public bool isStudentLinkToBook(string studentID, int projectBookID)
         {
             bool ans = false;
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT COUNT(*) FROM projectDB.dbo.StudentProjectPage spp, projectDB.dbo.ProjectPageInBook ppib WHERE spp.ProjectPageID=ppib.ProjectPageID AND ppib.ProjectBookID="+ projectBookID + " AND spp.StudentID='" + studentID + "'";
+                mySqlCommand.CommandText = "SELECT COUNT(*) FROM projectDB.dbo.StudentProjectPage spp, projectDB.dbo.ProjectPageInBook ppib WHERE spp.ProjectPageID=ppib.ProjectPageID AND ppib.ProjectBookID=" + projectBookID + " AND spp.StudentID='" + studentID + "'";
                 ans = Convert.ToInt32(mySqlCommand.ExecuteScalar()) > 0 ? true : false;
                 mySqlConnection.Close();
                 return ans;
