@@ -53,7 +53,6 @@ namespace EyalonFinalProject
             isAdd = false;
         }
 
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (isAdd)//true - add user

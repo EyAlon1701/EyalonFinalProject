@@ -63,7 +63,15 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
+                    //CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    string stuID = "", stuName = "";
+                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)//RN ONLY ONE USER PER PAGE
+                    {
+                        stuID = stu.Rows[stuRow]["UserID"].ToString();
+                        stuName = stu.Rows[stuRow]["FirstName"].ToString() + " " + stu.Rows[stuRow]["LastName"].ToString();
+                    }
+                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], stuID, stuName,dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
                 }
             }
         }
@@ -153,7 +161,7 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
             {
-                PageForm bookForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),selectedRow.Cells["PageName"].Value.ToString(), dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , (selectedRow.DefaultCellStyle.BackColor == Color.Gray ? true : false));
+                PageForm bookForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),selectedRow.Cells["PageName"].Value.ToString(), dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
                 bookForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")

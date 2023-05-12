@@ -31,14 +31,15 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
+            this.btnEditUser = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnEditUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,6 +75,7 @@
             this.PageName,
             this.PageCreationDate,
             this.PageData,
+            this.BookName,
             this.View,
             this.Edit,
             this.Delete});
@@ -85,6 +87,16 @@
             this.dgvProjectPage.Size = new System.Drawing.Size(1041, 473);
             this.dgvProjectPage.TabIndex = 35;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Location = new System.Drawing.Point(653, 12);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(185, 55);
+            this.btnEditUser.TabIndex = 37;
+            this.btnEditUser.Text = "Edit User";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // ID
             // 
@@ -121,6 +133,15 @@
             this.PageData.Name = "PageData";
             this.PageData.ReadOnly = true;
             // 
+            // BookName
+            // 
+            this.BookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.BookName.HeaderText = "BookName";
+            this.BookName.MinimumWidth = 6;
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
+            this.BookName.Width = 112;
+            // 
             // View
             // 
             this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -147,16 +168,6 @@
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(653, 12);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(185, 55);
-            this.btnEditUser.TabIndex = 37;
-            this.btnEditUser.Text = "Edit User";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // StudentForm
             // 
@@ -185,6 +196,7 @@
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn PageCreationDate;
         private DataGridViewTextBoxColumn PageData;
+        private DataGridViewTextBoxColumn BookName;
         private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;

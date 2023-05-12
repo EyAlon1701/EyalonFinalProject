@@ -434,7 +434,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID";
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate ,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -603,13 +603,13 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getProjectPageByStudentID(string studentID)
+        public DataTable getProjectPageAndBookIDByStudentID(string studentID)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,pp.ProjectPageData FROM projectDB.dbo.ProjectPage pp,projectDB.dbo.StudentProjectPage spp WHERE pp.ProjectPageID = spp.ProjectPageID AND spp.StudentID='" + studentID + "'";
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,pp.ProjectPageData,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID,projectDB.dbo.StudentProjectPage spp WHERE pp.ProjectPageID = spp.ProjectPageID AND spp.StudentID='" + studentID + "'";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);

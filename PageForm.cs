@@ -27,7 +27,7 @@ namespace EyalonFinalProject
             this.userID = userID;
         }
 
-        public PageForm(int pageID, string pageName, string pageData, bool isLinkToBook)
+        public PageForm(int pageID, string pageName, string pageData, string projectBookName)
         {
             InitializeComponent();
             this.pageID = pageID;//??
@@ -35,10 +35,7 @@ namespace EyalonFinalProject
             rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";
             isAdd = false;
-            if(isLinkToBook)
-            {
-                lblBook.Text += dbc.getLinkedProjectBookNameByProjectPageID(pageID);
-            }
+            lblBook.Text += projectBookName;
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)

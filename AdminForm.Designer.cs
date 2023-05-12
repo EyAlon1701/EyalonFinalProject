@@ -53,13 +53,16 @@
             this.DeleteBook = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbSelectTable = new System.Windows.Forms.ComboBox();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
+            this.cbBookName = new System.Windows.Forms.ComboBox();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageBookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ViewPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.EditPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeletePage = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbBookName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
@@ -315,7 +318,10 @@
             this.dgvProjectPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProjectPage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PageID,
+            this.StudentID,
+            this.StudentName,
             this.PageName,
+            this.PageCreationDate,
             this.PageBookName,
             this.ViewPage,
             this.EditPage,
@@ -329,6 +335,14 @@
             this.dgvProjectPage.TabIndex = 37;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
             // 
+            // cbBookName
+            // 
+            this.cbBookName.FormattingEnabled = true;
+            this.cbBookName.Location = new System.Drawing.Point(321, 107);
+            this.cbBookName.Name = "cbBookName";
+            this.cbBookName.Size = new System.Drawing.Size(151, 28);
+            this.cbBookName.TabIndex = 38;
+            // 
             // PageID
             // 
             this.PageID.FillWeight = 25.71429F;
@@ -337,12 +351,39 @@
             this.PageID.Name = "PageID";
             this.PageID.ReadOnly = true;
             // 
+            // StudentID
+            // 
+            this.StudentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.StudentID.HeaderText = "StudentID";
+            this.StudentID.MinimumWidth = 6;
+            this.StudentID.Name = "StudentID";
+            this.StudentID.ReadOnly = true;
+            this.StudentID.Width = 104;
+            // 
+            // StudentName
+            // 
+            this.StudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentName.HeaderText = "StudentName";
+            this.StudentName.MinimumWidth = 6;
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
+            this.StudentName.Width = 129;
+            // 
             // PageName
             // 
             this.PageName.HeaderText = "PageName";
             this.PageName.MinimumWidth = 6;
             this.PageName.Name = "PageName";
             this.PageName.ReadOnly = true;
+            // 
+            // PageCreationDate
+            // 
+            this.PageCreationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.PageCreationDate.HeaderText = "PageCreationDate";
+            this.PageCreationDate.MinimumWidth = 6;
+            this.PageCreationDate.Name = "PageCreationDate";
+            this.PageCreationDate.ReadOnly = true;
+            this.PageCreationDate.Width = 158;
             // 
             // PageBookName
             // 
@@ -378,14 +419,6 @@
             this.DeletePage.Name = "DeletePage";
             this.DeletePage.ReadOnly = true;
             this.DeletePage.Width = 59;
-            // 
-            // cbBookName
-            // 
-            this.cbBookName.FormattingEnabled = true;
-            this.cbBookName.Location = new System.Drawing.Point(321, 107);
-            this.cbBookName.Name = "cbBookName";
-            this.cbBookName.Size = new System.Drawing.Size(151, 28);
-            this.cbBookName.TabIndex = 38;
             // 
             // AdminForm
             // 
@@ -440,7 +473,10 @@
         private DataGridView dgvProjectPage;
         private ComboBox cbBookName;
         private DataGridViewTextBoxColumn PageID;
+        private DataGridViewTextBoxColumn StudentID;
+        private DataGridViewTextBoxColumn StudentName;
         private DataGridViewTextBoxColumn PageName;
+        private DataGridViewTextBoxColumn PageCreationDate;
         private DataGridViewTextBoxColumn PageBookName;
         private DataGridViewButtonColumn ViewPage;
         private DataGridViewButtonColumn EditPage;

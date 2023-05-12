@@ -16,12 +16,12 @@ namespace EyalonFinalProject
         public ViewStudentPages(string userID)
         {
             InitializeComponent();
-            DataTable dt = dbc.getProjectPageByStudentID(userID);
+            DataTable dt = dbc.getProjectPageAndBookIDByStudentID(userID);
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvStuPages.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dbc.getLinkedProjectBookNameByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View");
+                    dgvStuPages.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View");
                 }
             }
         }
