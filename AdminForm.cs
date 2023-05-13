@@ -15,12 +15,6 @@ namespace EyalonFinalProject
 {
     public partial class AdminForm : Form
     {
-        public class ComboBoxItem
-        {
-            public string Text { get; set; }
-            public int Value { get; set; }
-        }
-
         DBConnection dbc = new DBConnection();
         int tableMod = 0; //DEFAULT 0-USERS
         public AdminForm()
@@ -28,7 +22,7 @@ namespace EyalonFinalProject
             InitializeComponent();
             updateUserDataGridView(dbc.getAllUsers());
             cbSelectTable.SelectedIndex = tableMod;
-            cbBookName.Visible = false;
+            cbRole.SelectedIndex = 3;
         }
 
         private void updateUserDataGridView(DataTable dt)
@@ -57,7 +51,6 @@ namespace EyalonFinalProject
 
         private void updateProjectPageDataGridView(DataTable dt)
         {
-            updateComboBoxBookName(dbc.getAllProjectBook());
             dgvProjectPage.Rows.Clear();
             if (dt != null)
             {
@@ -76,22 +69,12 @@ namespace EyalonFinalProject
             }
         }
 
-        private void updateComboBoxBookName(DataTable dt)
-        {
-            List<ComboBoxItem> items = new List<ComboBoxItem>();
-            items.Add(new ComboBoxItem { Text = "NO LINK TO BOOK", Value = -1});
-            for (int row = 0; row < dt.Rows.Count; row++)
-            {
-                items.Add(new ComboBoxItem { Text = dt.Rows[row]["ProjectBookName"].ToString(), Value = int.Parse(dt.Rows[row]["ProjectBookID"].ToString()) });
-            }
-
-            cbBookName.DataSource = items;
-            cbBookName.DisplayMember = "Text";
-            cbBookName.ValueMember = "Value"; 
-        }
-
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvUsers.Rows[e.RowIndex];
             if (dgvUsers.Columns[e.ColumnIndex].Name == "MoreUser")
             {
@@ -129,6 +112,10 @@ namespace EyalonFinalProject
 
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
             if (dgvProjectBook.Columns[e.ColumnIndex].Name == "ViewBook")
             {
@@ -153,6 +140,10 @@ namespace EyalonFinalProject
 
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "ViewPage")
             {
@@ -192,33 +183,33 @@ namespace EyalonFinalProject
             {
                 dgvUsers.Visible = true;
                 dgvUsers.Enabled = true;
+                cbRole.Visible = true;
                 dgvProjectBook.Visible = false;
                 dgvProjectBook.Enabled = false;
                 dgvProjectPage.Visible = false;
                 dgvProjectPage.Enabled = false;
-                cbBookName.Visible = false;
                 updateUserDataGridView(dbc.getAllUsers());
             }
             else if(cbSelectTable.SelectedIndex == 1) 
             {
                 dgvUsers.Visible = false;
                 dgvUsers.Enabled = false;
+                cbRole.Visible = false;
                 dgvProjectBook.Visible = true;
                 dgvProjectBook.Enabled = true;
                 dgvProjectPage.Visible = false;
                 dgvProjectPage.Enabled = false;
-                cbBookName.Visible = false;
                 updateProjectBookDataGridView(dbc.getAllProjectBook());
             }
             else if(cbSelectTable.SelectedIndex == 2)
             {
                 dgvUsers.Visible = false;
                 dgvUsers.Enabled = false;
+                cbRole.Visible = false;
                 dgvProjectBook.Visible = false;
                 dgvProjectBook.Enabled = false;
                 dgvProjectPage.Visible = true;
                 dgvProjectPage.Enabled = true;
-                cbBookName.Visible = true;
                 updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
             }
         }
@@ -226,6 +217,26 @@ namespace EyalonFinalProject
         private void btnShow_Click(object sender, EventArgs e)
         {
             updateUserDataGridView(dbc.getAllUsers());
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbRole.SelectedIndex == int.Parse(Program.studentRole))
+            {
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+            }
+            else if(cbRole.SelectedIndex == int.Parse(Program.lecturerRole))
+            {
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.lecturerRole)));
+            }
+            else if (cbRole.SelectedIndex == int.Parse(Program.adminRole))
+            {
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.adminRole)));
+            }
+            else
+            {
+                updateUserDataGridView(dbc.getAllUsers());
+            }
         }
     }
 }
