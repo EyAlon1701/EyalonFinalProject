@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,17 +26,24 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.userID = userID;
+            btnPartner.Enabled = false;
         }
 
-        public PageForm(int pageID, string pageName, string pageData, string projectBookName)
+        public PageForm(int pageID,string userID, string pageName, string pageData, string projectBookName, string partnerDetails)
         {
             InitializeComponent();
             this.pageID = pageID;//??
+            this.userID = userID;
             txtPageName.Text = pageName;    
             rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";
             isAdd = false;
-            lblBook.Text += projectBookName;
+            lblBookName.Text += projectBookName;
+            lblPartnerDetails.Text += partnerDetails;
+            if(dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            {
+                btnPartner.BackColor = Color.Yellow;
+            }
         }
 
         private void btnSumbit_Click(object sender, EventArgs e)
@@ -64,6 +72,12 @@ namespace EyalonFinalProject
                     this.Close();
                 }
             }
+        }
+
+        private void btnPartner_Click(object sender, EventArgs e)
+        {
+            PartnerForm partnerForm = new PartnerForm(userID,pageID);
+            partnerForm.ShowDialog();
         }
     }
 }

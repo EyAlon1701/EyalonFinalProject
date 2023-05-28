@@ -32,16 +32,22 @@ namespace EyalonFinalProject
                 {
                     StudentForm studentForm = new StudentForm(dt.Rows[0]);
                     studentForm.ShowDialog();
+                    HomeForm homeForm = new HomeForm();
+                    homeForm.ShowDialog();
                 }
                 else if (dt.Rows[0]["Role"].ToString() == Program.lecturerRole)
                 {
                     LecturerForm lecturerForm = new LecturerForm(dt.Rows[0]);
                     lecturerForm.ShowDialog();
+                    HomeForm homeForm = new HomeForm();
+                    homeForm.ShowDialog();
                 }
                 else if (dt.Rows[0]["Role"].ToString() == Program.adminRole)
                 {
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
+                    HomeForm homeForm = new HomeForm();
+                    homeForm.ShowDialog();
                 }
                 else
                 {

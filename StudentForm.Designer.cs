@@ -32,11 +32,13 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
             this.btnEditUser = new System.Windows.Forms.Button();
+            this.btnPartner = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -55,7 +57,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(844, 12);
+            this.btnAdd.Location = new System.Drawing.Point(1029, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(185, 55);
             this.btnAdd.TabIndex = 34;
@@ -76,6 +78,7 @@
             this.PageCreationDate,
             this.PageData,
             this.BookName,
+            this.PartnerName,
             this.View,
             this.Edit,
             this.Delete});
@@ -84,19 +87,29 @@
             this.dgvProjectPage.ReadOnly = true;
             this.dgvProjectPage.RowHeadersWidth = 51;
             this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1041, 473);
+            this.dgvProjectPage.Size = new System.Drawing.Size(1226, 473);
             this.dgvProjectPage.TabIndex = 35;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(653, 12);
+            this.btnEditUser.Location = new System.Drawing.Point(838, 12);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(185, 55);
             this.btnEditUser.TabIndex = 37;
             this.btnEditUser.Text = "Edit User";
             this.btnEditUser.UseVisualStyleBackColor = true;
             this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            // 
+            // btnPartner
+            // 
+            this.btnPartner.Location = new System.Drawing.Point(12, 120);
+            this.btnPartner.Name = "btnPartner";
+            this.btnPartner.Size = new System.Drawing.Size(185, 55);
+            this.btnPartner.TabIndex = 38;
+            this.btnPartner.Text = "Partner Requests";
+            this.btnPartner.UseVisualStyleBackColor = true;
+            this.btnPartner.Click += new System.EventHandler(this.btnPartner_Click);
             // 
             // ID
             // 
@@ -135,12 +148,17 @@
             // 
             // BookName
             // 
-            this.BookName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.BookName.HeaderText = "BookName";
             this.BookName.MinimumWidth = 6;
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
-            this.BookName.Width = 112;
+            // 
+            // PartnerName
+            // 
+            this.PartnerName.HeaderText = "PartnerName";
+            this.PartnerName.MinimumWidth = 6;
+            this.PartnerName.Name = "PartnerName";
+            this.PartnerName.ReadOnly = true;
             // 
             // View
             // 
@@ -173,13 +191,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 654);
+            this.ClientSize = new System.Drawing.Size(1226, 654);
+            this.Controls.Add(this.btnPartner);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.dgvProjectPage);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblWelcome);
             this.Name = "StudentForm";
             this.Text = "StudentForm";
+            this.Load += new System.EventHandler(this.StudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -192,11 +212,13 @@
         private Button btnAdd;
         private DataGridView dgvProjectPage;
         private Button btnEditUser;
+        private Button btnPartner;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn PageCreationDate;
         private DataGridViewTextBoxColumn PageData;
         private DataGridViewTextBoxColumn BookName;
+        private DataGridViewTextBoxColumn PartnerName;
         private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;

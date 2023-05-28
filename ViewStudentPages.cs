@@ -16,7 +16,7 @@ namespace EyalonFinalProject
         public ViewStudentPages(string userID)
         {
             InitializeComponent();
-            DataTable dt = dbc.getProjectPageAndBookIDByStudentID(userID);
+            DataTable dt = dbc.getProjectPageAndProjectBookIDByStudentID(userID);
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)

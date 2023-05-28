@@ -23,24 +23,38 @@ namespace EyalonFinalProject
             InitializeComponent();
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
-            updateProjectPageDataGridView(dbc.getProjectPageAndBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+        }
+
+        private void updatePartnerBtn(DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                btnPartner.BackColor = Color.LightGreen;
+            }
+            else if (dt.Rows.Count == 0)
+            {
+                btnPartner.Visible = false;
+            }
         }
 
         private void updateProjectPageDataGridView(DataTable dt)
         {
+            updatePartnerBtn(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
             dgvProjectPage.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View" ,"Edit", "Delete");
+                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())),dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()),userID), "View" ,"Edit", "Delete");
 
-                    /*
-                    if(dbc.isProjectPageLinkToBook(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
+                    
+                    if(dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
-                        dgvProjectPage.Rows[row].DefaultCellStyle.BackColor = Color.Gray;
+                        dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "WAITING FOR PARTNER APPROVE!";
+                        dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Yellow;
                     }
-                    */
+
                 }
             }
         }
@@ -49,7 +63,7 @@ namespace EyalonFinalProject
         {
             PageForm pageForm = new PageForm(userID);
             pageForm.ShowDialog();
-            updateProjectPageDataGridView(dbc.getProjectPageAndBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
         }
 
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,7 +76,7 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Edit")
             {
-                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString());
+                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString(),dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID));
                 pageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Delete")
@@ -79,7 +93,7 @@ namespace EyalonFinalProject
                     MessageBox.Show("You cant delete page that linked to a book");
                 }
             }
-            updateProjectPageDataGridView(dbc.getProjectPageAndBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -87,6 +101,18 @@ namespace EyalonFinalProject
             UserForm userForm = new UserForm(int.Parse(Program.studentRole), userID);
             userForm.ShowDialog();
             lblWelcome.Text = "Welcome " + dbc.getUserByID(userID)["FirstName"].ToString();//name can change after update
+        }
+
+        private void btnPartner_Click(object sender, EventArgs e)
+        {
+            PartnerForm partnerForm = new PartnerForm(userID);
+            partnerForm.ShowDialog();
+            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+        }
+
+        private void StudentForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

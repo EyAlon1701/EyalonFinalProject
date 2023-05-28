@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MoreUser = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.EditUser = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DeleteUser = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -43,6 +53,7 @@
             this.DeleteBook = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbSelectTable = new System.Windows.Forms.ComboBox();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,17 +63,6 @@
             this.ViewPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.EditPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeletePage = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Image = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MoreUser = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.EditUser = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DeleteUser = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
@@ -95,6 +95,88 @@
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
+            // UserID
+            // 
+            this.UserID.HeaderText = "UserID";
+            this.UserID.MinimumWidth = 6;
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            // 
+            // FirstName
+            // 
+            this.FirstName.HeaderText = "FirstName";
+            this.FirstName.MinimumWidth = 6;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.HeaderText = "LastName";
+            this.LastName.MinimumWidth = 6;
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // Image
+            // 
+            this.Image.HeaderText = "Image";
+            this.Image.MinimumWidth = 6;
+            this.Image.Name = "Image";
+            this.Image.ReadOnly = true;
+            this.Image.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Role
+            // 
+            this.Role.HeaderText = "Role";
+            this.Role.MinimumWidth = 6;
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // MoreUser
+            // 
+            this.MoreUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MoreUser.HeaderText = "More";
+            this.MoreUser.MinimumWidth = 6;
+            this.MoreUser.Name = "MoreUser";
+            this.MoreUser.ReadOnly = true;
+            this.MoreUser.Width = 50;
+            // 
+            // EditUser
+            // 
+            this.EditUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.EditUser.HeaderText = "Edit";
+            this.EditUser.MinimumWidth = 6;
+            this.EditUser.Name = "EditUser";
+            this.EditUser.ReadOnly = true;
+            this.EditUser.Text = "Edit";
+            this.EditUser.UseColumnTextForButtonValue = true;
+            this.EditUser.Width = 41;
+            // 
+            // DeleteUser
+            // 
+            this.DeleteUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.DeleteUser.HeaderText = "Delete";
+            this.DeleteUser.MinimumWidth = 6;
+            this.DeleteUser.Name = "DeleteUser";
+            this.DeleteUser.ReadOnly = true;
+            this.DeleteUser.Text = "Delete";
+            this.DeleteUser.UseColumnTextForButtonValue = true;
+            this.DeleteUser.Width = 59;
+            // 
             // btnShow
             // 
             this.btnShow.Location = new System.Drawing.Point(12, 75);
@@ -107,7 +189,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1045, 12);
+            this.btnAdd.Location = new System.Drawing.Point(1132, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(150, 60);
             this.btnAdd.TabIndex = 2;
@@ -118,7 +200,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(881, 83);
+            this.txtSearch.Location = new System.Drawing.Point(968, 83);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(314, 52);
             this.txtSearch.TabIndex = 3;
@@ -128,7 +210,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSearch.Location = new System.Drawing.Point(544, 86);
+            this.lblSearch.Location = new System.Drawing.Point(644, 86);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(134, 46);
             this.lblSearch.TabIndex = 4;
@@ -253,9 +335,23 @@
             this.dgvProjectPage.ReadOnly = true;
             this.dgvProjectPage.RowHeadersWidth = 51;
             this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1207, 427);
+            this.dgvProjectPage.Size = new System.Drawing.Size(1294, 427);
             this.dgvProjectPage.TabIndex = 37;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
+            // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "STUDENTS",
+            "LECTURERS",
+            "ADMINS",
+            "ALL"});
+            this.cbRole.Location = new System.Drawing.Point(798, 103);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(151, 28);
+            this.cbRole.TabIndex = 39;
+            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // PageID
             // 
@@ -334,107 +430,11 @@
             this.DeletePage.ReadOnly = true;
             this.DeletePage.Width = 59;
             // 
-            // cbRole
-            // 
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
-            "STUDENTS",
-            "LECTURERS",
-            "ADMINS",
-            "ALL"});
-            this.cbRole.Location = new System.Drawing.Point(698, 103);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(151, 28);
-            this.cbRole.TabIndex = 39;
-            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
-            // 
-            // UserID
-            // 
-            this.UserID.HeaderText = "UserID";
-            this.UserID.MinimumWidth = 6;
-            this.UserID.Name = "UserID";
-            this.UserID.ReadOnly = true;
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.MinimumWidth = 6;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.ReadOnly = true;
-            // 
-            // LastName
-            // 
-            this.LastName.HeaderText = "LastName";
-            this.LastName.MinimumWidth = 6;
-            this.LastName.Name = "LastName";
-            this.LastName.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // Image
-            // 
-            this.Image.HeaderText = "Image";
-            this.Image.MinimumWidth = 6;
-            this.Image.Name = "Image";
-            this.Image.ReadOnly = true;
-            this.Image.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Image.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Role
-            // 
-            this.Role.HeaderText = "Role";
-            this.Role.MinimumWidth = 6;
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
-            // MoreUser
-            // 
-            this.MoreUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.MoreUser.HeaderText = "More";
-            this.MoreUser.MinimumWidth = 6;
-            this.MoreUser.Name = "MoreUser";
-            this.MoreUser.ReadOnly = true;
-            this.MoreUser.Width = 50;
-            // 
-            // EditUser
-            // 
-            this.EditUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.EditUser.HeaderText = "Edit";
-            this.EditUser.MinimumWidth = 6;
-            this.EditUser.Name = "EditUser";
-            this.EditUser.ReadOnly = true;
-            this.EditUser.Text = "Edit";
-            this.EditUser.UseColumnTextForButtonValue = true;
-            this.EditUser.Width = 41;
-            // 
-            // DeleteUser
-            // 
-            this.DeleteUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.DeleteUser.HeaderText = "Delete";
-            this.DeleteUser.MinimumWidth = 6;
-            this.DeleteUser.Name = "DeleteUser";
-            this.DeleteUser.ReadOnly = true;
-            this.DeleteUser.Text = "Delete";
-            this.DeleteUser.UseColumnTextForButtonValue = true;
-            this.DeleteUser.Width = 59;
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 571);
+            this.ClientSize = new System.Drawing.Size(1294, 571);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.dgvProjectPage);
             this.Controls.Add(this.cbSelectTable);
@@ -472,15 +472,6 @@
         private DataGridViewButtonColumn DeleteBook;
         private DataGridView dgvProjectPage;
         private ComboBox cbRole;
-        private DataGridViewTextBoxColumn PageID;
-        private DataGridViewTextBoxColumn StudentID;
-        private DataGridViewTextBoxColumn StudentName;
-        private DataGridViewTextBoxColumn PageName;
-        private DataGridViewTextBoxColumn PageCreationDate;
-        private DataGridViewTextBoxColumn PageBookName;
-        private DataGridViewButtonColumn ViewPage;
-        private DataGridViewButtonColumn EditPage;
-        private DataGridViewButtonColumn DeletePage;
         private DataGridViewTextBoxColumn UserID;
         private DataGridViewTextBoxColumn FirstName;
         private DataGridViewTextBoxColumn LastName;
@@ -491,5 +482,14 @@
         private DataGridViewButtonColumn MoreUser;
         private DataGridViewButtonColumn EditUser;
         private DataGridViewButtonColumn DeleteUser;
+        private DataGridViewTextBoxColumn PageID;
+        private DataGridViewTextBoxColumn StudentID;
+        private DataGridViewTextBoxColumn StudentName;
+        private DataGridViewTextBoxColumn PageName;
+        private DataGridViewTextBoxColumn PageCreationDate;
+        private DataGridViewTextBoxColumn PageBookName;
+        private DataGridViewButtonColumn ViewPage;
+        private DataGridViewButtonColumn EditPage;
+        private DataGridViewButtonColumn DeletePage;
     }
 }

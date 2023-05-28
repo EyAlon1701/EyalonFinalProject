@@ -152,8 +152,10 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
             {
+                /*
                 PageForm bookForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),selectedRow.Cells["PageName"].Value.ToString(), dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
                 bookForm.ShowDialog();
+                */
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")
             {
@@ -182,12 +184,12 @@ namespace EyalonFinalProject
             if(cbSelectTable.SelectedIndex==0) 
             {
                 dgvUsers.Visible = true;
-                dgvUsers.Enabled = true;
+                dgvUsers.Enabled = true;//checl
                 cbRole.Visible = true;
                 dgvProjectBook.Visible = false;
-                dgvProjectBook.Enabled = false;
+                dgvProjectBook.Enabled = false;////checl
                 dgvProjectPage.Visible = false;
-                dgvProjectPage.Enabled = false;
+                dgvProjectPage.Enabled = false;////check
                 updateUserDataGridView(dbc.getAllUsers());
             }
             else if(cbSelectTable.SelectedIndex == 1) 

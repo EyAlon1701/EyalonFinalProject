@@ -33,3 +33,4 @@ C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\E
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.AddPageToBookForm.resources
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.ViewStudentPages.resources
 C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.ViewForm.resources
+C:\Users\eyalo\Desktop\homework\פרוייקט - תוכנה\EyalonFinalProject\EyalonFinalProject\obj\Debug\net6.0-windows\EyalonFinalProject.PartnerForm.resources
