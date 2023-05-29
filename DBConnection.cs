@@ -296,7 +296,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getProjectBookByID(int projectBookID)
+        public DataRow getProjectBookByProjectBookID(int projectBookID)
         {
             try
             {
@@ -431,7 +431,7 @@ namespace EyalonFinalProject
             }
             return maxID;
         }
-        public string getProjectPageNameByID(int projectPageID)
+        public string getProjectPageNameByProjectPageID(int projectPageID)
         {
             string result = "";
             try
@@ -518,7 +518,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getProjectPageByID(int projectPageID)
+        public DataRow getProjectPageByProjectPageID(int projectPageID)
         {
             try
             {
@@ -915,6 +915,27 @@ namespace EyalonFinalProject
             }
             return false;
         }
+        public bool isProjectPageHaveRejectFriendRequestByProjectPageID(int projectPageID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectPageFriendRequest WHERE ProjectPageID=" + projectPageID + " AND StudentIDAns IS NULL";
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table.Rows.Count > 0;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return false;
+        }
         public string getInvitedStudentIDAndName(int projectPageID)
         {
             string result = "";
@@ -999,6 +1020,21 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return ans;
+        }
+        public int deletePartnerFromProjectPageByProjectPageIDAndMyStudentID(int projectPageID,string studentID)
+        {
+            try
+            {
+                deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID,studentID);
+                addProjectPage(getProjectPageNameByProjectPageID(projectPageID), getProjectPageByProjectPageID(projectPageID)["ProjectPageData"].ToString());
+                return addStudentProjectPage(studentID, getLastProjectPageID());
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+                mySqlConnection.Close();
+            }
+            return -1;
         }
     }
 }

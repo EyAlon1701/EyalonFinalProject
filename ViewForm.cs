@@ -26,11 +26,11 @@ namespace EyalonFinalProject
             InitializeComponent();
             if(isPage)
             {
-                makePage(dbc.getProjectPageByID(id));
+                makePage(dbc.getProjectPageByProjectPageID(id));
             }
             else
             {
-                makeBook(dbc.getProjectBookByID(id));
+                makeBook(dbc.getProjectBookByProjectBookID(id));
             }
         }
 
@@ -61,7 +61,7 @@ namespace EyalonFinalProject
             for(int i = 0; i < pages.Rows.Count; i++)
             {
                 rtbPageData.AppendText("\n");
-                makePage(dbc.getProjectPageByID(int.Parse(pages.Rows[i][0].ToString())));
+                makePage(dbc.getProjectPageByProjectPageID(int.Parse(pages.Rows[i][0].ToString())));
             }
             saveFileDialog1.FileName = book["ProjectBookName"].ToString() + " - " + book["ProjectBookYear"].ToString();
         }

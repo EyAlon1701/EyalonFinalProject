@@ -40,9 +40,24 @@ namespace EyalonFinalProject
             isAdd = false;
             lblBookName.Text += projectBookName;
             lblPartnerDetails.Text += partnerDetails;
-            if(dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            MessageBox.Show(btnPartner.BackColor.ToString());
+            MessageBox.Show(btnSumbit.BackColor.ToString());
+            updateBtnPartnerColor();
+        }
+
+        private void updateBtnPartnerColor()
+        {
+            if(dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
+            {
+                btnPartner.BackColor = Color.Red;
+            }
+            else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 btnPartner.BackColor = Color.Yellow;
+            }
+            else
+            {
+                btnPartner.BackColor = Color.Transparent;
             }
         }
 
@@ -78,6 +93,7 @@ namespace EyalonFinalProject
         {
             PartnerForm partnerForm = new PartnerForm(userID,pageID);
             partnerForm.ShowDialog();
+            updateBtnPartnerColor();
         }
     }
 }

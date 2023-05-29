@@ -21,6 +21,7 @@ namespace EyalonFinalProject
         public StudentForm(DataRow userRow)
         {
             InitializeComponent();
+            btnPartner.BackColor = Color.LightGreen;
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
             updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
@@ -28,13 +29,13 @@ namespace EyalonFinalProject
 
         private void updatePartnerBtn(DataTable dt)
         {
-            if (dt.Rows.Count > 0)
-            {
-                btnPartner.BackColor = Color.LightGreen;
-            }
-            else if (dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 btnPartner.Visible = false;
+            }
+            else
+            {
+                btnPartner.Visible = true;
             }
         }
 
@@ -48,13 +49,21 @@ namespace EyalonFinalProject
                 {
                     dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())),dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()),userID), "View" ,"Edit", "Delete");
 
-                    
-                    if(dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
+                    //UPDATE COLUMN PARTNER NAME STATUS(VALUE AND COLOR)
+                    if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
+                    {
+                        dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "PARTNER REJECT THE INVITE";
+                        dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Red;
+                    }
+                    else if(dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
                         dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "WAITING FOR PARTNER APPROVE!";
                         dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Yellow;
                     }
-
+                    else
+                    {
+                      //  dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Empty;
+                    }
                 }
             }
         }

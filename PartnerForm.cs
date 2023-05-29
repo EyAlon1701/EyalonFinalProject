@@ -43,7 +43,14 @@ namespace EyalonFinalProject
                 lblTitle.Text = "Your Partner is \n" + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID,userID);
                 btnDelRequest.Text = "Delete Partner";
             }
-            if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            else if(dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
+            {
+                if(MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    dbc.deleteProjectPageFriendRequest(pageID);
+                }
+            }
+            else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 dgvStudents.Visible = false;
                 btnDelRequest.Visible = true;
@@ -119,6 +126,10 @@ namespace EyalonFinalProject
             {
                 dbc.rejectInvite(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
             }
+            if (dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID).Rows.Count==0)
+            {
+                this.Close();
+            }
             updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
         }
 
@@ -136,7 +147,8 @@ namespace EyalonFinalProject
             {
                 if (MessageBox.Show("Are you sure you want to delete this partner from working together?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    //delete student and copy page!
+                    dbc.deletePartnerFromProjectPageByProjectPageIDAndMyStudentID(pageID, userID);
+                    this.Close();
                 }
             }
         }

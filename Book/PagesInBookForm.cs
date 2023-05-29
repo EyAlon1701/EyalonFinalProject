@@ -41,7 +41,7 @@ namespace EyalonFinalProject
                         stuID = stu.Rows[stuRow]["UserID"].ToString();
                         stuName = stu.Rows[stuRow]["FirstName"].ToString() +  " " + stu.Rows[stuRow]["LastName"].ToString();
                     }
-                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.getProjectPageNameByID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
+                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.getProjectPageNameByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
                 }
             }
         }
