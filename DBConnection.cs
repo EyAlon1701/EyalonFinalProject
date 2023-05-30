@@ -11,6 +11,8 @@ using System.Drawing.Drawing2D;
 using System.Xml.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic.ApplicationServices;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Text.RegularExpressions;
 
 
 namespace EyalonFinalProject
@@ -169,7 +171,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getStudentsExceptStudentID(string studentID)
+        public DataTable getStudentsExceptMyStudentID(string studentID)
         {
             try
             {
@@ -788,6 +790,26 @@ namespace EyalonFinalProject
             }
             return null;
         }
+        public int getProjectBookIDByProjectPageID(int projectPageID)
+        {
+            int projectBookID = -1;
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT ProjectBookID FROM projectDB.dbo.ProjectPageInBook ppib WHERE ppib.ProjectPageID=" + projectPageID;
+                projectBookID = Convert.ToInt32(mySqlCommand.ExecuteScalar());
+                MessageBox.Show(projectBookID.ToString());
+                mySqlConnection.Close();
+                return projectBookID;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return projectBookID;
+        }
         public bool isProjectPageLinkToBook(int projectPageID)
         {
             bool ans = false;
@@ -1027,6 +1049,10 @@ namespace EyalonFinalProject
             {
                 deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID,studentID);
                 addProjectPage(getProjectPageNameByProjectPageID(projectPageID), getProjectPageByProjectPageID(projectPageID)["ProjectPageData"].ToString());
+                if(isProjectPageLinkToBook(projectPageID))
+                {
+                    addProjectPageInBook(getLastProjectPageID(), getProjectBookIDByProjectPageID(projectPageID));
+                }
                 return addStudentProjectPage(studentID, getLastProjectPageID());
             }
             catch (Exception error)
@@ -1035,6 +1061,28 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return -1;
+        }
+        public DataTable getStudentsOnSameBookThatDontHavePartnerExceptMyStudentIDByProjectBookID(string studentID,int projectBookID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT u.UserID,u.FirstName,u.LastName FROM (SELECT ppib.ProjectPageID FROM (SELECT ProjectPageID FROM projectDB.dbo.StudentProjectPage GROUP BY ProjectPageID HAVING COUNT(*) = 1) alonePage,(SELECT ProjectPageID FROM projectDB.dbo.ProjectPageInBook WHERE ProjectBookID=" + projectBookID + ") ppib WHERE alonePage.ProjectPageID = ppib.ProjectPageID) goodPage,(SELECT * FROM projectDB.dbo.StudentProjectPage) spp,(SELECT * FROM projectDB.dbo.Users) u WHERE spp.ProjectPageID=goodPage.ProjectPageID AND u.UserID=spp.StudentID AND UserID <> '" + studentID + "';";
+                MessageBox.Show("getProjectPageIDThatDontHavePartnerByProjectBookID: " + mySqlCommand.CommandText);
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return null;
         }
     }
 }

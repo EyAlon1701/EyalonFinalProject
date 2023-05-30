@@ -40,15 +40,16 @@ namespace EyalonFinalProject
             {
                 dgvStudents.Visible = false;
                 btnDelRequest.Visible = true;
-                lblTitle.Text = "Your Partner is \n" + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID,userID);
+                lblTitle.Text = "Your Partner is \n" + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
                 btnDelRequest.Text = "Delete Partner";
             }
-            else if(dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
+            else if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
             {
-                if(MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK,MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     dbc.deleteProjectPageFriendRequest(pageID);
                 }
+                updateStudentsToInviteByIsPageLineToBook();
             }
             else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
@@ -56,7 +57,21 @@ namespace EyalonFinalProject
                 btnDelRequest.Visible = true;
                 lblTitle.Text = "You Already Invite:\n" + dbc.getInvitedStudentIDAndName(pageID);
             }
-            updateStudentDataGridView(dbc.getStudentsExceptStudentID(userID));
+            else
+            {
+                updateStudentsToInviteByIsPageLineToBook();
+            }
+        }
+        private void updateStudentsToInviteByIsPageLineToBook()
+        {
+            if (dbc.isProjectPageLinkToBook(pageID))
+            {
+                updateStudentDataGridView(dbc.getStudentsOnSameBookThatDontHavePartnerExceptMyStudentIDByProjectBookID(userID, dbc.getProjectBookIDByProjectPageID(pageID)));
+            }
+            else
+            {
+                updateStudentDataGridView(dbc.getStudentsExceptMyStudentID(userID));
+            }
         }
 
         private void updateStudentDataGridView(DataTable dt)
@@ -66,7 +81,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvStudents.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"] +" " + dt.Rows[row]["LastName"], "Add");
+                    dgvStudents.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"] + " " + dt.Rows[row]["LastName"], "Add");
                 }
             }
         }
@@ -121,6 +136,10 @@ namespace EyalonFinalProject
             {
                 dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
                 dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                if(dbc.isProjectPageLinkToBook(pageID))
+                {
+                    dbc.deleteProjectPageByProjectPageID(pageID);
+                }
             }
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Reject")
             {

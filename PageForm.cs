@@ -40,8 +40,6 @@ namespace EyalonFinalProject
             isAdd = false;
             lblBookName.Text += projectBookName;
             lblPartnerDetails.Text += partnerDetails;
-            MessageBox.Show(btnPartner.BackColor.ToString());
-            MessageBox.Show(btnSumbit.BackColor.ToString());
             updateBtnPartnerColor();
         }
 
