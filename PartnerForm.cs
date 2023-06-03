@@ -116,7 +116,7 @@ namespace EyalonFinalProject
             }
         }
 
-        private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvFriendRequestProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
@@ -128,24 +128,35 @@ namespace EyalonFinalProject
             {
                 if (dbc.getStudentByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))).Rows.Count == 2)
                 {
-                    MessageBox.Show("You already have a partner to a page in the book", "System message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("You already have a partner to a page in the book", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
-                    dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                    bool flag = false;
                     if (dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))
                     {
-
-                        dbc.deleteProjectPageByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString()))));
+                        if(MessageBox.Show("Are you sure you approve the friend request?\n(Your page linked to that book will be deleted!!!)","System message",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
+                        {
+                            dbc.deleteProjectPageByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString()))));
+                        }
+                        else
+                        {
+                            flag = true;
+                        }
                     }
+                    if (!flag)
+                    {
+                        dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                        dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                    }
+                
                 }
             }
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Reject")
             {
                 dbc.rejectInvite(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
             }
-            if (dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID).Rows.Count==0)
+            if (dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID).Rows.Count == 0)
             {
                 this.Close();
             }
@@ -171,5 +182,7 @@ namespace EyalonFinalProject
                 }
             }
         }
+
+
     }
 }

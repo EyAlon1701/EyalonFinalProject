@@ -83,16 +83,22 @@ namespace EyalonFinalProject
                     dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
                 }
             }
-
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "View")
             {
-                ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),true);
+                ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), true);
                 viewPageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Edit")
             {
-                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString());
-                pageForm.ShowDialog();
+                if (dbc.isProjectPageInTheFriendRequestHaveSameBookLikeMyProjectPage(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString()))))
+                {
+                    MessageBox.Show("You have partner request to other page in the same book \nPlease Approve/Reject the partner request For the page", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), userID, selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString());
+                    pageForm.ShowDialog();
+                }
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Delete")
             {
@@ -100,7 +106,7 @@ namespace EyalonFinalProject
                 {
                     if (MessageBox.Show("Are you sure you want to delete this page?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dbc.deleteProjectPageByProjectPageIDAndStudentID(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID);
+                        dbc.deleteProjectPageByProjectPageIDAndStudentID(int.Parse(selectedRow.Cells["ID"].Value.ToString()), userID);
                     }
                 }
                 else

@@ -33,14 +33,15 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    //CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "",stuName="";
-                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)//RN ONLY ONE USER PER PAGE
+                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
-                        stuID = stu.Rows[stuRow]["UserID"].ToString();
-                        stuName = stu.Rows[stuRow]["FirstName"].ToString() +  " " + stu.Rows[stuRow]["LastName"].ToString();
+                        stuID += stu.Rows[stuRow]["UserID"].ToString() + ", ";
+                        stuName += stu.Rows[stuRow]["FirstName"].ToString() +  " " + stu.Rows[stuRow]["LastName"].ToString() + ", ";
                     }
+                    stuID = stuID.Remove(stuID.Length - 2);
+                    stuName = stuName.Remove(stuName.Length - 2);
                     dgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.getProjectPageNameByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
                 }
             }

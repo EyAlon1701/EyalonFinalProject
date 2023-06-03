@@ -113,7 +113,7 @@
             this.dgvFriendRequestProjectPage.RowTemplate.Height = 29;
             this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 310);
             this.dgvFriendRequestProjectPage.TabIndex = 2;
-            this.dgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
+            this.dgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFriendRequestProjectPage_CellContentClick);
             // 
             // PageStudentID
             // 

@@ -729,11 +729,11 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT u.UserID FROM projectDB.dbo.Users u,projectDB.dbo.StudentProjectPage spp WHERE u.UserID = spp.StudentID AND spp.ProjectPageID=" + projectPageID + " AND spp.StudentID <> '" + studentID + "';";
+                mySqlCommand.CommandText = "SELECT StudentID FROM projectDB.dbo.StudentProjectPage WHERE ProjectPageID=" + projectPageID + " AND StudentID <> '" + studentID + "';";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
-                    partnerStudentID = mySqlDataReader["UserID"].ToString();
+                    partnerStudentID = mySqlDataReader["StudentID"].ToString();
                 }
                 mySqlDataReader.Close();
                 mySqlConnection.Close();
@@ -1045,6 +1045,27 @@ namespace EyalonFinalProject
                 mySqlConnection.Close();
             }
             return -1;
+        }
+        public bool isProjectPageInTheFriendRequestHaveSameBookLikeMyProjectPage(string studentIDAns,int myProjectPageProjectBookID)
+        {
+            try
+            {
+                SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
+                mySqlConnection.Open();
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectPageInBook ppib,(SELECT ProjectPageID FROM projectDB.dbo.ProjectPageFriendRequest WHERE StudentIDAns='" + studentIDAns + "') friendRequestProjectPage WHERE friendRequestProjectPage.ProjectPageID=ppib.ProjectPageID AND ppib.ProjectBookID=" + myProjectPageProjectBookID;
+                SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                DataTable table = new DataTable();
+                table.Load(mySqlDataReader);
+                mySqlDataReader.Close();
+                mySqlConnection.Close();
+                return table.Rows.Count > 0;
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+                mySqlConnection.Close();
+            }
+            return false;
         }
 
         //OTHER
