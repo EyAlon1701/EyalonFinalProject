@@ -34,6 +34,7 @@ namespace EyalonFinalProject
             }
             else if(accessRole == int.Parse(Program.lecturerRole))
             {
+                txtID.Enabled = false;
                 cbRole.Enabled = false;
             }
             else // accessRole == int.Parse(Program.adminRole)
