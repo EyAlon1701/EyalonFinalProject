@@ -43,6 +43,10 @@ namespace EyalonFinalProject
  
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
             if(dgvProjectBook.Columns[e.ColumnIndex].Name == "View")
             {

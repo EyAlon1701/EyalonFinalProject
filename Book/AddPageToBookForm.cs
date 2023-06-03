@@ -38,17 +38,21 @@ namespace EyalonFinalProject
 
         private void dgvStudentsPages_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvStudentsPages.Rows[e.RowIndex];
             if (dgvStudentsPages.Columns[e.ColumnIndex].Name == "Add")
             {
                 dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
                 dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
                 dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
-            }
-            updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
-            if(dgvStudentsPages.Rows.Count==0)
-            {
-                this.Close();
+                updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+                if (dgvStudentsPages.Rows.Count == 0)
+                {
+                    this.Close();
+                }
             }
         }
 

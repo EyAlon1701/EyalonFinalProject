@@ -74,8 +74,11 @@ namespace EyalonFinalProject
 
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
-
             if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString())))
             {
                 if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)

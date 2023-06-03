@@ -56,6 +56,10 @@ namespace EyalonFinalProject
 
         private void dgvPagesInBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
             DataGridViewRow selectedRow = dgvPagesInBook.Rows[e.RowIndex];
             if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "View")
             {
