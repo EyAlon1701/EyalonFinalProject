@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EyalonFinalProject
 {
@@ -41,7 +42,6 @@ namespace EyalonFinalProject
 
         private void updateProjectPageDataGridView(DataTable dt)
         {
-            updatePartnerBtn(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
             dgvProjectPage.Rows.Clear();
             if (dt != null)
             {
@@ -60,12 +60,9 @@ namespace EyalonFinalProject
                         dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "WAITING FOR PARTNER APPROVE!";
                         dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Yellow;
                     }
-                    else
-                    {
-                      //  dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Empty;
-                    }
                 }
             }
+            updatePartnerBtn(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -78,6 +75,15 @@ namespace EyalonFinalProject
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
+
+            if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString())))
+            {
+                if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
+                }
+            }
+
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "View")
             {
                 ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),true);
@@ -85,7 +91,7 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Edit")
             {
-                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString(),dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID));
+                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()),userID,selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString());
                 pageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "Delete")

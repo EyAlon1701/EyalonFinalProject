@@ -43,14 +43,6 @@ namespace EyalonFinalProject
                 lblTitle.Text = "Your Partner is \n" + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
                 btnDelRequest.Text = "Delete Partner";
             }
-            else if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
-            {
-                if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                {
-                    dbc.deleteProjectPageFriendRequest(pageID);
-                }
-                updateStudentsToInviteByIsPageLineToBook();
-            }
             else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 dgvStudents.Visible = false;
@@ -134,11 +126,19 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvFriendRequestProjectPage.Rows[e.RowIndex];
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Approve")
             {
-                dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
-                dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
-                if(dbc.isProjectPageLinkToBook(pageID))
+                if (dbc.getStudentByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))).Rows.Count == 2)
                 {
-                    dbc.deleteProjectPageByProjectPageID(pageID);
+                    MessageBox.Show("You already have a partner to a page in the book", "System message",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+                else
+                {
+                    dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                    dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
+                    if (dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))
+                    {
+
+                        dbc.deleteProjectPageByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString()))));
+                    }
                 }
             }
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Reject")

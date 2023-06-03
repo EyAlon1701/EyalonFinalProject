@@ -29,27 +29,23 @@ namespace EyalonFinalProject
             btnPartner.Enabled = false;
         }
 
-        public PageForm(int pageID,string userID, string pageName, string pageData, string projectBookName, string partnerDetails)
+        public PageForm(int pageID,string userID, string pageName, string pageData, string projectBookName)
         {
             InitializeComponent();
-            this.pageID = pageID;//??
+            this.pageID = pageID;
             this.userID = userID;
             txtPageName.Text = pageName;    
             rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";
             isAdd = false;
             lblBookName.Text += projectBookName;
-            lblPartnerDetails.Text += partnerDetails;
-            updateBtnPartnerColor();
+            updateBtnPartnerColorAndLblPartnerDetails();
         }
 
-        private void updateBtnPartnerColor()
+        private void updateBtnPartnerColorAndLblPartnerDetails()
         {
-            if(dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(pageID))
-            {
-                btnPartner.BackColor = Color.Red;
-            }
-            else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            lblPartnerDetails.Text = "PartnerDetails: " + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
+            if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 btnPartner.BackColor = Color.Yellow;
             }
@@ -91,7 +87,7 @@ namespace EyalonFinalProject
         {
             PartnerForm partnerForm = new PartnerForm(userID,pageID);
             partnerForm.ShowDialog();
-            updateBtnPartnerColor();
+            updateBtnPartnerColorAndLblPartnerDetails();
         }
     }
 }
