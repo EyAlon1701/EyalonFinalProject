@@ -599,6 +599,7 @@ namespace EyalonFinalProject
         {
             try
             {
+                deleteProjectPageFriendRequest(projectPageID);
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
                 mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectPage WHERE ProjectPageID=" + projectPageID;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace EyalonFinalProject
 {
@@ -22,15 +23,28 @@ namespace EyalonFinalProject
         public UserForm(int accessRole, string userID)
         {
             InitializeComponent();
-            if(accessRole == int.Parse(Program.studentRole))
+            DataRow userRow = dbc.getUserByID(userID);
+            setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
+
+
+            if (accessRole == int.Parse(Program.studentRole))
             {
                 txtID.Enabled = false;
                 cbRole.Enabled = false;
             }
-            //ELSE LEC NOT ABLE PUT ADMIN!!!
-
-            DataRow userRow = dbc.getUserByID(userID);
-            setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
+            else if(accessRole == int.Parse(Program.lecturerRole))
+            {
+                cbRole.Enabled = false;
+            }
+            else // accessRole == int.Parse(Program.adminRole)
+            {
+                cbRole.Items.RemoveAt(2);
+                if (cbRole.SelectedIndex == 2)
+                {
+                    lblRole.Visible = false;
+                    cbRole.Visible = false;
+                }
+            }
         }
 
         private void setData(string id, string firstName, string lastName, string email, string password, string imgPath, int role)

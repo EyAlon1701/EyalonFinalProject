@@ -56,15 +56,16 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    //CHECK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "", stuName = "";
-                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)//RN ONLY ONE USER PER PAGE
+                    for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
-                        stuID = stu.Rows[stuRow]["UserID"].ToString();
-                        stuName = stu.Rows[stuRow]["FirstName"].ToString() + " " + stu.Rows[stuRow]["LastName"].ToString();
+                        stuID += stu.Rows[stuRow]["UserID"].ToString() + ", ";
+                        stuName += stu.Rows[stuRow]["FirstName"].ToString() + " " + stu.Rows[stuRow]["LastName"].ToString() + ", ";
                     }
-                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], stuID, stuName,dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
+                    stuID = stuID.Remove(stuID.Length - 2);
+                    stuName = stuName.Remove(stuName.Length - 2);
+                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], stuID, stuName, dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
                 }
             }
         }
@@ -85,7 +86,7 @@ namespace EyalonFinalProject
                 }
                 else
                 {
-                    MessageBox.Show("There is no more information");
+                    MessageBox.Show("There is no more information","System message",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "EditUser")
@@ -104,7 +105,7 @@ namespace EyalonFinalProject
                 }
                 else
                 {
-                    MessageBox.Show("You can't delete admin");
+                    MessageBox.Show("You can't delete admin", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             updateUserDataGridView(dbc.getAllUsers());
