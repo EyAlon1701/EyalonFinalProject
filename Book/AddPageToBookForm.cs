@@ -41,16 +41,26 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvStudentsPages.Rows[e.RowIndex];
             if (dgvStudentsPages.Columns[e.ColumnIndex].Name == "Add")
             {
-                int res = dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
-                if (res == 1)
-                {
-                    dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
-                    if(dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID) == 1)
-                    {
-                        this.Close();
-                    }
-                }
+                dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
+                dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
+                dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
             }
+            updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+            if(dgvStudentsPages.Rows.Count==0)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnAddSelectedRows_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow selectedRow in dgvStudentsPages.SelectedRows)
+            {
+                dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
+                dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
+                dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
+            }
+            this.Close();
         }
     }
 }
