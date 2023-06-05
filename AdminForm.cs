@@ -153,10 +153,8 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
             {
-                /*
-                PageForm bookForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),selectedRow.Cells["PageName"].Value.ToString(), dbc.getProjectPageByID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
-                bookForm.ShowDialog();
-                */
+                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), dbc.getStudentByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString())).Rows[0]["UserID"].ToString(), dbc.getProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
+                pageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")
             {
@@ -182,37 +180,28 @@ namespace EyalonFinalProject
 
         private void cbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbSelectTable.SelectedIndex==0) 
+            if(cbSelectTable.SelectedIndex==0) // USERS
             {
                 dgvUsers.Visible = true;
-                dgvUsers.Enabled = true;//checl
                 cbRole.Visible = true;
                 dgvProjectBook.Visible = false;
-                dgvProjectBook.Enabled = false;////checl
                 dgvProjectPage.Visible = false;
-                dgvProjectPage.Enabled = false;////check
                 updateUserDataGridView(dbc.getAllUsers());
             }
-            else if(cbSelectTable.SelectedIndex == 1) 
+            else if(cbSelectTable.SelectedIndex == 1) // BOOKS
             {
                 dgvUsers.Visible = false;
-                dgvUsers.Enabled = false;
                 cbRole.Visible = false;
                 dgvProjectBook.Visible = true;
-                dgvProjectBook.Enabled = true;
                 dgvProjectPage.Visible = false;
-                dgvProjectPage.Enabled = false;
                 updateProjectBookDataGridView(dbc.getAllProjectBook());
             }
-            else if(cbSelectTable.SelectedIndex == 2)
+            else if(cbSelectTable.SelectedIndex == 2) // PAGES
             {
                 dgvUsers.Visible = false;
-                dgvUsers.Enabled = false;
                 cbRole.Visible = false;
                 dgvProjectBook.Visible = false;
-                dgvProjectBook.Enabled = false;
                 dgvProjectPage.Visible = true;
-                dgvProjectPage.Enabled = true;
                 updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
             }
         }

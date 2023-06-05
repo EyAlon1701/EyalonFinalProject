@@ -330,7 +330,7 @@ namespace EyalonFinalProject
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 while (mySqlDataReader.Read())
                 {
-                    result += mySqlDataReader["ProjectBookName"].ToString();//need to be 1 time bc ProjectBookID IS PK
+                    result += mySqlDataReader["ProjectBookName"].ToString();//need to be 1 time because ProjectBookID IS PK
                 }
                 mySqlDataReader.Close();
                 mySqlConnection.Close();

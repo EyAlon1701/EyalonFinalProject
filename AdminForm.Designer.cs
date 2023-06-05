@@ -53,7 +53,6 @@
             this.DeleteBook = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbSelectTable = new System.Windows.Forms.ComboBox();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
-            this.cbRole = new System.Windows.Forms.ComboBox();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +62,7 @@
             this.ViewPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.EditPage = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeletePage = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
@@ -91,7 +91,7 @@
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 29;
-            this.dgvUsers.Size = new System.Drawing.Size(1207, 427);
+            this.dgvUsers.Size = new System.Drawing.Size(1294, 427);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
@@ -236,7 +236,7 @@
             this.dgvProjectBook.ReadOnly = true;
             this.dgvProjectBook.RowHeadersWidth = 51;
             this.dgvProjectBook.RowTemplate.Height = 29;
-            this.dgvProjectBook.Size = new System.Drawing.Size(1207, 427);
+            this.dgvProjectBook.Size = new System.Drawing.Size(1294, 427);
             this.dgvProjectBook.TabIndex = 35;
             this.dgvProjectBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectBook_CellContentClick);
             // 
@@ -339,20 +339,6 @@
             this.dgvProjectPage.TabIndex = 37;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
             // 
-            // cbRole
-            // 
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
-            "STUDENTS",
-            "LECTURERS",
-            "ADMINS",
-            "ALL"});
-            this.cbRole.Location = new System.Drawing.Point(798, 103);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(151, 28);
-            this.cbRole.TabIndex = 39;
-            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
-            // 
             // PageID
             // 
             this.PageID.FillWeight = 25.71429F;
@@ -429,6 +415,20 @@
             this.DeletePage.Name = "DeletePage";
             this.DeletePage.ReadOnly = true;
             this.DeletePage.Width = 59;
+            // 
+            // cbRole
+            // 
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "STUDENTS",
+            "LECTURERS",
+            "ADMINS",
+            "ALL"});
+            this.cbRole.Location = new System.Drawing.Point(798, 103);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(151, 28);
+            this.cbRole.TabIndex = 39;
+            this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // AdminForm
             // 

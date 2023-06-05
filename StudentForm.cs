@@ -99,7 +99,7 @@ namespace EyalonFinalProject
                 }
                 else
                 {
-                    PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), userID, selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString(), selectedRow.Cells["BookName"].Value.ToString());
+                    PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), userID, selectedRow.Cells["PageName"].Value.ToString(), selectedRow.Cells["PageData"].Value.ToString());
                     pageForm.ShowDialog();
                 }
             }

@@ -85,7 +85,6 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-
                     DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     DataRow page = dbc.getProjectPageAndProjectBookIDByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     dgvFriendRequestProjectPage.Rows.Add(stu.Rows[0]["UserID"].ToString(), stu.Rows[0]["FirstName"].ToString() + " " + stu.Rows[0]["LastName"].ToString(),page["ProjectPageID"],page["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(page["ProjectBookID"].ToString())), "Approve", "Reject");

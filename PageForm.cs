@@ -29,7 +29,7 @@ namespace EyalonFinalProject
             btnPartner.Enabled = false;
         }
 
-        public PageForm(int pageID,string userID, string pageName, string pageData, string projectBookName)
+        public PageForm(int pageID,string userID, string pageName, string pageData)
         {
             InitializeComponent();
             this.pageID = pageID;
@@ -38,7 +38,7 @@ namespace EyalonFinalProject
             rtfPageData.Text = pageData;
             btnSumbit.Text = "Update";
             isAdd = false;
-            lblBookName.Text += projectBookName;
+            lblBookName.Text += dbc.getProjectBookNameByID(dbc.getProjectBookIDByProjectPageID(pageID));
             updateBtnPartnerColorAndLblPartnerDetails();
         }
 
