@@ -32,6 +32,7 @@
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartnerDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStuPages)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@
             this.PageID,
             this.PageName,
             this.BookName,
+            this.PartnerDetails,
             this.View});
             this.dgvStuPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStuPages.Location = new System.Drawing.Point(0, 0);
@@ -54,7 +56,7 @@
             this.dgvStuPages.ReadOnly = true;
             this.dgvStuPages.RowHeadersWidth = 51;
             this.dgvStuPages.RowTemplate.Height = 29;
-            this.dgvStuPages.Size = new System.Drawing.Size(609, 433);
+            this.dgvStuPages.Size = new System.Drawing.Size(832, 433);
             this.dgvStuPages.TabIndex = 0;
             this.dgvStuPages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStuPages_CellContentClick);
             // 
@@ -81,6 +83,13 @@
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
             // 
+            // PartnerDetails
+            // 
+            this.PartnerDetails.HeaderText = "PartnerDetails";
+            this.PartnerDetails.MinimumWidth = 6;
+            this.PartnerDetails.Name = "PartnerDetails";
+            this.PartnerDetails.ReadOnly = true;
+            // 
             // View
             // 
             this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -94,7 +103,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(609, 433);
+            this.ClientSize = new System.Drawing.Size(832, 433);
             this.Controls.Add(this.dgvStuPages);
             this.Name = "ViewStudentPages";
             this.Text = "ViewStudentPages";
@@ -109,6 +118,7 @@
         private DataGridViewTextBoxColumn PageID;
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn BookName;
+        private DataGridViewTextBoxColumn PartnerDetails;
         private DataGridViewButtonColumn View;
     }
 }

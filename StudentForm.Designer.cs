@@ -38,7 +38,7 @@
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PartnerDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -78,7 +78,7 @@
             this.PageCreationDate,
             this.PageData,
             this.BookName,
-            this.PartnerName,
+            this.PartnerDetails,
             this.View,
             this.Edit,
             this.Delete});
@@ -153,12 +153,12 @@
             this.BookName.Name = "BookName";
             this.BookName.ReadOnly = true;
             // 
-            // PartnerName
+            // PartnerDetails
             // 
-            this.PartnerName.HeaderText = "PartnerName";
-            this.PartnerName.MinimumWidth = 6;
-            this.PartnerName.Name = "PartnerName";
-            this.PartnerName.ReadOnly = true;
+            this.PartnerDetails.HeaderText = "PartnerDetails";
+            this.PartnerDetails.MinimumWidth = 6;
+            this.PartnerDetails.Name = "PartnerDetails";
+            this.PartnerDetails.ReadOnly = true;
             // 
             // View
             // 
@@ -217,7 +217,7 @@
         private DataGridViewTextBoxColumn PageCreationDate;
         private DataGridViewTextBoxColumn PageData;
         private DataGridViewTextBoxColumn BookName;
-        private DataGridViewTextBoxColumn PartnerName;
+        private DataGridViewTextBoxColumn PartnerDetails;
         private DataGridViewButtonColumn View;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;

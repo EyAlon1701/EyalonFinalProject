@@ -52,13 +52,13 @@ namespace EyalonFinalProject
                     //UPDATE COLUMN PARTNER NAME STATUS(VALUE AND COLOR)
                     if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
-                        dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "PARTNER REJECT THE INVITE";
-                        dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Red;
+                        dgvProjectPage.Rows[row].Cells["PartnerDetails"].Value = "PARTNER REJECT THE INVITE";
+                        dgvProjectPage.Rows[row].Cells["PartnerDetails"].Style.BackColor = Color.Red;
                     }
                     else if(dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
-                        dgvProjectPage.Rows[row].Cells["PartnerName"].Value = "WAITING FOR PARTNER APPROVE!";
-                        dgvProjectPage.Rows[row].Cells["PartnerName"].Style.BackColor = Color.Yellow;
+                        dgvProjectPage.Rows[row].Cells["PartnerDetails"].Value = "WAITING FOR PARTNER APPROVE!";
+                        dgvProjectPage.Rows[row].Cells["PartnerDetails"].Style.BackColor = Color.Yellow;
                     }
                 }
             }
