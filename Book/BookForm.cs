@@ -64,7 +64,7 @@ namespace EyalonFinalProject
             }
             catch(Exception error)
             {
-                MessageBox.Show("You need to enter a year as an integer","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("You need to enter a year as an integer","System message",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

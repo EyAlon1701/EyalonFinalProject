@@ -81,7 +81,7 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
             if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(selectedRow.Cells["ID"].Value.ToString())))
             {
-                if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                if (MessageBox.Show("Your Partner Reject The Friend Request To The Page", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
                 }
@@ -107,7 +107,7 @@ namespace EyalonFinalProject
             {
                 if (!(dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["ID"].Value.ToString()))))
                 {
-                    if (MessageBox.Show("Are you sure you want to delete this page?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete this page?", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         dbc.deleteProjectPageByProjectPageIDAndStudentID(int.Parse(selectedRow.Cells["ID"].Value.ToString()), userID);
                     }
