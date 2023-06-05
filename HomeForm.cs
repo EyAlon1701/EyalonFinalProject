@@ -25,7 +25,7 @@ namespace EyalonFinalProject
         private void btnLogin_Click(object sender, EventArgs e)
         {
             DataTable dt = dbc.login(txtLoginID.Text,txtLoginPassword.Text);
-            if(dt.Rows.Count > 0)
+            if(dt.Rows.Count > 0)//User exist
             {
                 this.Hide();
                 if (dt.Rows[0]["Role"].ToString() == Program.studentRole)

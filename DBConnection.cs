@@ -87,13 +87,13 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable login(string id, string password)//data table???
+        public DataTable login(string id, string password)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE UserID='" + id + "' AND Password='" + password + "';";
+                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.Users WHERE UserID COLLATE Latin1_General_CS_AS ='" + id + "' AND Password COLLATE Latin1_General_CS_AS ='" + password + "';";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
