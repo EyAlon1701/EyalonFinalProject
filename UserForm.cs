@@ -70,20 +70,27 @@ namespace EyalonFinalProject
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (isAdd)//true - add user
+            if (txtID.Text == "" || txtFirstName.Text == "" || txtLastName.Text == "" || txtEmail.Text == "" || txtPassword.Text == "")
             {
-                int num = dbc.addUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
-                if (num == 1)
-                {
-                    this.Close();
-                }
+                MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else // false - update user
+            else
             {
-                int num = dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
-                if (num == 1)
+                if (isAdd)//true - add user
                 {
-                    this.Close();
+                    int num = dbc.addUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                    if (num == 1)
+                    {
+                        this.Close();
+                    }
+                }
+                else // false - update user
+                {
+                    int num = dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                    if (num == 1)
+                    {
+                        this.Close();
+                    }
                 }
             }
         }

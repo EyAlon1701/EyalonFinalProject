@@ -199,7 +199,6 @@
             this.Controls.Add(this.lblWelcome);
             this.Name = "StudentForm";
             this.Text = "StudentForm";
-            this.Load += new System.EventHandler(this.StudentForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

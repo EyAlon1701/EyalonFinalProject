@@ -79,5 +79,12 @@ namespace EyalonFinalProject
         {
             updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
         }
+
+        private void btnEditUser_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm(int.Parse(Program.studentRole), userID);
+            userForm.ShowDialog();
+            lblWelcome.Text = "Welcome " + dbc.getUserByID(userID)["FirstName"].ToString();//name can change after update
+        }
     }
 }

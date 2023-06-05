@@ -134,9 +134,5 @@ namespace EyalonFinalProject
             updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
         }
 
-        private void StudentForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
