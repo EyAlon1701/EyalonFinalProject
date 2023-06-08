@@ -47,18 +47,19 @@
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWelcome.Location = new System.Drawing.Point(12, 9);
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWelcome.Location = new System.Drawing.Point(12, 15);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(197, 54);
+            this.lblWelcome.Size = new System.Drawing.Size(120, 32);
             this.lblWelcome.TabIndex = 1;
             this.lblWelcome.Text = "Welcome";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(844, 12);
+            this.btnAdd.Location = new System.Drawing.Point(715, 60);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(185, 55);
+            this.btnAdd.Size = new System.Drawing.Size(181, 33);
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add Book";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -79,12 +80,13 @@
             this.View,
             this.Edit,
             this.Delete});
-            this.dgvProjectBook.Location = new System.Drawing.Point(0, 141);
+            this.dgvProjectBook.Location = new System.Drawing.Point(0, 106);
+            this.dgvProjectBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProjectBook.Name = "dgvProjectBook";
             this.dgvProjectBook.ReadOnly = true;
             this.dgvProjectBook.RowHeadersWidth = 51;
             this.dgvProjectBook.RowTemplate.Height = 29;
-            this.dgvProjectBook.Size = new System.Drawing.Size(1041, 411);
+            this.dgvProjectBook.Size = new System.Drawing.Size(911, 308);
             this.dgvProjectBook.TabIndex = 34;
             this.dgvProjectBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectBook_CellContentClick);
             // 
@@ -127,7 +129,7 @@
             this.View.MinimumWidth = 6;
             this.View.Name = "View";
             this.View.ReadOnly = true;
-            this.View.Width = 47;
+            this.View.Width = 38;
             // 
             // Edit
             // 
@@ -136,7 +138,7 @@
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
-            this.Edit.Width = 41;
+            this.Edit.Width = 33;
             // 
             // Delete
             // 
@@ -145,32 +147,34 @@
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
-            this.Delete.Width = 59;
+            this.Delete.Width = 46;
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSearch.Location = new System.Drawing.Point(12, 86);
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSearch.Location = new System.Drawing.Point(381, 21);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(134, 46);
+            this.lblSearch.Size = new System.Drawing.Size(96, 32);
             this.lblSearch.TabIndex = 37;
             this.lblSearch.Text = "Search:";
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(151, 83);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(292, 58);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(314, 52);
+            this.txtSearch.Size = new System.Drawing.Size(275, 29);
             this.txtSearch.TabIndex = 36;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(653, 12);
+            this.btnEditUser.Location = new System.Drawing.Point(715, 17);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(185, 55);
+            this.btnEditUser.Size = new System.Drawing.Size(181, 33);
             this.btnEditUser.TabIndex = 38;
             this.btnEditUser.Text = "Edit User";
             this.btnEditUser.UseVisualStyleBackColor = true;
@@ -178,15 +182,18 @@
             // 
             // LecturerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1041, 552);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(911, 414);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvProjectBook);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblWelcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "LecturerForm";
             this.Text = "LecturerForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).EndInit();

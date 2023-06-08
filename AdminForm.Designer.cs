@@ -86,12 +86,13 @@
             this.MoreUser,
             this.EditUser,
             this.DeleteUser});
-            this.dgvUsers.Location = new System.Drawing.Point(0, 144);
+            this.dgvUsers.Location = new System.Drawing.Point(0, 108);
+            this.dgvUsers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersWidth = 51;
             this.dgvUsers.RowTemplate.Height = 29;
-            this.dgvUsers.Size = new System.Drawing.Size(1294, 427);
+            this.dgvUsers.Size = new System.Drawing.Size(1132, 320);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsers_CellContentClick);
             // 
@@ -153,7 +154,7 @@
             this.MoreUser.MinimumWidth = 6;
             this.MoreUser.Name = "MoreUser";
             this.MoreUser.ReadOnly = true;
-            this.MoreUser.Width = 50;
+            this.MoreUser.Width = 41;
             // 
             // EditUser
             // 
@@ -164,7 +165,7 @@
             this.EditUser.ReadOnly = true;
             this.EditUser.Text = "Edit";
             this.EditUser.UseColumnTextForButtonValue = true;
-            this.EditUser.Width = 41;
+            this.EditUser.Width = 33;
             // 
             // DeleteUser
             // 
@@ -175,13 +176,14 @@
             this.DeleteUser.ReadOnly = true;
             this.DeleteUser.Text = "Delete";
             this.DeleteUser.UseColumnTextForButtonValue = true;
-            this.DeleteUser.Width = 59;
+            this.DeleteUser.Width = 46;
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(12, 75);
+            this.btnShow.Location = new System.Drawing.Point(16, 59);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(150, 60);
+            this.btnShow.Size = new System.Drawing.Size(158, 34);
             this.btnShow.TabIndex = 1;
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -189,9 +191,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1132, 12);
+            this.btnAdd.Location = new System.Drawing.Point(845, 19);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(150, 60);
+            this.btnAdd.Size = new System.Drawing.Size(275, 33);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -199,10 +202,11 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(968, 83);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(845, 57);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(314, 52);
+            this.txtSearch.Size = new System.Drawing.Size(275, 34);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -210,9 +214,9 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSearch.Location = new System.Drawing.Point(644, 86);
+            this.lblSearch.Location = new System.Drawing.Point(419, 41);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(134, 46);
+            this.lblSearch.Size = new System.Drawing.Size(109, 37);
             this.lblSearch.TabIndex = 4;
             this.lblSearch.Text = "Search:";
             // 
@@ -231,12 +235,13 @@
             this.ViewBook,
             this.EditBook,
             this.DeleteBook});
-            this.dgvProjectBook.Location = new System.Drawing.Point(0, 144);
+            this.dgvProjectBook.Location = new System.Drawing.Point(0, 108);
+            this.dgvProjectBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProjectBook.Name = "dgvProjectBook";
             this.dgvProjectBook.ReadOnly = true;
             this.dgvProjectBook.RowHeadersWidth = 51;
             this.dgvProjectBook.RowTemplate.Height = 29;
-            this.dgvProjectBook.Size = new System.Drawing.Size(1294, 427);
+            this.dgvProjectBook.Size = new System.Drawing.Size(1132, 320);
             this.dgvProjectBook.TabIndex = 35;
             this.dgvProjectBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectBook_CellContentClick);
             // 
@@ -279,7 +284,7 @@
             this.ViewBook.MinimumWidth = 6;
             this.ViewBook.Name = "ViewBook";
             this.ViewBook.ReadOnly = true;
-            this.ViewBook.Width = 47;
+            this.ViewBook.Width = 38;
             // 
             // EditBook
             // 
@@ -288,7 +293,7 @@
             this.EditBook.MinimumWidth = 6;
             this.EditBook.Name = "EditBook";
             this.EditBook.ReadOnly = true;
-            this.EditBook.Width = 41;
+            this.EditBook.Width = 33;
             // 
             // DeleteBook
             // 
@@ -297,7 +302,7 @@
             this.DeleteBook.MinimumWidth = 6;
             this.DeleteBook.Name = "DeleteBook";
             this.DeleteBook.ReadOnly = true;
-            this.DeleteBook.Width = 59;
+            this.DeleteBook.Width = 46;
             // 
             // cbSelectTable
             // 
@@ -307,9 +312,10 @@
             "USERS",
             "BOOKS",
             "PAGES"});
-            this.cbSelectTable.Location = new System.Drawing.Point(11, 12);
+            this.cbSelectTable.Location = new System.Drawing.Point(16, 19);
+            this.cbSelectTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSelectTable.Name = "cbSelectTable";
-            this.cbSelectTable.Size = new System.Drawing.Size(151, 39);
+            this.cbSelectTable.Size = new System.Drawing.Size(158, 33);
             this.cbSelectTable.TabIndex = 36;
             this.cbSelectTable.SelectedIndexChanged += new System.EventHandler(this.cbSelectTable_SelectedIndexChanged);
             // 
@@ -330,12 +336,13 @@
             this.ViewPage,
             this.EditPage,
             this.DeletePage});
-            this.dgvProjectPage.Location = new System.Drawing.Point(0, 144);
+            this.dgvProjectPage.Location = new System.Drawing.Point(0, 108);
+            this.dgvProjectPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProjectPage.Name = "dgvProjectPage";
             this.dgvProjectPage.ReadOnly = true;
             this.dgvProjectPage.RowHeadersWidth = 51;
             this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1294, 427);
+            this.dgvProjectPage.Size = new System.Drawing.Size(1132, 320);
             this.dgvProjectPage.TabIndex = 37;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
             // 
@@ -354,7 +361,7 @@
             this.StudentID.MinimumWidth = 6;
             this.StudentID.Name = "StudentID";
             this.StudentID.ReadOnly = true;
-            this.StudentID.Width = 104;
+            this.StudentID.Width = 84;
             // 
             // StudentName
             // 
@@ -363,7 +370,7 @@
             this.StudentName.MinimumWidth = 6;
             this.StudentName.Name = "StudentName";
             this.StudentName.ReadOnly = true;
-            this.StudentName.Width = 129;
+            this.StudentName.Width = 105;
             // 
             // PageName
             // 
@@ -379,7 +386,7 @@
             this.PageCreationDate.MinimumWidth = 6;
             this.PageCreationDate.Name = "PageCreationDate";
             this.PageCreationDate.ReadOnly = true;
-            this.PageCreationDate.Width = 158;
+            this.PageCreationDate.Width = 127;
             // 
             // PageBookName
             // 
@@ -396,7 +403,7 @@
             this.ViewPage.MinimumWidth = 6;
             this.ViewPage.Name = "ViewPage";
             this.ViewPage.ReadOnly = true;
-            this.ViewPage.Width = 47;
+            this.ViewPage.Width = 38;
             // 
             // EditPage
             // 
@@ -405,7 +412,7 @@
             this.EditPage.MinimumWidth = 6;
             this.EditPage.Name = "EditPage";
             this.EditPage.ReadOnly = true;
-            this.EditPage.Width = 41;
+            this.EditPage.Width = 33;
             // 
             // DeletePage
             // 
@@ -414,7 +421,7 @@
             this.DeletePage.MinimumWidth = 6;
             this.DeletePage.Name = "DeletePage";
             this.DeletePage.ReadOnly = true;
-            this.DeletePage.Width = 59;
+            this.DeletePage.Width = 46;
             // 
             // cbRole
             // 
@@ -424,17 +431,19 @@
             "LECTURERS",
             "ADMINS",
             "ALL"});
-            this.cbRole.Location = new System.Drawing.Point(798, 103);
+            this.cbRole.Location = new System.Drawing.Point(528, 52);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(151, 28);
+            this.cbRole.Size = new System.Drawing.Size(133, 23);
             this.cbRole.TabIndex = 39;
             this.cbRole.SelectedIndexChanged += new System.EventHandler(this.cbRole_SelectedIndexChanged);
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1294, 571);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1132, 428);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.dgvProjectPage);
             this.Controls.Add(this.cbSelectTable);
@@ -444,6 +453,8 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.dgvUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();

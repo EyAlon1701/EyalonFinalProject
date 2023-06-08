@@ -31,8 +31,6 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvProjectPage = new System.Windows.Forms.DataGridView();
-            this.btnEditUser = new System.Windows.Forms.Button();
-            this.btnPartner = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,24 +40,27 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnEditUser = new System.Windows.Forms.Button();
+            this.btnPartner = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWelcome.Location = new System.Drawing.Point(12, 9);
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWelcome.Location = new System.Drawing.Point(21, 25);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(197, 54);
+            this.lblWelcome.Size = new System.Drawing.Size(120, 32);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welcome";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(1029, 12);
+            this.btnAdd.Location = new System.Drawing.Point(798, 27);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(185, 55);
+            this.btnAdd.Size = new System.Drawing.Size(253, 34);
             this.btnAdd.TabIndex = 34;
             this.btnAdd.Text = "Add Page";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -82,34 +83,15 @@
             this.View,
             this.Edit,
             this.Delete});
-            this.dgvProjectPage.Location = new System.Drawing.Point(0, 181);
+            this.dgvProjectPage.Location = new System.Drawing.Point(0, 136);
+            this.dgvProjectPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvProjectPage.Name = "dgvProjectPage";
             this.dgvProjectPage.ReadOnly = true;
             this.dgvProjectPage.RowHeadersWidth = 51;
             this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1226, 473);
+            this.dgvProjectPage.Size = new System.Drawing.Size(1073, 355);
             this.dgvProjectPage.TabIndex = 35;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
-            // 
-            // btnEditUser
-            // 
-            this.btnEditUser.Location = new System.Drawing.Point(838, 12);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(185, 55);
-            this.btnEditUser.TabIndex = 37;
-            this.btnEditUser.Text = "Edit User";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
-            // 
-            // btnPartner
-            // 
-            this.btnPartner.Location = new System.Drawing.Point(12, 120);
-            this.btnPartner.Name = "btnPartner";
-            this.btnPartner.Size = new System.Drawing.Size(185, 55);
-            this.btnPartner.TabIndex = 38;
-            this.btnPartner.Text = "Partner Requests";
-            this.btnPartner.UseVisualStyleBackColor = true;
-            this.btnPartner.Click += new System.EventHandler(this.btnPartner_Click);
             // 
             // ID
             // 
@@ -119,7 +101,7 @@
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
-            this.ID.Width = 53;
+            this.ID.Width = 43;
             // 
             // PageName
             // 
@@ -136,7 +118,7 @@
             this.PageCreationDate.MinimumWidth = 6;
             this.PageCreationDate.Name = "PageCreationDate";
             this.PageCreationDate.ReadOnly = true;
-            this.PageCreationDate.Width = 158;
+            this.PageCreationDate.Width = 127;
             // 
             // PageData
             // 
@@ -167,7 +149,7 @@
             this.View.MinimumWidth = 6;
             this.View.Name = "View";
             this.View.ReadOnly = true;
-            this.View.Width = 47;
+            this.View.Width = 38;
             // 
             // Edit
             // 
@@ -176,7 +158,7 @@
             this.Edit.MinimumWidth = 6;
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
-            this.Edit.Width = 41;
+            this.Edit.Width = 33;
             // 
             // Delete
             // 
@@ -185,18 +167,43 @@
             this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
-            this.Delete.Width = 59;
+            this.Delete.Width = 46;
+            // 
+            // btnEditUser
+            // 
+            this.btnEditUser.Location = new System.Drawing.Point(798, 69);
+            this.btnEditUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(253, 36);
+            this.btnEditUser.TabIndex = 37;
+            this.btnEditUser.Text = "Edit User";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            // 
+            // btnPartner
+            // 
+            this.btnPartner.Location = new System.Drawing.Point(16, 71);
+            this.btnPartner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPartner.Name = "btnPartner";
+            this.btnPartner.Size = new System.Drawing.Size(253, 40);
+            this.btnPartner.TabIndex = 38;
+            this.btnPartner.Text = "Partner Requests";
+            this.btnPartner.UseVisualStyleBackColor = true;
+            this.btnPartner.Click += new System.EventHandler(this.btnPartner_Click);
             // 
             // StudentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 654);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1073, 490);
             this.Controls.Add(this.btnPartner);
             this.Controls.Add(this.btnEditUser);
             this.Controls.Add(this.dgvProjectPage);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblWelcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StudentForm";
             this.Text = "StudentForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).EndInit();
