@@ -205,6 +205,7 @@
             this.Controls.Add(this.dgvStudents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "PartnerForm";
             this.Text = "PartnerForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
