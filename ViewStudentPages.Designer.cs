@@ -52,11 +52,12 @@
             this.View});
             this.dgvStuPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStuPages.Location = new System.Drawing.Point(0, 0);
+            this.dgvStuPages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvStuPages.Name = "dgvStuPages";
             this.dgvStuPages.ReadOnly = true;
             this.dgvStuPages.RowHeadersWidth = 51;
             this.dgvStuPages.RowTemplate.Height = 29;
-            this.dgvStuPages.Size = new System.Drawing.Size(832, 433);
+            this.dgvStuPages.Size = new System.Drawing.Size(728, 325);
             this.dgvStuPages.TabIndex = 0;
             this.dgvStuPages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStuPages_CellContentClick);
             // 
@@ -67,7 +68,7 @@
             this.PageID.MinimumWidth = 6;
             this.PageID.Name = "PageID";
             this.PageID.ReadOnly = true;
-            this.PageID.Width = 85;
+            this.PageID.Width = 69;
             // 
             // PageName
             // 
@@ -97,14 +98,16 @@
             this.View.MinimumWidth = 6;
             this.View.Name = "View";
             this.View.ReadOnly = true;
-            this.View.Width = 47;
+            this.View.Width = 38;
             // 
             // ViewStudentPages
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 433);
+            this.ClientSize = new System.Drawing.Size(728, 325);
             this.Controls.Add(this.dgvStuPages);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ViewStudentPages";
             this.Text = "ViewStudentPages";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStuPages)).EndInit();

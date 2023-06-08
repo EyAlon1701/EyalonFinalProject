@@ -57,12 +57,13 @@
             this.StudentID,
             this.StudentName,
             this.Add});
-            this.dgvStudents.Location = new System.Drawing.Point(0, 151);
+            this.dgvStudents.Location = new System.Drawing.Point(0, 113);
+            this.dgvStudents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 29;
-            this.dgvStudents.Size = new System.Drawing.Size(698, 310);
+            this.dgvStudents.Size = new System.Drawing.Size(611, 232);
             this.dgvStudents.TabIndex = 1;
             this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
             // 
@@ -73,7 +74,7 @@
             this.StudentID.MinimumWidth = 6;
             this.StudentID.Name = "StudentID";
             this.StudentID.ReadOnly = true;
-            this.StudentID.Width = 104;
+            this.StudentID.Width = 84;
             // 
             // StudentName
             // 
@@ -89,7 +90,7 @@
             this.Add.MinimumWidth = 6;
             this.Add.Name = "Add";
             this.Add.ReadOnly = true;
-            this.Add.Width = 43;
+            this.Add.Width = 35;
             // 
             // dgvFriendRequestProjectPage
             // 
@@ -106,12 +107,13 @@
             this.BookName,
             this.Approve,
             this.Reject});
-            this.dgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 151);
+            this.dgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 113);
+            this.dgvFriendRequestProjectPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvFriendRequestProjectPage.Name = "dgvFriendRequestProjectPage";
             this.dgvFriendRequestProjectPage.ReadOnly = true;
             this.dgvFriendRequestProjectPage.RowHeadersWidth = 51;
             this.dgvFriendRequestProjectPage.RowTemplate.Height = 29;
-            this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 310);
+            this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(611, 232);
             this.dgvFriendRequestProjectPage.TabIndex = 2;
             this.dgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFriendRequestProjectPage_CellContentClick);
             // 
@@ -122,7 +124,7 @@
             this.PageStudentID.MinimumWidth = 6;
             this.PageStudentID.Name = "PageStudentID";
             this.PageStudentID.ReadOnly = true;
-            this.PageStudentID.Width = 104;
+            this.PageStudentID.Width = 84;
             // 
             // PageStudentName
             // 
@@ -138,7 +140,7 @@
             this.PageID.MinimumWidth = 6;
             this.PageID.Name = "PageID";
             this.PageID.ReadOnly = true;
-            this.PageID.Width = 85;
+            this.PageID.Width = 69;
             // 
             // PageName
             // 
@@ -161,7 +163,7 @@
             this.Approve.MinimumWidth = 6;
             this.Approve.Name = "Approve";
             this.Approve.ReadOnly = true;
-            this.Approve.Width = 72;
+            this.Approve.Width = 58;
             // 
             // Reject
             // 
@@ -170,22 +172,23 @@
             this.Reject.MinimumWidth = 6;
             this.Reject.Name = "Reject";
             this.Reject.ReadOnly = true;
-            this.Reject.Width = 56;
+            this.Reject.Width = 45;
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Location = new System.Drawing.Point(10, 7);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(0, 46);
+            this.lblTitle.Size = new System.Drawing.Size(0, 37);
             this.lblTitle.TabIndex = 34;
             // 
             // btnDelRequest
             // 
-            this.btnDelRequest.Location = new System.Drawing.Point(263, 107);
+            this.btnDelRequest.Location = new System.Drawing.Point(230, 80);
+            this.btnDelRequest.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelRequest.Name = "btnDelRequest";
-            this.btnDelRequest.Size = new System.Drawing.Size(161, 38);
+            this.btnDelRequest.Size = new System.Drawing.Size(141, 28);
             this.btnDelRequest.TabIndex = 39;
             this.btnDelRequest.Text = "Delete Request";
             this.btnDelRequest.UseVisualStyleBackColor = true;
@@ -193,13 +196,15 @@
             // 
             // PartnerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 461);
+            this.ClientSize = new System.Drawing.Size(611, 346);
             this.Controls.Add(this.btnDelRequest);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvFriendRequestProjectPage);
             this.Controls.Add(this.dgvStudents);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PartnerForm";
             this.Text = "PartnerForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();

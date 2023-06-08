@@ -110,5 +110,9 @@ namespace EyalonFinalProject
             pictureBox.Visible = false;
         }
 
+        private void HomeForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
