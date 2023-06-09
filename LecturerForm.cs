@@ -35,12 +35,12 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View","Edit", "Delete");
+                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View", "Edit", "Delete");
                 }
             }
         }
 
- 
+
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
@@ -48,7 +48,7 @@ namespace EyalonFinalProject
                 return;
             }
             DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
-            if(dgvProjectBook.Columns[e.ColumnIndex].Name == "View")
+            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "View")
             {
                 ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), false);
                 viewPageForm.ShowDialog();
@@ -67,7 +67,7 @@ namespace EyalonFinalProject
             }
             updateProjectBookDataGridView(dbc.getAllProjectBook());
         }
-        
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             BookForm bookForm = new BookForm();

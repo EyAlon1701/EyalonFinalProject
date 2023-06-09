@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\E.Levi12\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\E.Levi12\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\eladl\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\eladl\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

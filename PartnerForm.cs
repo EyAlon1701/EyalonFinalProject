@@ -28,7 +28,7 @@ namespace EyalonFinalProject
             btnDelRequest.Visible = false;
             updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
         }
-        public PartnerForm(string userID,int pageID)
+        public PartnerForm(string userID, int pageID)
         {
             InitializeComponent();
             this.userID = userID;
@@ -87,7 +87,7 @@ namespace EyalonFinalProject
                 {
                     DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     DataRow page = dbc.getProjectPageAndProjectBookIDByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
-                    dgvFriendRequestProjectPage.Rows.Add(stu.Rows[0]["UserID"].ToString(), stu.Rows[0]["FirstName"].ToString() + " " + stu.Rows[0]["LastName"].ToString(),page["ProjectPageID"],page["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(page["ProjectBookID"].ToString())), "Approve", "Reject");
+                    dgvFriendRequestProjectPage.Rows.Add(stu.Rows[0]["UserID"].ToString(), stu.Rows[0]["FirstName"].ToString() + " " + stu.Rows[0]["LastName"].ToString(), page["ProjectPageID"], page["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(page["ProjectBookID"].ToString())), "Approve", "Reject");
                 }
             }
             dgvFriendRequestProjectPage.Columns["Approve"].DefaultCellStyle.BackColor = Color.Green;
@@ -128,7 +128,7 @@ namespace EyalonFinalProject
                     bool flag = false;
                     if (dbc.isProjectPageLinkToBook(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))
                     {
-                        if(MessageBox.Show("Are you sure you approve the friend request?\n(Your page linked to that book will be deleted (including the partner request if you have)!!!", "System message",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
+                        if (MessageBox.Show("Are you sure you approve the friend request?\n(Your page linked to that book will be deleted (including the partner request if you have)!!!", "System message", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                         {
                             dbc.deleteProjectPageByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString()))));
                         }
@@ -142,7 +142,7 @@ namespace EyalonFinalProject
                         dbc.addStudentProjectPage(userID, int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
                         dbc.deleteProjectPageFriendRequest(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
                     }
-                
+
                 }
             }
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Reject")
@@ -158,7 +158,7 @@ namespace EyalonFinalProject
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            if(dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 if (MessageBox.Show("Are you sure you want to delete this invite?", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -176,6 +176,9 @@ namespace EyalonFinalProject
             }
         }
 
+        private void PartnerForm_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
