@@ -204,6 +204,7 @@
             this.Controls.Add(this.lblWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "StudentForm";
             this.Text = "StudentForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).EndInit();

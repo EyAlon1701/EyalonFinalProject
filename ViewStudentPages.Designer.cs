@@ -108,6 +108,7 @@
             this.Controls.Add(this.dgvStuPages);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "ViewStudentPages";
             this.Text = "ViewStudentPages";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStuPages)).EndInit();
