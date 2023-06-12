@@ -14,7 +14,7 @@ namespace EyalonFinalProject
     public partial class StudentForm : Form
     {
         DBConnection dbc = new DBConnection();
-        string userID="";
+        string userID = "";
         public StudentForm()
         {
             InitializeComponent();
@@ -47,7 +47,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())),dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()),userID), "View" ,"Edit", "Delete");
+                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dt.Rows[row]["ProjectPageData"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()), userID), "View", "Edit", "Delete");
 
                     //UPDATE COLUMN PARTNER NAME STATUS(VALUE AND COLOR)
                     if (dbc.isProjectPageHaveRejectFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
@@ -55,7 +55,7 @@ namespace EyalonFinalProject
                         dgvProjectPage.Rows[row].Cells["PartnerDetails"].Value = "PARTNER REJECT THE INVITE";
                         dgvProjectPage.Rows[row].Cells["PartnerDetails"].Style.BackColor = Color.Red;
                     }
-                    else if(dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
+                    else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())))
                     {
                         dgvProjectPage.Rows[row].Cells["PartnerDetails"].Value = "WAITING FOR PARTNER APPROVE!";
                         dgvProjectPage.Rows[row].Cells["PartnerDetails"].Style.BackColor = Color.Yellow;
