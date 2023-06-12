@@ -42,9 +42,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(499, 26);
+            this.btnAdd.Location = new System.Drawing.Point(499, 21);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(289, 45);
+            this.btnAdd.Size = new System.Drawing.Size(289, 50);
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;

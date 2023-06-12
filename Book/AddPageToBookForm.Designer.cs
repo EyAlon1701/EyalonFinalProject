@@ -93,9 +93,9 @@
             // 
             // btnAddSelectedRows
             // 
-            this.btnAddSelectedRows.Location = new System.Drawing.Point(507, 26);
+            this.btnAddSelectedRows.Location = new System.Drawing.Point(507, 21);
             this.btnAddSelectedRows.Name = "btnAddSelectedRows";
-            this.btnAddSelectedRows.Size = new System.Drawing.Size(289, 45);
+            this.btnAddSelectedRows.Size = new System.Drawing.Size(289, 50);
             this.btnAddSelectedRows.TabIndex = 34;
             this.btnAddSelectedRows.Text = "Add Selected Rows";
             this.btnAddSelectedRows.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.Location = new System.Drawing.Point(14, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(342, 50);
+            this.lblTitle.Size = new System.Drawing.Size(358, 50);
             this.lblTitle.TabIndex = 35;
-            this.lblTitle.Text = "Add Page To Book";
+            this.lblTitle.Text = "Add Pages To Book";
             // 
             // AddPageToBookForm
             // 

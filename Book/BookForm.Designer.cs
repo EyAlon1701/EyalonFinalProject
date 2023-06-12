@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblLastName = new System.Windows.Forms.Label();
+            this.lblOpenPage = new System.Windows.Forms.Label();
             this.txtBookYear = new System.Windows.Forms.TextBox();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.lblID = new System.Windows.Forms.Label();
+            this.lblBookYear = new System.Windows.Forms.Label();
+            this.lblBookName = new System.Windows.Forms.Label();
             this.txtBookName = new System.Windows.Forms.TextBox();
             this.btnSumbit = new System.Windows.Forms.Button();
             this.btnPages = new System.Windows.Forms.Button();
@@ -54,14 +54,14 @@
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Project Book";
             // 
-            // lblLastName
+            // lblOpenPage
             // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(14, 162);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(126, 20);
-            this.lblLastName.TabIndex = 29;
-            this.lblLastName.Text = "Book Open Page: ";
+            this.lblOpenPage.AutoSize = true;
+            this.lblOpenPage.Location = new System.Drawing.Point(14, 162);
+            this.lblOpenPage.Name = "lblOpenPage";
+            this.lblOpenPage.Size = new System.Drawing.Size(126, 20);
+            this.lblOpenPage.TabIndex = 29;
+            this.lblOpenPage.Text = "Book Open Page: ";
             // 
             // txtBookYear
             // 
@@ -70,23 +70,23 @@
             this.txtBookYear.Size = new System.Drawing.Size(192, 27);
             this.txtBookYear.TabIndex = 26;
             // 
-            // lblFirstName
+            // lblBookYear
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(14, 127);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(78, 20);
-            this.lblFirstName.TabIndex = 27;
-            this.lblFirstName.Text = "Book Year:";
+            this.lblBookYear.AutoSize = true;
+            this.lblBookYear.Location = new System.Drawing.Point(14, 127);
+            this.lblBookYear.Name = "lblBookYear";
+            this.lblBookYear.Size = new System.Drawing.Size(78, 20);
+            this.lblBookYear.TabIndex = 27;
+            this.lblBookYear.Text = "Book Year:";
             // 
-            // lblID
+            // lblBookName
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(14, 92);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(90, 20);
-            this.lblID.TabIndex = 24;
-            this.lblID.Text = "Book Name:";
+            this.lblBookName.AutoSize = true;
+            this.lblBookName.Location = new System.Drawing.Point(14, 92);
+            this.lblBookName.Name = "lblBookName";
+            this.lblBookName.Size = new System.Drawing.Size(90, 20);
+            this.lblBookName.TabIndex = 24;
+            this.lblBookName.Text = "Book Name:";
             // 
             // txtBookName
             // 
@@ -149,10 +149,10 @@
             this.Controls.Add(this.rtbOpenPage);
             this.Controls.Add(this.btnPages);
             this.Controls.Add(this.btnSumbit);
-            this.Controls.Add(this.lblLastName);
+            this.Controls.Add(this.lblOpenPage);
             this.Controls.Add(this.txtBookYear);
-            this.Controls.Add(this.lblFirstName);
-            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.lblBookYear);
+            this.Controls.Add(this.lblBookName);
             this.Controls.Add(this.txtBookName);
             this.Controls.Add(this.lblTitle);
             this.Name = "BookForm";
@@ -165,10 +165,10 @@
 
         #endregion
         private Label lblTitle;
-        private Label lblLastName;
+        private Label lblOpenPage;
         private TextBox txtBookYear;
-        private Label lblFirstName;
-        private Label lblID;
+        private Label lblBookYear;
+        private Label lblBookName;
         private TextBox txtBookName;
         private Button btnSumbit;
         private Button btnPages;
