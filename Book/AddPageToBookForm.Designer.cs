@@ -34,6 +34,7 @@
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAddSelectedRows = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsPages)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,12 +50,12 @@
             this.FirstName,
             this.LastName,
             this.Add});
-            this.dgvStudentsPages.Location = new System.Drawing.Point(0, 65);
+            this.dgvStudentsPages.Location = new System.Drawing.Point(0, 85);
             this.dgvStudentsPages.Name = "dgvStudentsPages";
             this.dgvStudentsPages.ReadOnly = true;
             this.dgvStudentsPages.RowHeadersWidth = 51;
             this.dgvStudentsPages.RowTemplate.Height = 29;
-            this.dgvStudentsPages.Size = new System.Drawing.Size(808, 402);
+            this.dgvStudentsPages.Size = new System.Drawing.Size(808, 411);
             this.dgvStudentsPages.TabIndex = 1;
             this.dgvStudentsPages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudentsPages_CellContentClick);
             // 
@@ -92,25 +93,37 @@
             // 
             // btnAddSelectedRows
             // 
-            this.btnAddSelectedRows.Location = new System.Drawing.Point(611, 4);
+            this.btnAddSelectedRows.Location = new System.Drawing.Point(507, 26);
             this.btnAddSelectedRows.Name = "btnAddSelectedRows";
-            this.btnAddSelectedRows.Size = new System.Drawing.Size(185, 55);
+            this.btnAddSelectedRows.Size = new System.Drawing.Size(289, 45);
             this.btnAddSelectedRows.TabIndex = 34;
             this.btnAddSelectedRows.Text = "Add Selected Rows";
             this.btnAddSelectedRows.UseVisualStyleBackColor = true;
             this.btnAddSelectedRows.Click += new System.EventHandler(this.btnAddSelectedRows_Click);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(14, 21);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(342, 50);
+            this.lblTitle.TabIndex = 35;
+            this.lblTitle.Text = "Add Page To Book";
+            // 
             // AddPageToBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 467);
+            this.ClientSize = new System.Drawing.Size(808, 496);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnAddSelectedRows);
             this.Controls.Add(this.dgvStudentsPages);
             this.Name = "AddPageToBookForm";
             this.Text = "AddPageToBookForm";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudentsPages)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,5 +135,6 @@
         private DataGridViewTextBoxColumn LastName;
         private DataGridViewButtonColumn Add;
         private Button btnAddSelectedRows;
+        private Label lblTitle;
     }
 }

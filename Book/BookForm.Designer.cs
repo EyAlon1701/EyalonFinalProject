@@ -47,17 +47,17 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(14, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(263, 54);
+            this.lblTitle.Size = new System.Drawing.Size(247, 50);
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Project Book";
             // 
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(12, 150);
+            this.lblLastName.Location = new System.Drawing.Point(14, 162);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(126, 20);
             this.lblLastName.TabIndex = 29;
@@ -65,15 +65,15 @@
             // 
             // txtBookYear
             // 
-            this.txtBookYear.Location = new System.Drawing.Point(158, 112);
+            this.txtBookYear.Location = new System.Drawing.Point(158, 124);
             this.txtBookYear.Name = "txtBookYear";
-            this.txtBookYear.Size = new System.Drawing.Size(125, 27);
+            this.txtBookYear.Size = new System.Drawing.Size(192, 27);
             this.txtBookYear.TabIndex = 26;
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(12, 115);
+            this.lblFirstName.Location = new System.Drawing.Point(14, 127);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(78, 20);
             this.lblFirstName.TabIndex = 27;
@@ -82,7 +82,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 80);
+            this.lblID.Location = new System.Drawing.Point(14, 92);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(90, 20);
             this.lblID.TabIndex = 24;
@@ -90,16 +90,16 @@
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(158, 77);
+            this.txtBookName.Location = new System.Drawing.Point(158, 89);
             this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(125, 27);
+            this.txtBookName.Size = new System.Drawing.Size(622, 27);
             this.txtBookName.TabIndex = 25;
             // 
             // btnSumbit
             // 
-            this.btnSumbit.Location = new System.Drawing.Point(603, 12);
+            this.btnSumbit.Location = new System.Drawing.Point(595, 26);
             this.btnSumbit.Name = "btnSumbit";
-            this.btnSumbit.Size = new System.Drawing.Size(185, 55);
+            this.btnSumbit.Size = new System.Drawing.Size(185, 45);
             this.btnSumbit.TabIndex = 32;
             this.btnSumbit.Text = "Add";
             this.btnSumbit.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@
             // 
             // btnPages
             // 
-            this.btnPages.Location = new System.Drawing.Point(412, 12);
+            this.btnPages.Location = new System.Drawing.Point(404, 26);
             this.btnPages.Name = "btnPages";
-            this.btnPages.Size = new System.Drawing.Size(185, 55);
+            this.btnPages.Size = new System.Drawing.Size(185, 45);
             this.btnPages.TabIndex = 33;
             this.btnPages.Text = "Pages";
             this.btnPages.UseVisualStyleBackColor = true;
@@ -118,10 +118,10 @@
             // rtbOpenPage
             // 
             this.rtbOpenPage.ContextMenuStrip = this.contextMenuStrip1;
-            this.rtbOpenPage.Location = new System.Drawing.Point(158, 146);
+            this.rtbOpenPage.Location = new System.Drawing.Point(158, 158);
             this.rtbOpenPage.Name = "rtbOpenPage";
-            this.rtbOpenPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rtbOpenPage.Size = new System.Drawing.Size(630, 462);
+            this.rtbOpenPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rtbOpenPage.Size = new System.Drawing.Size(622, 472);
             this.rtbOpenPage.TabIndex = 34;
             this.rtbOpenPage.Text = "";
             // 
@@ -131,13 +131,13 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fontToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(157, 28);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(156, 24);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -145,7 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 620);
+            this.ClientSize = new System.Drawing.Size(804, 642);
             this.Controls.Add(this.rtbOpenPage);
             this.Controls.Add(this.btnPages);
             this.Controls.Add(this.btnSumbit);

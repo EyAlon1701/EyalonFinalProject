@@ -110,9 +110,9 @@
             this.pnlLogin.Controls.Add(this.btnLogin);
             this.pnlLogin.Controls.Add(this.txtLoginID);
             this.pnlLogin.Controls.Add(this.lblLoginPassword);
-            this.pnlLogin.Location = new System.Drawing.Point(46, 48);
+            this.pnlLogin.Location = new System.Drawing.Point(45, 26);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(261, 259);
+            this.pnlLogin.Size = new System.Drawing.Size(260, 370);
             this.pnlLogin.TabIndex = 5;
             // 
             // lblLogin
@@ -154,9 +154,9 @@
             this.pnlReg.Controls.Add(this.lblRegID);
             this.pnlReg.Controls.Add(this.txtRegID);
             this.pnlReg.Controls.Add(this.lblRegPassword);
-            this.pnlReg.Location = new System.Drawing.Point(46, 48);
+            this.pnlReg.Location = new System.Drawing.Point(45, 26);
             this.pnlReg.Name = "pnlReg";
-            this.pnlReg.Size = new System.Drawing.Size(261, 371);
+            this.pnlReg.Size = new System.Drawing.Size(260, 370);
             this.pnlReg.TabIndex = 6;
             // 
             // pictureBox
@@ -303,7 +303,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 467);
+            this.ClientSize = new System.Drawing.Size(354, 421);
             this.Controls.Add(this.pnlReg);
             this.Controls.Add(this.pnlLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

@@ -42,9 +42,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(603, 12);
+            this.btnAdd.Location = new System.Drawing.Point(499, 26);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(185, 55);
+            this.btnAdd.Size = new System.Drawing.Size(289, 45);
             this.btnAdd.TabIndex = 33;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -53,10 +53,10 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(14, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(286, 54);
+            this.lblTitle.Size = new System.Drawing.Size(266, 50);
             this.lblTitle.TabIndex = 34;
             this.lblTitle.Text = "Pages in book";
             // 
@@ -74,12 +74,12 @@
             this.PageName,
             this.View,
             this.Delete});
-            this.dgvPagesInBook.Location = new System.Drawing.Point(0, 130);
+            this.dgvPagesInBook.Location = new System.Drawing.Point(0, 85);
             this.dgvPagesInBook.Name = "dgvPagesInBook";
             this.dgvPagesInBook.ReadOnly = true;
             this.dgvPagesInBook.RowHeadersWidth = 51;
             this.dgvPagesInBook.RowTemplate.Height = 29;
-            this.dgvPagesInBook.Size = new System.Drawing.Size(800, 355);
+            this.dgvPagesInBook.Size = new System.Drawing.Size(800, 401);
             this.dgvPagesInBook.TabIndex = 35;
             this.dgvPagesInBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagesInBook_CellContentClick);
             // 

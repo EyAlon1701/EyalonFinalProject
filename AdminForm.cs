@@ -206,11 +206,6 @@ namespace EyalonFinalProject
             }
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
-        {
-            updateUserDataGridView(dbc.getAllUsers());
-        }
-
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbRole.SelectedIndex == int.Parse(Program.studentRole))

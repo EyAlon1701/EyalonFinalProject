@@ -57,7 +57,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(994, 12);
+            this.btnAdd.Location = new System.Drawing.Point(994, 27);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(289, 45);
             this.btnAdd.TabIndex = 34;
@@ -82,12 +82,12 @@
             this.View,
             this.Edit,
             this.Delete});
-            this.dgvProjectPage.Location = new System.Drawing.Point(0, 181);
+            this.dgvProjectPage.Location = new System.Drawing.Point(0, 161);
             this.dgvProjectPage.Name = "dgvProjectPage";
             this.dgvProjectPage.ReadOnly = true;
             this.dgvProjectPage.RowHeadersWidth = 51;
             this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1295, 392);
+            this.dgvProjectPage.Size = new System.Drawing.Size(1295, 410);
             this.dgvProjectPage.TabIndex = 35;
             this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
             // 
@@ -169,7 +169,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(994, 63);
+            this.btnEditUser.Location = new System.Drawing.Point(994, 78);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(289, 45);
             this.btnEditUser.TabIndex = 37;
@@ -179,7 +179,7 @@
             // 
             // btnPartner
             // 
-            this.btnPartner.Location = new System.Drawing.Point(24, 121);
+            this.btnPartner.Location = new System.Drawing.Point(24, 110);
             this.btnPartner.Name = "btnPartner";
             this.btnPartner.Size = new System.Drawing.Size(289, 45);
             this.btnPartner.TabIndex = 38;

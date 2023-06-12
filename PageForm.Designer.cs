@@ -41,9 +41,9 @@
             // 
             // btnSumbit
             // 
-            this.btnSumbit.Location = new System.Drawing.Point(610, 21);
+            this.btnSumbit.Location = new System.Drawing.Point(595, 26);
             this.btnSumbit.Name = "btnSumbit";
-            this.btnSumbit.Size = new System.Drawing.Size(170, 45);
+            this.btnSumbit.Size = new System.Drawing.Size(185, 45);
             this.btnSumbit.TabIndex = 40;
             this.btnSumbit.Text = "Add";
             this.btnSumbit.UseVisualStyleBackColor = true;
@@ -69,10 +69,10 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.Location = new System.Drawing.Point(14, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(189, 40);
+            this.lblTitle.Size = new System.Drawing.Size(241, 50);
             this.lblTitle.TabIndex = 33;
             this.lblTitle.Text = "Project Page";
             // 
@@ -89,7 +89,7 @@
             // 
             this.lblBookName.AutoSize = true;
             this.lblBookName.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBookName.Location = new System.Drawing.Point(14, 75);
+            this.lblBookName.Location = new System.Drawing.Point(14, 77);
             this.lblBookName.Name = "lblBookName";
             this.lblBookName.Size = new System.Drawing.Size(153, 32);
             this.lblBookName.TabIndex = 41;
@@ -101,7 +101,7 @@
             this.rtfPageData.Location = new System.Drawing.Point(117, 213);
             this.rtfPageData.Name = "rtfPageData";
             this.rtfPageData.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rtfPageData.Size = new System.Drawing.Size(663, 177);
+            this.rtfPageData.Size = new System.Drawing.Size(663, 197);
             this.rtfPageData.TabIndex = 42;
             this.rtfPageData.Text = "";
             // 
@@ -117,9 +117,9 @@
             // 
             // btnPartner
             // 
-            this.btnPartner.Location = new System.Drawing.Point(434, 21);
+            this.btnPartner.Location = new System.Drawing.Point(404, 26);
             this.btnPartner.Name = "btnPartner";
-            this.btnPartner.Size = new System.Drawing.Size(170, 45);
+            this.btnPartner.Size = new System.Drawing.Size(185, 45);
             this.btnPartner.TabIndex = 44;
             this.btnPartner.Text = "Partner";
             this.btnPartner.UseVisualStyleBackColor = true;

@@ -16,6 +16,8 @@ namespace EyalonFinalProject
         public ViewStudentPages(string userID)
         {
             InitializeComponent();
+            DataRow user = dbc.getUserByID(userID);
+            this.Text = "Pages of " + user["UserID"] + " - " + user["FirstName"] + " " + user["LastName"];
             DataTable dt = dbc.getProjectPageAndProjectBookIDByStudentID(userID);
             if (dt != null)
             {

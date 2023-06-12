@@ -28,171 +28,173 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblWelcome = new Label();
-            btnAdd = new Button();
-            dgvProjectBook = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            BookName = new DataGridViewTextBoxColumn();
-            BookYear = new DataGridViewTextBoxColumn();
-            BookOpenPage = new DataGridViewTextBoxColumn();
-            View = new DataGridViewButtonColumn();
-            Edit = new DataGridViewButtonColumn();
-            Delete = new DataGridViewButtonColumn();
-            lblSearch = new Label();
-            txtSearch = new TextBox();
-            btnEditUser = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvProjectBook).BeginInit();
-            SuspendLayout();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.dgvProjectBook = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookOpenPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnEditUser = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).BeginInit();
+            this.SuspendLayout();
             // 
             // lblWelcome
             // 
-            lblWelcome.AutoSize = true;
-            lblWelcome.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblWelcome.Location = new Point(12, 15);
-            lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(119, 32);
-            lblWelcome.TabIndex = 1;
-            lblWelcome.Text = "Welcome";
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblWelcome.Location = new System.Drawing.Point(24, 33);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(147, 41);
+            this.lblWelcome.TabIndex = 1;
+            this.lblWelcome.Text = "Welcome";
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(936, 59);
-            btnAdd.Margin = new Padding(3, 2, 3, 2);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(181, 33);
-            btnAdd.TabIndex = 33;
-            btnAdd.Text = "Add Book";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
+            this.btnAdd.Location = new System.Drawing.Point(994, 27);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(289, 45);
+            this.btnAdd.TabIndex = 33;
+            this.btnAdd.Text = "Add Book";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvProjectBook
             // 
-            dgvProjectBook.AllowUserToAddRows = false;
-            dgvProjectBook.AllowUserToDeleteRows = false;
-            dgvProjectBook.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProjectBook.BackgroundColor = SystemColors.ActiveCaption;
-            dgvProjectBook.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProjectBook.Columns.AddRange(new DataGridViewColumn[] { ID, BookName, BookYear, BookOpenPage, View, Edit, Delete });
-            dgvProjectBook.Location = new Point(0, 106);
-            dgvProjectBook.Margin = new Padding(3, 2, 3, 2);
-            dgvProjectBook.Name = "dgvProjectBook";
-            dgvProjectBook.ReadOnly = true;
-            dgvProjectBook.RowHeadersWidth = 51;
-            dgvProjectBook.RowTemplate.Height = 29;
-            dgvProjectBook.Size = new Size(1137, 324);
-            dgvProjectBook.TabIndex = 34;
-            dgvProjectBook.CellContentClick += dgvProjectBook_CellContentClick;
+            this.dgvProjectBook.AllowUserToAddRows = false;
+            this.dgvProjectBook.AllowUserToDeleteRows = false;
+            this.dgvProjectBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProjectBook.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvProjectBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProjectBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.BookName,
+            this.BookYear,
+            this.BookOpenPage,
+            this.View,
+            this.Edit,
+            this.Delete});
+            this.dgvProjectBook.Location = new System.Drawing.Point(0, 161);
+            this.dgvProjectBook.Name = "dgvProjectBook";
+            this.dgvProjectBook.ReadOnly = true;
+            this.dgvProjectBook.RowHeadersWidth = 51;
+            this.dgvProjectBook.RowTemplate.Height = 29;
+            this.dgvProjectBook.Size = new System.Drawing.Size(1295, 410);
+            this.dgvProjectBook.TabIndex = 34;
+            this.dgvProjectBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectBook_CellContentClick);
             // 
             // ID
             // 
-            ID.FillWeight = 25.71429F;
-            ID.HeaderText = "ID";
-            ID.MinimumWidth = 6;
-            ID.Name = "ID";
-            ID.ReadOnly = true;
+            this.ID.FillWeight = 25.71429F;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // BookName
             // 
-            BookName.FillWeight = 72.12859F;
-            BookName.HeaderText = "BookName";
-            BookName.MinimumWidth = 6;
-            BookName.Name = "BookName";
-            BookName.ReadOnly = true;
+            this.BookName.FillWeight = 72.12859F;
+            this.BookName.HeaderText = "BookName";
+            this.BookName.MinimumWidth = 6;
+            this.BookName.Name = "BookName";
+            this.BookName.ReadOnly = true;
             // 
             // BookYear
             // 
-            BookYear.FillWeight = 26.03723F;
-            BookYear.HeaderText = "BookYear";
-            BookYear.MinimumWidth = 6;
-            BookYear.Name = "BookYear";
-            BookYear.ReadOnly = true;
+            this.BookYear.FillWeight = 26.03723F;
+            this.BookYear.HeaderText = "BookYear";
+            this.BookYear.MinimumWidth = 6;
+            this.BookYear.Name = "BookYear";
+            this.BookYear.ReadOnly = true;
             // 
             // BookOpenPage
             // 
-            BookOpenPage.FillWeight = 94.33855F;
-            BookOpenPage.HeaderText = "OpenPage";
-            BookOpenPage.MinimumWidth = 6;
-            BookOpenPage.Name = "BookOpenPage";
-            BookOpenPage.ReadOnly = true;
+            this.BookOpenPage.FillWeight = 94.33855F;
+            this.BookOpenPage.HeaderText = "OpenPage";
+            this.BookOpenPage.MinimumWidth = 6;
+            this.BookOpenPage.Name = "BookOpenPage";
+            this.BookOpenPage.ReadOnly = true;
             // 
             // View
             // 
-            View.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            View.HeaderText = "View";
-            View.MinimumWidth = 6;
-            View.Name = "View";
-            View.ReadOnly = true;
-            View.Width = 38;
+            this.View.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.View.HeaderText = "View";
+            this.View.MinimumWidth = 6;
+            this.View.Name = "View";
+            this.View.ReadOnly = true;
+            this.View.Width = 47;
             // 
             // Edit
             // 
-            Edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            Edit.HeaderText = "Edit";
-            Edit.MinimumWidth = 6;
-            Edit.Name = "Edit";
-            Edit.ReadOnly = true;
-            Edit.Width = 33;
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Edit.HeaderText = "Edit";
+            this.Edit.MinimumWidth = 6;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Width = 41;
             // 
             // Delete
             // 
-            Delete.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            Delete.HeaderText = "Delete";
-            Delete.MinimumWidth = 6;
-            Delete.Name = "Delete";
-            Delete.ReadOnly = true;
-            Delete.Width = 46;
+            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Delete.HeaderText = "Delete";
+            this.Delete.MinimumWidth = 6;
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.Width = 59;
             // 
             // lblSearch
             // 
-            lblSearch.AutoSize = true;
-            lblSearch.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSearch.Location = new Point(505, 17);
-            lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(96, 32);
-            lblSearch.TabIndex = 37;
-            lblSearch.Text = "Search:";
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSearch.Location = new System.Drawing.Point(24, 113);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(278, 37);
+            this.lblSearch.TabIndex = 37;
+            this.lblSearch.Text = "Search book by name:";
             // 
             // txtSearch
             // 
-            txtSearch.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(416, 54);
-            txtSearch.Margin = new Padding(3, 2, 3, 2);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(275, 29);
-            txtSearch.TabIndex = 36;
-            txtSearch.TextChanged += txtSearch_TextChanged;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(308, 117);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(314, 34);
+            this.txtSearch.TabIndex = 36;
             // 
             // btnEditUser
             // 
-            btnEditUser.Location = new Point(936, 16);
-            btnEditUser.Margin = new Padding(3, 2, 3, 2);
-            btnEditUser.Name = "btnEditUser";
-            btnEditUser.Size = new Size(181, 33);
-            btnEditUser.TabIndex = 38;
-            btnEditUser.Text = "Edit User";
-            btnEditUser.UseVisualStyleBackColor = true;
-            btnEditUser.Click += btnEditUser_Click;
+            this.btnEditUser.Location = new System.Drawing.Point(994, 78);
+            this.btnEditUser.Name = "btnEditUser";
+            this.btnEditUser.Size = new System.Drawing.Size(289, 45);
+            this.btnEditUser.TabIndex = 38;
+            this.btnEditUser.Text = "Edit User";
+            this.btnEditUser.UseVisualStyleBackColor = true;
+            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
             // 
             // LecturerForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1134, 427);
-            Controls.Add(btnEditUser);
-            Controls.Add(lblSearch);
-            Controls.Add(txtSearch);
-            Controls.Add(dgvProjectBook);
-            Controls.Add(btnAdd);
-            Controls.Add(lblWelcome);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(3, 2, 3, 2);
-            MaximizeBox = false;
-            Name = "LecturerForm";
-            Text = "LecturerForm";
-            ((System.ComponentModel.ISupportInitialize)dgvProjectBook).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1295, 571);
+            this.Controls.Add(this.btnEditUser);
+            this.Controls.Add(this.lblSearch);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.dgvProjectBook);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.lblWelcome);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.Name = "LecturerForm";
+            this.Text = "LecturerForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProjectBook)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

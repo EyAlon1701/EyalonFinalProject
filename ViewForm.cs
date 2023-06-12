@@ -44,17 +44,8 @@ namespace EyalonFinalProject
 
         private void makeBook(DataRow book)
         {
-            /*
-            try
-            {
-            */
             MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(book["ProjectBookOpenPage"].ToString()));
             rtbPageData.LoadFile(stream, RichTextBoxStreamType.RichText);
-            /*
-            catch
-            {
-            */
-            //rtbPageData.Text = "";
 
             rtbPageData.AppendText("\n\n\n");
             DataTable pages = dbc.getProjectPageIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
