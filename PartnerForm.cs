@@ -25,7 +25,7 @@ namespace EyalonFinalProject
             this.userID = userID;
             dgvStudents.Visible = false;
             lblTitle.Text = "Partner Requests";
-            btnDelRequest.Visible = false;
+            btnDel.Visible = false;
             updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
         }
         public PartnerForm(string userID, int pageID)
@@ -34,19 +34,19 @@ namespace EyalonFinalProject
             this.userID = userID;
             this.pageID = pageID;
             dgvFriendRequestProjectPage.Visible = false;
-            btnDelRequest.Visible = false;
+            btnDel.Visible = false;
             lblTitle.Text = "Invite A Partner";
             if (dbc.getStudentByProjectPageID(pageID).Rows.Count == 2)
             {
                 dgvStudents.Visible = false;
-                btnDelRequest.Visible = true;
+                btnDel.Visible = true;
                 lblTitle.Text = "Your Partner is \n" + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
-                btnDelRequest.Text = "Delete Partner";
+                btnDel.Text = "Delete Partner";
             }
             else if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
                 dgvStudents.Visible = false;
-                btnDelRequest.Visible = true;
+                btnDel.Visible = true;
                 lblTitle.Text = "You Already Invite:\n" + dbc.getInvitedStudentIDAndName(pageID);
             }
             else
@@ -156,7 +156,7 @@ namespace EyalonFinalProject
             updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
         }
 
-        private void btnRequest_Click(object sender, EventArgs e)
+        private void btnDel_Click(object sender, EventArgs e)
         {
             if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
@@ -175,11 +175,5 @@ namespace EyalonFinalProject
                 }
             }
         }
-
-        private void PartnerForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

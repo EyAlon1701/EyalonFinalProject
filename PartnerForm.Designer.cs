@@ -41,7 +41,7 @@
             this.Approve = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Reject = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnDelRequest = new System.Windows.Forms.Button();
+            this.btnDel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriendRequestProjectPage)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +57,14 @@
             this.StudentID,
             this.StudentName,
             this.Add});
-            this.dgvStudents.Location = new System.Drawing.Point(0, 151);
+            this.dgvStudents.Location = new System.Drawing.Point(0, 161);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
             this.dgvStudents.RowHeadersWidth = 51;
             this.dgvStudents.RowTemplate.Height = 29;
-            this.dgvStudents.Size = new System.Drawing.Size(698, 309);
+            this.dgvStudents.Size = new System.Drawing.Size(698, 310);
             this.dgvStudents.TabIndex = 1;
+            this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
             // 
             // StudentID
             // 
@@ -105,13 +106,14 @@
             this.BookName,
             this.Approve,
             this.Reject});
-            this.dgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 151);
+            this.dgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 161);
             this.dgvFriendRequestProjectPage.Name = "dgvFriendRequestProjectPage";
             this.dgvFriendRequestProjectPage.ReadOnly = true;
             this.dgvFriendRequestProjectPage.RowHeadersWidth = 51;
             this.dgvFriendRequestProjectPage.RowTemplate.Height = 29;
-            this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 309);
+            this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 310);
             this.dgvFriendRequestProjectPage.TabIndex = 2;
+            this.dgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFriendRequestProjectPage_CellContentClick);
             // 
             // PageStudentID
             // 
@@ -179,21 +181,22 @@
             this.lblTitle.Size = new System.Drawing.Size(0, 46);
             this.lblTitle.TabIndex = 34;
             // 
-            // btnDelRequest
+            // btnDel
             // 
-            this.btnDelRequest.Location = new System.Drawing.Point(263, 107);
-            this.btnDelRequest.Name = "btnDelRequest";
-            this.btnDelRequest.Size = new System.Drawing.Size(161, 37);
-            this.btnDelRequest.TabIndex = 39;
-            this.btnDelRequest.Text = "Delete Request";
-            this.btnDelRequest.UseVisualStyleBackColor = true;
+            this.btnDel.Location = new System.Drawing.Point(259, 110);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(185, 45);
+            this.btnDel.TabIndex = 39;
+            this.btnDel.Text = "Delete Request";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // PartnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 461);
-            this.Controls.Add(this.btnDelRequest);
+            this.ClientSize = new System.Drawing.Size(698, 471);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.dgvFriendRequestProjectPage);
             this.Controls.Add(this.dgvStudents);
@@ -223,6 +226,6 @@
         private DataGridViewButtonColumn Approve;
         private DataGridViewButtonColumn Reject;
         private Label lblTitle;
-        private Button btnDelRequest;
+        private Button btnDel;
     }
 }
