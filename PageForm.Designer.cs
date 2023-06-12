@@ -52,7 +52,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(14, 171);
+            this.lblID.Location = new System.Drawing.Point(14, 172);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(88, 20);
             this.lblID.TabIndex = 34;
@@ -60,10 +60,11 @@
             // 
             // txtPageName
             // 
-            this.txtPageName.Location = new System.Drawing.Point(117, 168);
+            this.txtPageName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPageName.Location = new System.Drawing.Point(117, 167);
             this.txtPageName.Name = "txtPageName";
             this.txtPageName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtPageName.Size = new System.Drawing.Size(663, 27);
+            this.txtPageName.Size = new System.Drawing.Size(663, 30);
             this.txtPageName.TabIndex = 35;
             // 
             // lblTitle
@@ -79,7 +80,7 @@
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(14, 218);
+            this.lblFirstName.Location = new System.Drawing.Point(14, 207);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(80, 20);
             this.lblFirstName.TabIndex = 37;
@@ -98,10 +99,10 @@
             // rtfPageData
             // 
             this.rtfPageData.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rtfPageData.Location = new System.Drawing.Point(117, 213);
+            this.rtfPageData.Location = new System.Drawing.Point(117, 202);
             this.rtfPageData.Name = "rtfPageData";
             this.rtfPageData.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rtfPageData.Size = new System.Drawing.Size(663, 197);
+            this.rtfPageData.Size = new System.Drawing.Size(663, 208);
             this.rtfPageData.TabIndex = 42;
             this.rtfPageData.Text = "";
             // 

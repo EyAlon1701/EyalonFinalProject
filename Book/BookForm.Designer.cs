@@ -57,7 +57,7 @@
             // lblOpenPage
             // 
             this.lblOpenPage.AutoSize = true;
-            this.lblOpenPage.Location = new System.Drawing.Point(14, 162);
+            this.lblOpenPage.Location = new System.Drawing.Point(14, 163);
             this.lblOpenPage.Name = "lblOpenPage";
             this.lblOpenPage.Size = new System.Drawing.Size(126, 20);
             this.lblOpenPage.TabIndex = 29;
@@ -65,15 +65,16 @@
             // 
             // txtBookYear
             // 
-            this.txtBookYear.Location = new System.Drawing.Point(158, 124);
+            this.txtBookYear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBookYear.Location = new System.Drawing.Point(158, 123);
             this.txtBookYear.Name = "txtBookYear";
-            this.txtBookYear.Size = new System.Drawing.Size(192, 27);
+            this.txtBookYear.Size = new System.Drawing.Size(192, 30);
             this.txtBookYear.TabIndex = 26;
             // 
             // lblBookYear
             // 
             this.lblBookYear.AutoSize = true;
-            this.lblBookYear.Location = new System.Drawing.Point(14, 127);
+            this.lblBookYear.Location = new System.Drawing.Point(14, 128);
             this.lblBookYear.Name = "lblBookYear";
             this.lblBookYear.Size = new System.Drawing.Size(78, 20);
             this.lblBookYear.TabIndex = 27;
@@ -82,7 +83,7 @@
             // lblBookName
             // 
             this.lblBookName.AutoSize = true;
-            this.lblBookName.Location = new System.Drawing.Point(14, 92);
+            this.lblBookName.Location = new System.Drawing.Point(14, 93);
             this.lblBookName.Name = "lblBookName";
             this.lblBookName.Size = new System.Drawing.Size(90, 20);
             this.lblBookName.TabIndex = 24;
@@ -90,9 +91,10 @@
             // 
             // txtBookName
             // 
-            this.txtBookName.Location = new System.Drawing.Point(158, 89);
+            this.txtBookName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBookName.Location = new System.Drawing.Point(158, 88);
             this.txtBookName.Name = "txtBookName";
-            this.txtBookName.Size = new System.Drawing.Size(622, 27);
+            this.txtBookName.Size = new System.Drawing.Size(622, 30);
             this.txtBookName.TabIndex = 25;
             // 
             // btnSumbit
@@ -118,6 +120,7 @@
             // rtbOpenPage
             // 
             this.rtbOpenPage.ContextMenuStrip = this.contextMenuStrip1;
+            this.rtbOpenPage.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rtbOpenPage.Location = new System.Drawing.Point(158, 158);
             this.rtbOpenPage.Name = "rtbOpenPage";
             this.rtbOpenPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
