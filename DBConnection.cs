@@ -19,7 +19,7 @@ namespace EyalonFinalProject
 {
     internal class DBConnection
     {
-        public static SqlConnection mySqlConnection = new SqlConnection("server = localhost\\SQLEXPRESS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        public static SqlConnection mySqlConnection = new SqlConnection("server = DESKTOP-EYALON1\\SQLEXPRESS02;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         //USERS
         public int addUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)

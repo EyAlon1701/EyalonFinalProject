@@ -133,6 +133,5 @@ namespace EyalonFinalProject
             partnerForm.ShowDialog();
             updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
         }
-
     }
 }
