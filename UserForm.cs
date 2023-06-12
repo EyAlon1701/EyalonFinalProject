@@ -27,12 +27,7 @@ namespace EyalonFinalProject
             setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
 
 
-            if (accessRole == int.Parse(Program.studentRole))
-            {
-                txtID.Enabled = false;
-                cbRole.Enabled = false;
-            }
-            else if(accessRole == int.Parse(Program.lecturerRole))
+            if (accessRole == int.Parse(Program.studentRole) || accessRole == int.Parse(Program.lecturerRole))
             {
                 txtID.Enabled = false;
                 cbRole.Enabled = false;

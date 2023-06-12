@@ -201,7 +201,6 @@
             this.MaximizeBox = false;
             this.Name = "PartnerForm";
             this.Text = "PartnerForm";
-            this.Load += new System.EventHandler(this.PartnerForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriendRequestProjectPage)).EndInit();
             this.ResumeLayout(false);

@@ -36,7 +36,6 @@ namespace EyalonFinalProject
 
         private void makePage(DataRow page)
         {
-            rtbPageData.SelectionAlignment = HorizontalAlignment.Right;
             saveFileDialog1.FileName = dbc.getStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString();
             AppendText(dbc.getStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString() + "\n", titleFont);
             AppendText(page["ProjectPageData"].ToString(), dataFont);

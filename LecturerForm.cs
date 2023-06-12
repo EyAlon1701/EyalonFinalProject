@@ -82,7 +82,7 @@ namespace EyalonFinalProject
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm(int.Parse(Program.studentRole), userID);
+            UserForm userForm = new UserForm(int.Parse(Program.lecturerRole), userID);
             userForm.ShowDialog();
             lblWelcome.Text = "Welcome " + dbc.getUserByID(userID)["FirstName"].ToString();//name can change after update
         }
