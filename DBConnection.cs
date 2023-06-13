@@ -44,7 +44,7 @@ namespace EyalonFinalProject
         {
             try
             {
-                DataTable pages = getProjectPagesAndProjectBookIDByStudentID(userID);//only in case the user in student bc only students link to page
+                DataTable pages = getProjectPagesAndProjectBookIDByStudentID(userID);//only in case the user is student bc only students link to page
                 for (int i = 0; i < pages.Rows.Count; i++)
                 {
                     DataTable requests = getFriendRequestsProjectPagesIDByStudentIDAns(userID);
@@ -559,7 +559,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectPage SET ProjectPageName=N'" + pageName + "',ProjectPageData=N'" + pageData + "' WHERE ProjectPageID=" + projectPageID;
+                mySqlCommand.CommandText = "UPDATE projectDB.dbo.ProjectPage SET ProjectPageName='" + pageName + "',ProjectPageData='" + pageData + "' WHERE ProjectPageID=" + projectPageID;
                 int num = mySqlCommand.ExecuteNonQuery();
                 mySqlConnection.Close();
                 return num;
@@ -724,7 +724,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public string getPartnerStudentIDByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
+        private string getPartnerStudentIDByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
         {
             string partnerStudentID = null;
             try
