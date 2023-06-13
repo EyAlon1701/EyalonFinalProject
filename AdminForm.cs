@@ -168,14 +168,41 @@ namespace EyalonFinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm();
-            userForm.ShowDialog();
-            updateUserDataGridView(dbc.getAllUsers());
+            if (cbSelectTable.SelectedIndex == 0) // USERS
+            {
+                UserForm userForm = new UserForm();
+                userForm.ShowDialog();
+                updateUserDataGridView(dbc.getAllUsers());
+            }
+            else if (cbSelectTable.SelectedIndex == 1) // BOOKS
+            {
+                BookForm bookForm = new BookForm();
+                bookForm.ShowDialog();
+                updateProjectBookDataGridView(dbc.getAllProjectBook());
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            updateUserDataGridView(dbc.getUsersByName(txtSearch.Text));
+            if(cbSelectTable.SelectedIndex == 0) // USERS
+            {
+                if(cbRole.SelectedIndex == 3) //ALL USERS
+                {
+                    updateUserDataGridView(dbc.getUsersByName(txtSearch.Text));
+                }
+                else //user by role
+                {
+                    updateUserDataGridView(dbc.getUsersByRoleAndName(cbRole.SelectedIndex,txtSearch.Text));
+                }
+            }
+            else if (cbSelectTable.SelectedIndex == 1) // BOOKS
+            {
+                updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
+            }
+            else // (cbSelectTable.SelectedIndex == 2) // PAGES
+            {
+                updateProjectPageDataGridView(dbc.getProjectPageByName(txtSearch.Text));
+            }
         }
 
         private void cbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,6 +213,10 @@ namespace EyalonFinalProject
                 cbRole.Visible = true;
                 dgvProjectBook.Visible = false;
                 dgvProjectPage.Visible = false;
+                cbRole.Visible = true;
+                lblSearch.Text = "Search by:";
+                btnAdd.Text = "Add User";
+                btnAdd.Visible = true;
                 updateUserDataGridView(dbc.getAllUsers());
             }
             else if(cbSelectTable.SelectedIndex == 1) // BOOKS
@@ -194,6 +225,10 @@ namespace EyalonFinalProject
                 cbRole.Visible = false;
                 dgvProjectBook.Visible = true;
                 dgvProjectPage.Visible = false;
+                cbRole.Visible=false;
+                lblSearch.Text = "Search by name:";
+                btnAdd.Text = "Add Book";
+                btnAdd.Visible = true;
                 updateProjectBookDataGridView(dbc.getAllProjectBook());
             }
             else if(cbSelectTable.SelectedIndex == 2) // PAGES
@@ -202,6 +237,8 @@ namespace EyalonFinalProject
                 cbRole.Visible = false;
                 dgvProjectBook.Visible = false;
                 dgvProjectPage.Visible = true;
+                cbRole.Visible = true;
+                btnAdd.Visible = false;
                 updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
             }
         }
