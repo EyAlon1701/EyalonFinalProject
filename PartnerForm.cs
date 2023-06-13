@@ -26,7 +26,7 @@ namespace EyalonFinalProject
             dgvStudents.Visible = false;
             lblTitle.Text = "Partner Requests";
             btnDel.Visible = false;
-            updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
+            updateProjectPageDataGridView(dbc.getFriendRequestsProjectPagesIDByStudentIDAns(userID));
         }
         public PartnerForm(string userID, int pageID)
         {
@@ -36,7 +36,7 @@ namespace EyalonFinalProject
             dgvFriendRequestProjectPage.Visible = false;
             btnDel.Visible = false;
             lblTitle.Text = "Invite A Partner";
-            if (dbc.getStudentByProjectPageID(pageID).Rows.Count == 2)
+            if (dbc.getStudentsByProjectPageID(pageID).Rows.Count == 2)
             {
                 dgvStudents.Visible = false;
                 btnDel.Visible = true;
@@ -85,7 +85,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    DataTable stu = dbc.getStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     DataRow page = dbc.getProjectPageAndProjectBookIDByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     dgvFriendRequestProjectPage.Rows.Add(stu.Rows[0]["UserID"].ToString(), stu.Rows[0]["FirstName"].ToString() + " " + stu.Rows[0]["LastName"].ToString(), page["ProjectPageID"], page["ProjectPageName"], dbc.getProjectBookNameByID(int.Parse(page["ProjectBookID"].ToString())), "Approve", "Reject");
                 }
@@ -119,7 +119,7 @@ namespace EyalonFinalProject
             DataGridViewRow selectedRow = dgvFriendRequestProjectPage.Rows[e.RowIndex];
             if (dgvFriendRequestProjectPage.Columns[e.ColumnIndex].Name == "Approve")
             {
-                if (dbc.getStudentByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))).Rows.Count == 2)
+                if (dbc.getStudentsByProjectPageID(dbc.getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(userID, dbc.getProjectBookIDByProjectPageID(int.Parse(selectedRow.Cells["pageID"].Value.ToString())))).Rows.Count == 2)
                 {
                     MessageBox.Show("You already have a partner to a page in the book", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -149,11 +149,11 @@ namespace EyalonFinalProject
             {
                 dbc.rejectInvite(int.Parse(selectedRow.Cells["pageID"].Value.ToString()));
             }
-            if (dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID).Rows.Count == 0)
+            if (dbc.getFriendRequestsProjectPagesIDByStudentIDAns(userID).Rows.Count == 0)
             {
                 this.Close();
             }
-            updateProjectPageDataGridView(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
+            updateProjectPageDataGridView(dbc.getFriendRequestsProjectPagesIDByStudentIDAns(userID));
         }
 
         private void btnDel_Click(object sender, EventArgs e)

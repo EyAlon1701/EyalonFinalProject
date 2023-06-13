@@ -15,7 +15,7 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         bool isAdd = true;
-        string userID="";//???
+        string userID="";
         int pageID = -1;
 
         public PageForm()
@@ -59,27 +59,14 @@ namespace EyalonFinalProject
         {
             if (isAdd)//true - add project book
             {
-                int num = dbc.addProjectPage(txtPageName.Text, rtfPageData.Text);
-                if (num == 1)
-                {
-                    num = dbc.addStudentProjectPage(userID,dbc.getLastProjectPageID());
-                    if (num == 1)
-                    {
-                        this.Close();
-                    }
-                    else
-                    {
-                        //NEED TO BE ERROR
-                    }
-                }
+                dbc.addProjectPage(txtPageName.Text, rtfPageData.Text);
+                dbc.addStudentProjectPage(userID,dbc.getLastProjectPageID());
+                this.Close();
             }
-            else // false - update project book
+            else //false - update project book
             {
-                int num = dbc.updateProjectPage(pageID, txtPageName.Text, rtfPageData.Text);
-                if(num == 1)
-                {
-                    this.Close();
-                }
+                dbc.updateProjectPage(pageID, txtPageName.Text, rtfPageData.Text);
+                this.Close();
             }
         }
 

@@ -18,7 +18,7 @@ namespace EyalonFinalProject
             InitializeComponent();
             DataRow user = dbc.getUserByID(userID);
             this.Text = "Pages of " + user["UserID"] + " - " + user["FirstName"] + " " + user["LastName"];
-            DataTable dt = dbc.getProjectPageAndProjectBookIDByStudentID(userID);
+            DataTable dt = dbc.getProjectPagesAndProjectBookIDByStudentID(userID);
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)

@@ -25,7 +25,7 @@ namespace EyalonFinalProject
             btnPartner.BackColor = Color.LightGreen;
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
-            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByStudentID(userID));
         }
 
         private void updatePartnerBtn(DataTable dt)
@@ -62,14 +62,14 @@ namespace EyalonFinalProject
                     }
                 }
             }
-            updatePartnerBtn(dbc.getFriendRequestsProjectPageIDByStudentIDAns(userID));
+            updatePartnerBtn(dbc.getFriendRequestsProjectPagesIDByStudentIDAns(userID));
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             PageForm pageForm = new PageForm(userID);
             pageForm.ShowDialog();
-            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByStudentID(userID));
         }
 
         private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,7 +117,7 @@ namespace EyalonFinalProject
                     MessageBox.Show("You cant delete page that linked to a book");
                 }
             }
-            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByStudentID(userID));
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace EyalonFinalProject
         {
             PartnerForm partnerForm = new PartnerForm(userID);
             partnerForm.ShowDialog();
-            updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByStudentID(userID));
+            updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByStudentID(userID));
         }
     }
 }

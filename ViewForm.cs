@@ -47,7 +47,7 @@ namespace EyalonFinalProject
             rtbPageData.LoadFile(stream, RichTextBoxStreamType.RichText);
 
             rtbPageData.AppendText("\n\n\n");
-            DataTable pages = dbc.getProjectPageIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
+            DataTable pages = dbc.getProjectPagesIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
             for(int i = 0; i < pages.Rows.Count; i++)
             {
                 rtbPageData.AppendText("\n");

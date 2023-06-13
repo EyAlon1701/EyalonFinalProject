@@ -23,7 +23,7 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.bookID = bookID;
-            updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
+            updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
         }
 
         private void updatePagesInBookDataGridView(DataTable dt)
@@ -33,7 +33,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    DataTable stu = dbc.getStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "",stuName="";
                     for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
@@ -51,7 +51,7 @@ namespace EyalonFinalProject
         {
             AddPageToBookForm addPageToBookForm = new AddPageToBookForm(bookID);
             addPageToBookForm.ShowDialog();
-            updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
+            updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
         }
 
         private void dgvPagesInBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -71,7 +71,7 @@ namespace EyalonFinalProject
                 if (MessageBox.Show("Are you sure you want to delete this project page from the book?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     dbc.deleteProjectPageInBookByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
-                    updatePagesInBookDataGridView(dbc.getProjectPageIDByProjectBookID(bookID));
+                    updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
                 }
             }
         }

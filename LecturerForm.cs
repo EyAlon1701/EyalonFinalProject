@@ -75,7 +75,7 @@ namespace EyalonFinalProject
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
+            updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)

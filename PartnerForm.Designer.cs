@@ -174,16 +174,17 @@
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(350, 9);
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(0, 46);
+            this.lblTitle.Size = new System.Drawing.Size(698, 107);
             this.lblTitle.TabIndex = 34;
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(259, 110);
+            this.btnDel.Location = new System.Drawing.Point(258, 111);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(185, 45);
             this.btnDel.TabIndex = 39;
@@ -208,7 +209,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriendRequestProjectPage)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

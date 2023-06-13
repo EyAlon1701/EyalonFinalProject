@@ -56,7 +56,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    DataTable stu = dbc.getStudentByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    DataTable stu = dbc.getStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "", stuName = "";
                     for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
@@ -153,7 +153,7 @@ namespace EyalonFinalProject
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
             {
-                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), dbc.getStudentByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString())).Rows[0]["UserID"].ToString(), dbc.getProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
+                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), dbc.getStudentsByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString())).Rows[0]["UserID"].ToString(), dbc.getProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
                 pageForm.ShowDialog();
             }
             if (dgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")
@@ -197,11 +197,11 @@ namespace EyalonFinalProject
             }
             else if (cbSelectTable.SelectedIndex == 1) // BOOKS
             {
-                updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
+                updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
             }
             else if(cbSelectTable.SelectedIndex == 2) // PAGES
             {
-                updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByProjectPageName(txtSearch.Text));
+                updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByProjectPageName(txtSearch.Text));
             }
         }
 
