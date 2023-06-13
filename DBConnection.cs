@@ -491,7 +491,7 @@ namespace EyalonFinalProject
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID Where pp.ProjectPageID="+projectPageID;
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID WHERE pp.ProjectPageID="+projectPageID;
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);
@@ -548,13 +548,13 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getProjectPageByName(string projectPageName)
+        public DataTable getProjectPageAndProjectBookIDByProjectPageName(string projectPageName)
         {
             try
             {
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
-                mySqlCommand.CommandText = "SELECT * FROM projectDB.dbo.ProjectPage WHERE ProjectPageName LIKE '%" + projectPageName + "%';";
+                mySqlCommand.CommandText = "SELECT pp.ProjectPageID,pp.ProjectPageName,pp.ProjectPageCreationDate,ISNULL(ppib.ProjectBookID,'-1') AS ProjectBookID FROM projectDB.dbo.ProjectPage pp LEFT JOIN projectDB.dbo.ProjectPageInBook ppib ON pp.ProjectPageID=ppib.ProjectPageID WHERE pp.ProjectPageName LIKE '%" + projectPageName + "%'";
                 SqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 DataTable table = new DataTable();
                 table.Load(mySqlDataReader);

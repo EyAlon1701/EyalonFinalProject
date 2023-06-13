@@ -199,9 +199,9 @@ namespace EyalonFinalProject
             {
                 updateProjectBookDataGridView(dbc.getProjectBookByName(txtSearch.Text));
             }
-            else // (cbSelectTable.SelectedIndex == 2) // PAGES
+            else if(cbSelectTable.SelectedIndex == 2) // PAGES
             {
-                updateProjectPageDataGridView(dbc.getProjectPageByName(txtSearch.Text));
+                updateProjectPageDataGridView(dbc.getProjectPageAndProjectBookIDByProjectPageName(txtSearch.Text));
             }
         }
 
@@ -210,7 +210,6 @@ namespace EyalonFinalProject
             if(cbSelectTable.SelectedIndex==0) // USERS
             {
                 dgvUsers.Visible = true;
-                cbRole.Visible = true;
                 dgvProjectBook.Visible = false;
                 dgvProjectPage.Visible = false;
                 cbRole.Visible = true;
@@ -222,11 +221,10 @@ namespace EyalonFinalProject
             else if(cbSelectTable.SelectedIndex == 1) // BOOKS
             {
                 dgvUsers.Visible = false;
-                cbRole.Visible = false;
                 dgvProjectBook.Visible = true;
                 dgvProjectPage.Visible = false;
                 cbRole.Visible=false;
-                lblSearch.Text = "Search by name:";
+                lblSearch.Text = "Search book by name:";
                 btnAdd.Text = "Add Book";
                 btnAdd.Visible = true;
                 updateProjectBookDataGridView(dbc.getAllProjectBook());
@@ -234,10 +232,10 @@ namespace EyalonFinalProject
             else if(cbSelectTable.SelectedIndex == 2) // PAGES
             {
                 dgvUsers.Visible = false;
-                cbRole.Visible = false;
                 dgvProjectBook.Visible = false;
                 dgvProjectPage.Visible = true;
-                cbRole.Visible = true;
+                cbRole.Visible = false;
+                lblSearch.Text = "Search page by name:";
                 btnAdd.Visible = false;
                 updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
             }
