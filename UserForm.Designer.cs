@@ -117,6 +117,7 @@
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(121, 167);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(125, 27);
@@ -151,6 +152,7 @@
             // 
             // cbRole
             // 
+            this.cbRole.Enabled = false;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
             "Student",

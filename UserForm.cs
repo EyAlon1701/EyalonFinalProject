@@ -20,22 +20,32 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
         }
+
+        //ADD NEW USER
+        public UserForm(int accessRole)
+        {
+            InitializeComponent();
+            if (accessRole == int.Parse(Program.adminRole))
+            {
+                txtID.Enabled = true;
+                cbRole.Enabled = true;
+                cbRole.Items.RemoveAt(2);
+                cbRole.SelectedIndex = 0;
+            }
+        }
+
+        //UPDATE USER
         public UserForm(int accessRole, string userID)
         {
             InitializeComponent();
             DataRow userRow = dbc.getUserByID(userID);
             setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
 
-
-            if (accessRole == int.Parse(Program.studentRole) || accessRole == int.Parse(Program.lecturerRole))
-            {
-                txtID.Enabled = false;
-                cbRole.Enabled = false;
-            }
-            else // accessRole == int.Parse(Program.adminRole)
+            if(accessRole == int.Parse(Program.adminRole))
             {
                 cbRole.Items.RemoveAt(2);
-                if (cbRole.SelectedIndex == 2)
+                cbRole.Enabled = true;
+                if (cbRole.SelectedIndex == 2)//if user is admin
                 {
                     lblRole.Visible = false;
                     cbRole.Visible = false;
@@ -69,6 +79,10 @@ namespace EyalonFinalProject
             {
                 MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (txtID.Text.Length > 9)
+            {
+                MessageBox.Show("The ID can't contain more than 9 characters", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 if (isAdd)//true - add user
@@ -78,14 +92,15 @@ namespace EyalonFinalProject
                     {
                         this.Close();
                     }
-                }
-                else // false - update user
-                {
-                    int num = dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
-                    if (num == 1)
+                    else
                     {
-                        this.Close();
+                        MessageBox.Show("ERROR", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else //false - update user
+                {
+                    dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                    this.Close();
                 }
             }
         }

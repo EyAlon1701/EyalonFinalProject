@@ -62,17 +62,28 @@ namespace EyalonFinalProject
 
         private void btnReg_Click(object sender, EventArgs e)
         {
-            int num = dbc.addUser(txtRegID.Text, txtRegFirstName.Text, txtRegLastName.Text, txtRegEmail.Text, txtRegPassword.Text ,pictureBox.ImageLocation, int.Parse(Program.studentRole));
-            if(num == 1)
+            if (txtRegID.Text == "" || txtRegFirstName.Text == "" || txtRegLastName.Text == "" || txtRegEmail.Text == "" || txtRegPassword.Text == "")
             {
-                MessageBox.Show("Registration successfully completed. Sign in now");
-                pnlLogin.Visible = true;
-                pnlReg.Visible = false;
-                btnRegImg.BackColor = SystemColors.Window;
+                MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(txtRegID.Text.Length>9)
+            {
+                MessageBox.Show("The ID can't contain more than 9 characters", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("ERROR");
+                int num = dbc.addUser(txtRegID.Text, txtRegFirstName.Text, txtRegLastName.Text, txtRegEmail.Text, txtRegPassword.Text, pictureBox.ImageLocation, int.Parse(Program.studentRole));
+                if (num == 1)
+                {
+                    MessageBox.Show("Registration successfully completed. Sign in now");
+                    pnlLogin.Visible = true;
+                    pnlReg.Visible = false;
+                    btnRegImg.BackColor = SystemColors.Window;
+                }
+                else
+                {
+                    MessageBox.Show("ERROR", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

@@ -109,6 +109,7 @@ namespace EyalonFinalProject
                 }
             }
             updateUserDataGridView(dbc.getAllUsers());
+            cbRole.SelectedIndex = 3;//SHOW ALL USERS
         }
 
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -170,7 +171,7 @@ namespace EyalonFinalProject
         {
             if (cbSelectTable.SelectedIndex == 0) // USERS
             {
-                UserForm userForm = new UserForm();
+                UserForm userForm = new UserForm(int.Parse(Program.adminRole));
                 userForm.ShowDialog();
                 updateUserDataGridView(dbc.getAllUsers());
             }
@@ -195,11 +196,11 @@ namespace EyalonFinalProject
                     updateUserDataGridView(dbc.getUsersByRoleAndName(cbRole.SelectedIndex,txtSearch.Text));
                 }
             }
-            else if (cbSelectTable.SelectedIndex == 1) // BOOKS
+            else if (cbSelectTable.SelectedIndex == 1)// BOOKS
             {
                 updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
             }
-            else if(cbSelectTable.SelectedIndex == 2) // PAGES
+            else if(cbSelectTable.SelectedIndex == 2)// PAGES
             {
                 updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByProjectPageName(txtSearch.Text));
             }
