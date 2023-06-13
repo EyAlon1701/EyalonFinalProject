@@ -48,6 +48,13 @@ namespace EyalonFinalProject
                 DataTable pages = getProjectPageAndProjectBookIDByStudentID(userID);//only in case the user in student bc only students link to page
                 for (int i = 0; i < pages.Rows.Count; i++)
                 {
+                    DataTable requests = getFriendRequestsProjectPageIDByStudentIDAns(userID);
+                    {
+                        for(int j = 0; j < requests.Rows.Count; j++)
+                        {
+                            rejectInvite(int.Parse(requests.Rows[j]["ProjectPageID"].ToString()));
+                        }
+                    }
                     deleteProjectPageByProjectPageIDAndStudentID(int.Parse(pages.Rows[i]["ProjectPageID"].ToString()), userID);
                 }
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -561,7 +568,6 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        //public int deleteProjectPageByProjectPageID(int projectPageID)
         public int deleteProjectPageByProjectPageID(int projectPageID)
         {
             try

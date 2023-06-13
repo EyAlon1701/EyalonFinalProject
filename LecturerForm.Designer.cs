@@ -164,6 +164,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(314, 34);
             this.txtSearch.TabIndex = 36;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // btnEditUser
             // 

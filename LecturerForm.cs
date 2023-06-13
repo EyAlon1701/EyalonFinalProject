@@ -14,7 +14,6 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         string userID = "";
-        DataRow userRow = null;
         public LecturerForm()
         {
             InitializeComponent();
@@ -22,7 +21,6 @@ namespace EyalonFinalProject
         public LecturerForm(DataRow userRow)
         {
             InitializeComponent();
-            this.userRow = userRow;
             this.userID = userRow["UserID"].ToString();
             lblWelcome.Text += " " + userRow["FirstName"].ToString();
             updateProjectBookDataGridView(dbc.getAllProjectBook());
