@@ -28,55 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.rtbPageData = new System.Windows.Forms.RichTextBox();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RtbPageData = new System.Windows.Forms.RichTextBox();
+            this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.MenuStrip = new System.Windows.Forms.MenuStrip();
+            this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // rtbPageData
+            // RtbPageData
             // 
-            this.rtbPageData.BackColor = System.Drawing.Color.White;
-            this.rtbPageData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbPageData.Location = new System.Drawing.Point(0, 30);
-            this.rtbPageData.Name = "rtbPageData";
-            this.rtbPageData.ReadOnly = true;
-            this.rtbPageData.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rtbPageData.Size = new System.Drawing.Size(511, 547);
-            this.rtbPageData.TabIndex = 0;
-            this.rtbPageData.Text = "";
+            this.RtbPageData.BackColor = System.Drawing.Color.White;
+            this.RtbPageData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RtbPageData.Location = new System.Drawing.Point(0, 30);
+            this.RtbPageData.Name = "RtbPageData";
+            this.RtbPageData.ReadOnly = true;
+            this.RtbPageData.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RtbPageData.Size = new System.Drawing.Size(511, 547);
+            this.RtbPageData.TabIndex = 0;
+            this.RtbPageData.Text = "";
             // 
-            // menuStrip1
+            // MenuStrip
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.MenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileToolStripMenuItem,
             this.exitToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(511, 30);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.MenuStrip.Size = new System.Drawing.Size(511, 30);
+            this.MenuStrip.TabIndex = 2;
+            this.MenuStrip.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // FileToolStripMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
-            this.fileToolStripMenuItem.Text = "File";
+            this.FileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SaveToolStripMenuItem});
+            this.FileToolStripMenuItem.Name = "FileToolStripMenuItem";
+            this.FileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.FileToolStripMenuItem.Text = "File";
             // 
-            // saveToolStripMenuItem
+            // SaveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem";
+            this.SaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.SaveToolStripMenuItem.Text = "Save";
+            this.SaveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -84,22 +84,22 @@
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // ViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(511, 577);
-            this.Controls.Add(this.rtbPageData);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.RtbPageData);
+            this.Controls.Add(this.MenuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MenuStrip;
             this.MaximizeBox = false;
             this.Name = "ViewForm";
             this.Text = "ViewForm";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,11 +107,11 @@
 
         #endregion
 
-        private RichTextBox rtbPageData;
-        private SaveFileDialog saveFileDialog1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem fileToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
+        private RichTextBox RtbPageData;
+        private SaveFileDialog SaveFileDialog;
+        private MenuStrip MenuStrip;
+        private ToolStripMenuItem FileToolStripMenuItem;
+        private ToolStripMenuItem SaveToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
     }
 }

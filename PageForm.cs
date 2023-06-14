@@ -22,59 +22,67 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
         }
+        //ADD NEW PAGE
         public PageForm(string userID)
         {
             InitializeComponent();
             this.userID = userID;
-            btnPartner.Enabled = false;
+            BtnPartner.Enabled = false;
         }
-
+        //UPDATE PAGE
         public PageForm(int pageID,string userID, string pageName, string pageData)
         {
             InitializeComponent();
             this.pageID = pageID;
             this.userID = userID;
-            txtPageName.Text = pageName;    
-            rtfPageData.Text = pageData;
-            btnSumbit.Text = "Update";
+            TxtPageName.Text = pageName;    
+            RtfPageData.Text = pageData;
+            BtnSumbit.Text = "Update";
             isAdd = false;
-            lblBookName.Text += dbc.getProjectBookNameByID(dbc.getProjectBookIDByProjectPageID(pageID));
-            updateBtnPartnerColorAndLblPartnerDetails();
+            LblBookName.Text += dbc.GetProjectBookNameByID(dbc.GetProjectBookIDByProjectPageID(pageID));
+            UpdateBtnPartnerColorAndLblPartnerDetails();
         }
 
-        private void updateBtnPartnerColorAndLblPartnerDetails()
+        /*
+        This function will set the details of the partner of the project page if there is a partner to the page
+        Also If the page has a partner request that is waiting for approval the partner button will be yellow.
+        */
+        private void UpdateBtnPartnerColorAndLblPartnerDetails()
         {
-            lblPartnerDetails.Text = "PartnerDetails: " + dbc.getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
-            if (dbc.isProjectPageHaveFriendRequestByProjectPageID(pageID))
+            LblPartnerDetails.Text = "PartnerDetails: " + dbc.GetPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(pageID, userID);
+            if (dbc.IsProjectPageHaveFriendRequestByProjectPageID(pageID))
             {
-                btnPartner.BackColor = Color.Yellow;
+                BtnPartner.BackColor = Color.Yellow;
             }
             else
             {
-                btnPartner.BackColor = Color.Transparent;
+                BtnPartner.BackColor = Color.Transparent;
             }
         }
 
-        private void btnSumbit_Click(object sender, EventArgs e)
+        private void BtnSumbit_Click(object sender, EventArgs e)
         {
-            if (isAdd)//true - add project book
+            if (isAdd)//true - add project page
             {
-                dbc.addProjectPage(txtPageName.Text, rtfPageData.Text);
-                dbc.addStudentProjectPage(userID,dbc.getLastProjectPageID());
-                this.Close();
+                int num = dbc.AddProjectPage(TxtPageName.Text, RtfPageData.Text);
+                if (num == 1)
+                {
+                    dbc.AddStudentProjectPage(userID, dbc.GetLastProjectPageID());
+                    this.Close();
+                }
             }
-            else //false - update project book
+            else //false - update project page
             {
-                dbc.updateProjectPage(pageID, txtPageName.Text, rtfPageData.Text);
+                dbc.UpdateProjectPage(pageID, TxtPageName.Text, RtfPageData.Text);
                 this.Close();
             }
         }
 
-        private void btnPartner_Click(object sender, EventArgs e)
+        private void BtnPartner_Click(object sender, EventArgs e)
         {
             PartnerForm partnerForm = new PartnerForm(userID,pageID);
             partnerForm.ShowDialog();
-            updateBtnPartnerColorAndLblPartnerDetails();
+            UpdateBtnPartnerColorAndLblPartnerDetails();//In case you delete your partner from the page you need to reset the partner details to empty/if you invite someone the button need to change color
         }
     }
 }

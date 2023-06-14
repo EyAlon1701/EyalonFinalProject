@@ -27,43 +27,43 @@ namespace EyalonFinalProject
         public AdminForm()
         {
             InitializeComponent();
-            updateUserDataGridView(dbc.getAllUsers());
-            cbSelectTable.SelectedIndex = tableMod;
-            cbRole.SelectedIndex = ALL_USERS;
+            UpdateUserDataGridView(dbc.GetAllUsers());
+            CbSelectTable.SelectedIndex = tableMod;
+            CbRole.SelectedIndex = ALL_USERS;
         }
 
-        private void updateUserDataGridView(DataTable dt)
+        private void UpdateUserDataGridView(DataTable dt)
         {
-            dgvUsers.Rows.Clear();
+            DgvUsers.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"].ToString() == Program.STUDENT_ROLE ? "Student" : dt.Rows[row]["Role"].ToString() == Program.LECTURER_ROLE ? "Lecturer" : "Admin" , "More", "Edit", "Delete");
+                    DgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"].ToString() == Program.STUDENT_ROLE ? "Student" : dt.Rows[row]["Role"].ToString() == Program.LECTURER_ROLE ? "Lecturer" : "Admin" , "More", "Edit", "Delete");
                 }
             }
         }
 
-        private void updateProjectBookDataGridView(DataTable dt)
+        private void UpdateProjectBookDataGridView(DataTable dt)
         {
-            dgvProjectBook.Rows.Clear();
+            DgvProjectBook.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View", "Edit", "Delete");
+                    DgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View", "Edit", "Delete");
                 }
             }
         }
 
-        private void updateProjectPageDataGridView(DataTable dt)
+        private void UpdateProjectPageDataGridView(DataTable dt)
         {
-            dgvProjectPage.Rows.Clear();
+            DgvProjectPage.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    DataTable stu = dbc.getStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    DataTable stu = dbc.GetStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "", stuName = "";
                     for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
@@ -72,19 +72,20 @@ namespace EyalonFinalProject
                     }
                     stuID = stuID.Remove(stuID.Length - 2);
                     stuName = stuName.Remove(stuName.Length - 2);
-                    dgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], stuID, stuName, dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dbc.getProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
+                    DgvProjectPage.Rows.Add(dt.Rows[row]["ProjectPageID"], stuID, stuName, dt.Rows[row]["ProjectPageName"], dt.Rows[row]["ProjectPageCreationDate"], dbc.GetProjectBookNameByID(int.Parse(dt.Rows[row]["ProjectBookID"].ToString())), "View", "Edit", "Delete");
                 }
             }
         }
 
-        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
-            DataGridViewRow selectedRow = dgvUsers.Rows[e.RowIndex];
-            if (dgvUsers.Columns[e.ColumnIndex].Name == "MoreUser")
+
+            DataGridViewRow selectedRow = DgvUsers.Rows[e.RowIndex];
+            if (DgvUsers.Columns[e.ColumnIndex].Name == "MoreUser")
             {
                 if (selectedRow.Cells["Role"].Value.ToString() == "Student")
                 {
@@ -96,18 +97,18 @@ namespace EyalonFinalProject
                     MessageBox.Show("There is no more information","System message",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
-            if (dgvUsers.Columns[e.ColumnIndex].Name == "EditUser")
+            if (DgvUsers.Columns[e.ColumnIndex].Name == "EditUser")
             {
                 UserForm userForm = new UserForm(int.Parse(Program.ADMIN_ROLE), selectedRow.Cells["UserID"].Value.ToString());
                 userForm.ShowDialog();
             }
-            if (dgvUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
+            if (DgvUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
             {
                 if (selectedRow.Cells["Role"].Value.ToString() != "Admin")
                 {
                     if (MessageBox.Show("Are you sure you want to delete this user?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        dbc.deleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
+                        dbc.DeleteUserByID(selectedRow.Cells["UserID"].Value.ToString());
                     }
                 }
                 else
@@ -115,157 +116,158 @@ namespace EyalonFinalProject
                     MessageBox.Show("You can't delete admin", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            updateUserDataGridView(dbc.getAllUsers());
-            cbRole.SelectedIndex = ALL_USERS;//SHOW ALL USERS
+            UpdateUserDataGridView(dbc.GetAllUsers());
+            CbRole.SelectedIndex = ALL_USERS;//SHOW ALL USERS
         }
 
-        private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
-            DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "ViewBook")
+
+            DataGridViewRow selectedRow = DgvProjectBook.Rows[e.RowIndex];
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "ViewBook")
             {
                 ViewForm viewForm = new ViewForm(int.Parse(selectedRow.Cells["BookID"].Value.ToString()), false);
                 viewForm.ShowDialog();
             }
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "EditBook")
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "EditBook")
             {
-
                 BookForm bookForm = new BookForm(int.Parse(selectedRow.Cells["BookID"].Value.ToString()), selectedRow.Cells["BookName"].Value.ToString(), int.Parse(selectedRow.Cells["BookYear"].Value.ToString()), selectedRow.Cells["BookOpenPage"].Value.ToString());
                 bookForm.ShowDialog();
             }
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "DeleteBook")
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "DeleteBook")
             {
                 if (MessageBox.Show("Are you sure you want to delete this book?", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbc.deleteProjectBookByProjectBookID(int.Parse(selectedRow.Cells["BookID"].Value.ToString()));
+                    dbc.DeleteProjectBookByProjectBookID(int.Parse(selectedRow.Cells["BookID"].Value.ToString()));
                 }
             }
-            updateProjectBookDataGridView(dbc.getAllProjectBook());
+            UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
         }
 
-        private void dgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvProjectPage_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
-            DataGridViewRow selectedRow = dgvProjectPage.Rows[e.RowIndex];
-            if (dgvProjectPage.Columns[e.ColumnIndex].Name == "ViewPage")
+
+            DataGridViewRow selectedRow = DgvProjectPage.Rows[e.RowIndex];
+            if (DgvProjectPage.Columns[e.ColumnIndex].Name == "ViewPage")
             {
                 ViewForm viewForm = new ViewForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()),true);
                 viewForm.ShowDialog();
             }
-            if (dgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
+            if (DgvProjectPage.Columns[e.ColumnIndex].Name == "EditPage")
             {
-                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), dbc.getStudentsByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString())).Rows[0]["UserID"].ToString(), dbc.getProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
+                PageForm pageForm = new PageForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), dbc.GetStudentsByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString())).Rows[0]["UserID"].ToString(), dbc.GetProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()))["ProjectPageData"].ToString() , selectedRow.Cells["PageBookName"].Value.ToString());
                 pageForm.ShowDialog();
             }
-            if (dgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")
+            if (DgvProjectPage.Columns[e.ColumnIndex].Name == "DeletePage")
             {
                 if (MessageBox.Show("Are you sure you want to delete this page?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbc.deleteProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
+                    dbc.DeleteProjectPageByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
                 }
             }
-            updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
+            UpdateProjectPageDataGridView(dbc.GetAllProjectPageAndProjectBookID());
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if (cbSelectTable.SelectedIndex == USERS_TABLE)
+            if (CbSelectTable.SelectedIndex == USERS_TABLE)//ADD USER
             {
                 UserForm userForm = new UserForm(int.Parse(Program.ADMIN_ROLE));
                 userForm.ShowDialog();
-                updateUserDataGridView(dbc.getAllUsers());
+                UpdateUserDataGridView(dbc.GetAllUsers());
             }
-            else if (cbSelectTable.SelectedIndex == BOOKS_TABLE) 
+            else if (CbSelectTable.SelectedIndex == BOOKS_TABLE)//ADD BOOK
             {
                 BookForm bookForm = new BookForm();
                 bookForm.ShowDialog();
-                updateProjectBookDataGridView(dbc.getAllProjectBook());
+                UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            if(cbSelectTable.SelectedIndex == USERS_TABLE)
+            if(CbSelectTable.SelectedIndex == USERS_TABLE)
             {
-                if(cbRole.SelectedIndex == ALL_USERS)
+                if(CbRole.SelectedIndex == ALL_USERS)
                 {
-                    updateUserDataGridView(dbc.getUsersByName(txtSearch.Text));
+                    UpdateUserDataGridView(dbc.GetUsersByName(TxtSearch.Text));
                 }
-                else //User by role
+                else //Search user by role and name
                 {
-                    updateUserDataGridView(dbc.getUsersByRoleAndName(cbRole.SelectedIndex,txtSearch.Text));
+                    UpdateUserDataGridView(dbc.GetUsersByRoleAndName(CbRole.SelectedIndex,TxtSearch.Text));
                 }
             }
-            else if (cbSelectTable.SelectedIndex == BOOKS_TABLE)
+            else if (CbSelectTable.SelectedIndex == BOOKS_TABLE)
             {
-                updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
+                UpdateProjectBookDataGridView(dbc.GetProjectBooksByName(TxtSearch.Text));
             }
-            else if(cbSelectTable.SelectedIndex == PAGES_TABLE)
+            else if(CbSelectTable.SelectedIndex == PAGES_TABLE)
             {
-                updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByProjectPageName(txtSearch.Text));
-            }
-        }
-
-        private void cbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbSelectTable.SelectedIndex==USERS_TABLE)
-            {
-                dgvUsers.Visible = true;
-                dgvProjectBook.Visible = false;
-                dgvProjectPage.Visible = false;
-                cbRole.Visible = true;
-                lblSearch.Text = "Search:";
-                btnAdd.Text = "Add User";
-                btnAdd.Visible = true;
-                updateUserDataGridView(dbc.getAllUsers());
-            }
-            else if(cbSelectTable.SelectedIndex == BOOKS_TABLE)
-            {
-                dgvUsers.Visible = false;
-                dgvProjectBook.Visible = true;
-                dgvProjectPage.Visible = false;
-                cbRole.Visible=false;
-                lblSearch.Text = "Search book by name:";
-                btnAdd.Text = "Add Book";
-                btnAdd.Visible = true;
-                updateProjectBookDataGridView(dbc.getAllProjectBook());
-            }
-            else if(cbSelectTable.SelectedIndex == PAGES_TABLE)
-            {
-                dgvUsers.Visible = false;
-                dgvProjectBook.Visible = false;
-                dgvProjectPage.Visible = true;
-                cbRole.Visible = false;
-                lblSearch.Text = "Search page by name:";
-                btnAdd.Visible = false;
-                updateProjectPageDataGridView(dbc.getAllProjectPageAndProjectBookID());
+                UpdateProjectPageDataGridView(dbc.GetProjectPagesAndProjectBookIDByProjectPageName(TxtSearch.Text));
             }
         }
 
-        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbRole.SelectedIndex == int.Parse(Program.STUDENT_ROLE))
+            if(CbSelectTable.SelectedIndex==USERS_TABLE)
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.STUDENT_ROLE)));
+                DgvUsers.Visible = true;
+                DgvProjectBook.Visible = false;
+                DgvProjectPage.Visible = false;
+                CbRole.Visible = true;
+                LblSearch.Text = "Search:";
+                BtnAdd.Text = "Add User";
+                BtnAdd.Visible = true;
+                UpdateUserDataGridView(dbc.GetAllUsers());
             }
-            else if(cbRole.SelectedIndex == int.Parse(Program.LECTURER_ROLE))
+            else if(CbSelectTable.SelectedIndex == BOOKS_TABLE)
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.LECTURER_ROLE)));
+                DgvUsers.Visible = false;
+                DgvProjectBook.Visible = true;
+                DgvProjectPage.Visible = false;
+                CbRole.Visible=false;
+                LblSearch.Text = "Search book by name:";
+                BtnAdd.Text = "Add Book";
+                BtnAdd.Visible = true;
+                UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
             }
-            else if (cbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))
+            else if(CbSelectTable.SelectedIndex == PAGES_TABLE)
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.ADMIN_ROLE)));
+                DgvUsers.Visible = false;
+                DgvProjectBook.Visible = false;
+                DgvProjectPage.Visible = true;
+                CbRole.Visible = false;
+                LblSearch.Text = "Search page by name:";
+                BtnAdd.Visible = false;
+                UpdateProjectPageDataGridView(dbc.GetAllProjectPageAndProjectBookID());
+            }
+        }
+
+        private void CbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbRole.SelectedIndex == int.Parse(Program.STUDENT_ROLE))
+            {
+                UpdateUserDataGridView(dbc.GetUsersByRole(int.Parse(Program.STUDENT_ROLE)));
+            }
+            else if(CbRole.SelectedIndex == int.Parse(Program.LECTURER_ROLE))
+            {
+                UpdateUserDataGridView(dbc.GetUsersByRole(int.Parse(Program.LECTURER_ROLE)));
+            }
+            else if (CbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))
+            {
+                UpdateUserDataGridView(dbc.GetUsersByRole(int.Parse(Program.ADMIN_ROLE)));
             }
             else
             {
-                updateUserDataGridView(dbc.getAllUsers());
+                UpdateUserDataGridView(dbc.GetAllUsers());
             }
         }
     }

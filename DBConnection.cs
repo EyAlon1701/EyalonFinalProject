@@ -22,7 +22,7 @@ namespace EyalonFinalProject
         public static SqlConnection mySqlConnection = new SqlConnection("server = DESKTOP-EYALON1\\SQLEXPRESS02;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
         //USERS
-        public int addUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
+        public int AddUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
         {
             try
             {
@@ -40,21 +40,21 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteUserByID(string userID)
+        public int DeleteUserByID(string userID)
         {
             try
             {
-                DataTable pages = getProjectPagesAndProjectBookIDByStudentID(userID);//only in case the user is student bc only students link to page
+                DataTable pages = GetProjectPagesAndProjectBookIDByStudentID(userID);//only in case the user is student bc only students link to page
                 for (int i = 0; i < pages.Rows.Count; i++)
                 {
-                    DataTable requests = getFriendRequestsProjectPagesIDByStudentIDAns(userID);
+                    DataTable requests = GetFriendRequestsProjectPagesIDByStudentIDAns(userID);
                     {
                         for(int j = 0; j < requests.Rows.Count; j++)
                         {
-                            rejectInvite(int.Parse(requests.Rows[j]["ProjectPageID"].ToString()));
+                            RejectInvite(int.Parse(requests.Rows[j]["ProjectPageID"].ToString()));
                         }
                     }
-                    deleteProjectPageByProjectPageIDAndStudentID(int.Parse(pages.Rows[i]["ProjectPageID"].ToString()), userID);
+                    DeleteProjectPageByProjectPageIDAndStudentID(int.Parse(pages.Rows[i]["ProjectPageID"].ToString()), userID);
                 }
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
@@ -70,7 +70,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getAllUsers()
+        public DataTable GetAllUsers()
         {
             try
             {
@@ -91,7 +91,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable login(string id, string password)
+        public DataTable Login(string id, string password)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getUsersByName(string name)
+        public DataTable GetUsersByName(string name)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getUsersByRole(int role)
+        public DataTable GetUsersByRole(int role)
         {
             try
             {
@@ -154,7 +154,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getUsersByRoleAndName(int role, string name)
+        public DataTable GetUsersByRoleAndName(int role, string name)
         {
             try
             {
@@ -175,7 +175,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getStudentsExceptMyStudentID(string studentID)
+        public DataTable GetStudentsExceptMyStudentID(string studentID)
         {
             try
             {
@@ -196,7 +196,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getUserByID(string userID)
+        public DataRow GetUserByID(string userID)
         {
             try
             {
@@ -217,7 +217,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public int updateUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
+        public int UpdateUser(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
         {
             try
             {
@@ -237,7 +237,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTBOOK
-        public int addProjectBook(string bookName, int bookYear, string bookOpenPage)
+        public int AddProjectBook(string bookName, int bookYear, string bookOpenPage)
         {
             try
             {
@@ -255,7 +255,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getAllProjectBook()
+        public DataTable GetAllProjectBook()
         {
             try
             {
@@ -276,7 +276,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getProjectBooksByName(string name)
+        public DataTable GetProjectBooksByName(string name)
         {
             try
             {
@@ -297,7 +297,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getProjectBookByProjectBookID(int projectBookID)
+        public DataRow GetProjectBookByProjectBookID(int projectBookID)
         {
             try
             {
@@ -318,7 +318,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public string getProjectBookNameByID(int projectBookID)
+        public string GetProjectBookNameByID(int projectBookID)
         {
             string result = "";
             try
@@ -342,7 +342,7 @@ namespace EyalonFinalProject
             }
             return result;
         }
-        public int updateProjectBook(int projectBookID, string bookName, int bookYear, string bookOpenPage)
+        public int UpdateProjectBook(int projectBookID, string bookName, int bookYear, string bookOpenPage)
         {
             try
             {
@@ -360,15 +360,15 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteProjectBookByProjectBookID(int projectBookID)
+        public int DeleteProjectBookByProjectBookID(int projectBookID)
         {
             try
             {
-                DataTable pages = getProjectPagesIDByProjectBookID(projectBookID);
+                DataTable pages = GetProjectPagesIDByProjectBookID(projectBookID);
                 {
                     for (int i = 0; i < pages.Rows.Count; i++)
                     {
-                        deleteProjectPageInBookByProjectPageID(int.Parse(pages.Rows[i][0].ToString()));
+                        DeleteProjectPageInBookByProjectPageID(int.Parse(pages.Rows[i][0].ToString()));
                     }
                 }
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
@@ -387,7 +387,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGE
-        public int addProjectPage(string pageName, string pageData)
+        public int AddProjectPage(string pageName, string pageData)
         {
             try
             {
@@ -405,7 +405,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int getLastProjectPageID()
+        public int GetLastProjectPageID()
         {
             int maxID = -1;
             try
@@ -424,7 +424,7 @@ namespace EyalonFinalProject
             }
             return maxID;
         }
-        public string getProjectPageNameByProjectPageID(int projectPageID)
+        public string GetProjectPageNameByProjectPageID(int projectPageID)
         {
             string result = "";
             try
@@ -448,7 +448,7 @@ namespace EyalonFinalProject
             }
             return result;
         }
-        public DataTable getAllProjectPageAndProjectBookID()
+        public DataTable GetAllProjectPageAndProjectBookID()
         {
             try
             {
@@ -469,7 +469,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getProjectPageAndProjectBookIDByProjectPageID(int projectPageID)
+        public DataRow GetProjectPageAndProjectBookIDByProjectPageID(int projectPageID)
         {
             try
             {
@@ -490,7 +490,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getProjectPagesAndProjectBookIDByStudentID(string studentID)
+        public DataTable GetProjectPagesAndProjectBookIDByStudentID(string studentID)
         {
             try
             {
@@ -511,7 +511,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataRow getProjectPageByProjectPageID(int projectPageID)
+        public DataRow GetProjectPageByProjectPageID(int projectPageID)
         {
             try
             {
@@ -532,7 +532,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public DataTable getProjectPagesAndProjectBookIDByProjectPageName(string projectPageName)
+        public DataTable GetProjectPagesAndProjectBookIDByProjectPageName(string projectPageName)
         {
             try
             {
@@ -553,7 +553,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public int updateProjectPage(int projectPageID, string pageName, string pageData)
+        public int UpdateProjectPage(int projectPageID, string pageName, string pageData)
         {
             try
             {
@@ -571,13 +571,13 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteProjectPageByProjectPageID(int projectPageID)
+        public int DeleteProjectPageByProjectPageID(int projectPageID)
         {
             try
             {
-                deleteStudentProjectPageByProjectPageID(projectPageID);
-                deleteProjectPageInBookByProjectPageID(projectPageID);
-                return deleteProjectPageByProjectPageIDCommand(projectPageID);
+                DeleteStudentProjectPageByProjectPageID(projectPageID);
+                DeleteProjectPageInBookByProjectPageID(projectPageID);
+                return DeleteProjectPageByProjectPageIDCommand(projectPageID);
             }
             catch (Exception err)
             {
@@ -586,15 +586,15 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
+        public int DeleteProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
         {
             try
             {
-                deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, studentID);
-                if (getStudentsByProjectPageID(projectPageID).Rows.Count == 0)
+                DeleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, studentID);
+                if (GetStudentsByProjectPageID(projectPageID).Rows.Count == 0)
                 {
-                    deleteProjectPageInBookByProjectPageID(projectPageID);//IN CASE WE DELETE STUDENT AND HE HAVE PAGE LINK TO BOOK
-                    return deleteProjectPageByProjectPageIDCommand(projectPageID);
+                    DeleteProjectPageInBookByProjectPageID(projectPageID);//IN CASE WE DELETE STUDENT AND HE HAVE PAGE LINK TO BOOK
+                    return DeleteProjectPageByProjectPageIDCommand(projectPageID);
                 }
             }
             catch (Exception err)
@@ -604,11 +604,11 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        private int deleteProjectPageByProjectPageIDCommand(int projectPageID)
+        private int DeleteProjectPageByProjectPageIDCommand(int projectPageID)
         {
             try
             {
-                deleteProjectPageFriendRequest(projectPageID);
+                DeleteProjectPageFriendRequest(projectPageID);
                 SqlCommand mySqlCommand = mySqlConnection.CreateCommand();
                 mySqlConnection.Open();
                 mySqlCommand.CommandText = "DELETE FROM projectDB.dbo.ProjectPage WHERE ProjectPageID=" + projectPageID;
@@ -625,7 +625,7 @@ namespace EyalonFinalProject
         }
 
         //STUDENTPROJECTPAGE
-        public int addStudentProjectPage(string studentID, int projectPageID)
+        public int AddStudentProjectPage(string studentID, int projectPageID)
         {
             try
             {
@@ -643,7 +643,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        private int deleteStudentProjectPageByProjectPageID(int projectPageID)
+        private int DeleteStudentProjectPageByProjectPageID(int projectPageID)
         {
             try
             {
@@ -661,7 +661,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        private int deleteStudentProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
+        private int DeleteStudentProjectPageByProjectPageIDAndStudentID(int projectPageID, string studentID)
         {
             try
             {
@@ -679,7 +679,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public string getPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
+        public string GetPartnerStudentIDAndNameByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
         {
             string result = "";
             try
@@ -703,7 +703,7 @@ namespace EyalonFinalProject
             }
             return result;
         }
-        public DataTable getStudentsByProjectPageID(int projectPageID)
+        public DataTable GetStudentsByProjectPageID(int projectPageID)
         {
             try
             {
@@ -724,7 +724,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        private string getPartnerStudentIDByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
+        private string GetPartnerStudentIDByProjectPageIdAndMyStudentID(int projectPageID, string studentID)
         {
             string partnerStudentID = null;
             try
@@ -748,7 +748,7 @@ namespace EyalonFinalProject
             }
             return partnerStudentID;
         }
-        public string getStudentNameByProjectPageID(int projectPageID)
+        public string GetStudentNameByProjectPageID(int projectPageID)
         {
             string result = "";
             try
@@ -775,7 +775,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGEINBOOK
-        public int addProjectPageInBook(int projectPageID, int projectBookID)
+        public int AddProjectPageInBook(int projectPageID, int projectBookID)
         {
             try
             {
@@ -793,7 +793,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getProjectPagesIDByProjectBookID(int projectBookID)
+        public DataTable GetProjectPagesIDByProjectBookID(int projectBookID)
         {
             try
             {
@@ -814,7 +814,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public int getProjectBookIDByProjectPageID(int projectPageID)
+        public int GetProjectBookIDByProjectPageID(int projectPageID)
         {
             int projectBookID = -1;
             try
@@ -833,7 +833,7 @@ namespace EyalonFinalProject
             }
             return projectBookID;
         }
-        public bool isProjectPageLinkToBook(int projectPageID)
+        public bool IsProjectPageLinkToBook(int projectPageID)
         {
             bool ans = false;
             try
@@ -852,7 +852,7 @@ namespace EyalonFinalProject
             }
             return ans;
         }
-        public int deleteProjectPageInBookByProjectPageID(int projectPageID)
+        public int DeleteProjectPageInBookByProjectPageID(int projectPageID)
         {
             try
             {
@@ -872,7 +872,7 @@ namespace EyalonFinalProject
         }
 
         //PROJECTPAGEFRIENDREQUEST
-        public int addProjectPageFriendRequest(int projectPageID, string studentIDReq, string studentIDAns)
+        public int AddProjectPageFriendRequest(int projectPageID, string studentIDReq, string studentIDAns)
         {
             try
             {
@@ -890,7 +890,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getFriendRequestsProjectPagesIDByStudentIDAns(string studentIDAns)
+        public DataTable GetFriendRequestsProjectPagesIDByStudentIDAns(string studentIDAns)
         {
             try
             {
@@ -911,7 +911,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public bool isProjectPageHaveFriendRequestByProjectPageID(int projectPageID)
+        public bool IsProjectPageHaveFriendRequestByProjectPageID(int projectPageID)
         {
             try
             {
@@ -932,7 +932,7 @@ namespace EyalonFinalProject
             }
             return false;
         }
-        public bool isProjectPageHaveRejectFriendRequestByProjectPageID(int projectPageID)
+        public bool IsProjectPageHaveRejectFriendRequestByProjectPageID(int projectPageID)
         {
             try
             {
@@ -953,7 +953,7 @@ namespace EyalonFinalProject
             }
             return false;
         }
-        public string getInvitedStudentIDAndName(int projectPageID)
+        public string GetInvitedStudentIDAndName(int projectPageID)
         {
             string result = "";
             try
@@ -977,7 +977,7 @@ namespace EyalonFinalProject
             }
             return result;
         }
-        public int rejectInvite(int projectPageID)
+        public int RejectInvite(int projectPageID)
         {
             try
             {
@@ -995,7 +995,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public int deleteProjectPageFriendRequest(int projectPageID)
+        public int DeleteProjectPageFriendRequest(int projectPageID)
         {
             try
             {
@@ -1013,7 +1013,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public bool isProjectPageInTheFriendRequestHaveSameBookLikeMyProjectPage(string studentIDAns,int myProjectPageProjectBookID)
+        public bool IsProjectPageInTheFriendRequestHaveSameBookLikeMyProjectPage(string studentIDAns,int myProjectPageProjectBookID)
         {
             try
             {
@@ -1036,7 +1036,7 @@ namespace EyalonFinalProject
         }
 
         //OTHER
-        public bool isStudentLinkToBook(string studentID, int projectBookID)
+        public bool IsStudentLinkToBook(string studentID, int projectBookID)
         {
             bool ans = false;
             try
@@ -1055,20 +1055,20 @@ namespace EyalonFinalProject
             }
             return ans;
         }
-        public int deletePartnerFromProjectPageByProjectPageIDAndMyStudentID(int projectPageID,string studentID)
+        public int DeletePartnerFromProjectPageByProjectPageIDAndMyStudentID(int projectPageID,string studentID)
         {
             try
             {
-                string partnerStudentID = getPartnerStudentIDByProjectPageIdAndMyStudentID(projectPageID,studentID);
+                string partnerStudentID = GetPartnerStudentIDByProjectPageIdAndMyStudentID(projectPageID,studentID);
                 if (partnerStudentID != null)
                 {
-                    deleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, partnerStudentID);
-                    addProjectPage(getProjectPageNameByProjectPageID(projectPageID), getProjectPageByProjectPageID(projectPageID)["ProjectPageData"].ToString());
-                    if (isProjectPageLinkToBook(projectPageID))
+                    DeleteStudentProjectPageByProjectPageIDAndStudentID(projectPageID, partnerStudentID);
+                    AddProjectPage(GetProjectPageNameByProjectPageID(projectPageID), GetProjectPageByProjectPageID(projectPageID)["ProjectPageData"].ToString());
+                    if (IsProjectPageLinkToBook(projectPageID))
                     {
-                        addProjectPageInBook(getLastProjectPageID(), getProjectBookIDByProjectPageID(projectPageID));
+                        AddProjectPageInBook(GetLastProjectPageID(), GetProjectBookIDByProjectPageID(projectPageID));
                     }
-                    return addStudentProjectPage(partnerStudentID, getLastProjectPageID());
+                    return AddStudentProjectPage(partnerStudentID, GetLastProjectPageID());
                 }
             }
             catch (Exception error)
@@ -1078,7 +1078,7 @@ namespace EyalonFinalProject
             }
             return -1;
         }
-        public DataTable getStudentsOnSameBookThatDontHavePartnerExceptMyStudentIDByProjectBookID(string studentID,int projectBookID)
+        public DataTable GetStudentsOnSameBookThatDontHavePartnerExceptMyStudentIDByProjectBookID(string studentID,int projectBookID)
         {
             try
             {
@@ -1099,7 +1099,7 @@ namespace EyalonFinalProject
             }
             return null;
         }
-        public int getMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(string studentID, int projectBookID)
+        public int GetMyProjectPageIDThatLinkToBookByProjectBookIDAndStudentID(string studentID, int projectBookID)
         {
             int projectPageID = -1;
             try

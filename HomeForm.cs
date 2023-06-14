@@ -17,14 +17,14 @@ namespace EyalonFinalProject
         public HomeForm()
         {
             InitializeComponent();
-            pnlLogin.Visible = true;
-            pnlReg.Visible = false;
-            pictureBox.Visible = false;
+            PnlLogin.Visible = true;
+            PnlReg.Visible = false;
+            PictureBox.Visible = false;
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
-            DataTable dt = dbc.login(txtLoginID.Text,txtLoginPassword.Text);
+            DataTable dt = dbc.Login(TxtLoginID.Text,TxtLoginPassword.Text);
             if(dt.Rows.Count > 0)//User exist
             {
                 this.Hide();
@@ -60,25 +60,25 @@ namespace EyalonFinalProject
             }
         }
 
-        private void btnReg_Click(object sender, EventArgs e)
+        private void BtnReg_Click(object sender, EventArgs e)
         {
-            if (txtRegID.Text == "" || txtRegFirstName.Text == "" || txtRegLastName.Text == "" || txtRegEmail.Text == "" || txtRegPassword.Text == "")
+            if (TxtRegID.Text == "" || TxtRegFirstName.Text == "" || TxtRegLastName.Text == "" || TxtRegEmail.Text == "" || TxtRegPassword.Text == "")
             {
                 MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(txtRegID.Text.Length>9)
+            else if(TxtRegID.Text.Length>9)
             {
                 MessageBox.Show("The ID can't contain more than 9 characters", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                int num = dbc.addUser(txtRegID.Text, txtRegFirstName.Text, txtRegLastName.Text, txtRegEmail.Text, txtRegPassword.Text, pictureBox.ImageLocation, int.Parse(Program.STUDENT_ROLE));
+                int num = dbc.AddUser(TxtRegID.Text, TxtRegFirstName.Text, TxtRegLastName.Text, TxtRegEmail.Text, TxtRegPassword.Text, PictureBox.ImageLocation, int.Parse(Program.STUDENT_ROLE));
                 if (num == 1)
                 {
                     MessageBox.Show("Registration successfully completed. Sign in now");
-                    pnlLogin.Visible = true;
-                    pnlReg.Visible = false;
-                    btnRegImg.BackColor = SystemColors.Window;
+                    PnlLogin.Visible = true;
+                    PnlReg.Visible = false;
+                    BtnRegImg.BackColor = SystemColors.Window;
                 }
                 else
                 {
@@ -87,43 +87,38 @@ namespace EyalonFinalProject
             }
         }
 
-        private void btnGoLogin_Click(object sender, EventArgs e)
+        private void BtnGoLogin_Click(object sender, EventArgs e)
         {
-            pnlLogin.Visible = true;
-            pnlReg.Visible = false;
-            btnRegImg.BackColor = SystemColors.Window;
+            PnlLogin.Visible = true;
+            PnlReg.Visible = false;
+            BtnRegImg.BackColor = SystemColors.Window;
         }
 
-        private void btnGoReg_Click(object sender, EventArgs e)
+        private void BtnGoReg_Click(object sender, EventArgs e)
         {
-            pnlReg.Visible = true;
-            pnlLogin.Visible = false;
+            PnlReg.Visible = true;
+            PnlLogin.Visible = false;
         }
 
-        private void btnRegImg_Click(object sender, EventArgs e)
+        private void BtnRegImg_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Picture | *.jpg; *.jpeg; *.png;";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            OpenFileDialog.Filter = "Picture | *.jpg; *.jpeg; *.png;";
+            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
-                pictureBox.ImageLocation = openFileDialog1.FileName;
-                btnRegImg.BackColor = Color.Green;
+                PictureBox.Image = Image.FromFile(OpenFileDialog.FileName);
+                PictureBox.ImageLocation = OpenFileDialog.FileName;
+                BtnRegImg.BackColor = Color.Green;
             }
         }
 
-        private void lblImg_MouseHover(object sender, EventArgs e)
+        private void LblImg_MouseHover(object sender, EventArgs e)
         {
-            pictureBox.Visible = true;
+            PictureBox.Visible = true;
         }
 
-        private void lblImg_MouseLeave(object sender, EventArgs e)
+        private void LblImg_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox.Visible = false;
-        }
-
-        private void HomeForm_Load(object sender, EventArgs e)
-        {
-
+            PictureBox.Visible = false;
         }
     }
 }

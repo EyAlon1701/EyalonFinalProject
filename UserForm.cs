@@ -27,10 +27,10 @@ namespace EyalonFinalProject
             InitializeComponent();
             if (accessRole == int.Parse(Program.ADMIN_ROLE))
             {
-                txtID.Enabled = true;
-                cbRole.Enabled = true;
-                cbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
-                cbRole.SelectedIndex = 0;
+                TxtID.Enabled = true;
+                CbRole.Enabled = true;
+                CbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
+                CbRole.SelectedIndex = 0;
             }
         }
 
@@ -38,48 +38,48 @@ namespace EyalonFinalProject
         public UserForm(int accessRole, string userID)
         {
             InitializeComponent();
-            DataRow userRow = dbc.getUserByID(userID);
-            setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
+            DataRow userRow = dbc.GetUserByID(userID);
+            SetData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
 
             if(accessRole == int.Parse(Program.ADMIN_ROLE))
             {
-                cbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
-                cbRole.Enabled = true;
-                if (cbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))//If user is admin
+                CbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
+                CbRole.Enabled = true;
+                if (CbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))//If user is admin
                 {
-                    lblRole.Visible = false;
-                    cbRole.Visible = false;
+                    LblRole.Visible = false;
+                    CbRole.Visible = false;
                 }
             }
         }
 
-        private void setData(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
+        private void SetData(string id, string firstName, string lastName, string email, string password, string imgPath, int role)
         {
-            txtID.Text = id;
-            txtFirstName.Text = firstName;
-            txtLastName.Text = lastName;
-            txtEmail.Text = email;
-            txtPassword.Text = password;
-            pictureBox.ImageLocation = imgPath;
+            TxtID.Text = id;
+            TxtFirstName.Text = firstName;
+            TxtLastName.Text = lastName;
+            TxtEmail.Text = email;
+            TxtPassword.Text = password;
+            PictureBox.ImageLocation = imgPath;
             try
             {
-                pictureBox.Image = Image.FromFile(imgPath);
+                PictureBox.Image = Image.FromFile(imgPath);
             }
             catch (Exception error)
             {
             }
-            cbRole.SelectedIndex = role;
-            btnSubmit.Text = "Update";
+            CbRole.SelectedIndex = role;
+            BtnSubmit.Text = "Update";
             isAdd = false;
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            if (txtID.Text == "" || txtFirstName.Text == "" || txtLastName.Text == "" || txtEmail.Text == "" || txtPassword.Text == "")
+            if (TxtID.Text == "" || TxtFirstName.Text == "" || TxtLastName.Text == "" || TxtEmail.Text == "" || TxtPassword.Text == "")
             {
                 MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (txtID.Text.Length > 9)
+            else if (TxtID.Text.Length > 9)
             {
                 MessageBox.Show("The ID can't contain more than 9 characters", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -87,7 +87,7 @@ namespace EyalonFinalProject
             {
                 if (isAdd)//true - add user
                 {
-                    int num = dbc.addUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                    int num = dbc.AddUser(TxtID.Text, TxtFirstName.Text, TxtLastName.Text, TxtEmail.Text, TxtPassword.Text, PictureBox.ImageLocation, CbRole.SelectedIndex);
                     if (num == 1)
                     {
                         this.Close();
@@ -99,19 +99,19 @@ namespace EyalonFinalProject
                 }
                 else //false - update user
                 {
-                    dbc.updateUser(txtID.Text, txtFirstName.Text, txtLastName.Text, txtEmail.Text, txtPassword.Text, pictureBox.ImageLocation, cbRole.SelectedIndex);
+                    dbc.UpdateUser(TxtID.Text, TxtFirstName.Text, TxtLastName.Text, TxtEmail.Text, TxtPassword.Text, PictureBox.ImageLocation, CbRole.SelectedIndex);
                     this.Close();
                 }
             }
         }
 
-        private void btnImg_Click(object sender, EventArgs e)
+        private void BtnImg_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Picture | *.jpg; *.jpeg; *.png;";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            OpenFileDialog.Filter = "Picture | *.jpg; *.jpeg; *.png;";
+            if (OpenFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox.Image = Image.FromFile(openFileDialog1.FileName);
-                pictureBox.ImageLocation = openFileDialog1.FileName;
+                PictureBox.Image = Image.FromFile(OpenFileDialog.FileName);
+                PictureBox.ImageLocation = OpenFileDialog.FileName;
             }
         }
     }

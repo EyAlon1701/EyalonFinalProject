@@ -28,60 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvPagesInBook = new System.Windows.Forms.DataGridView();
+            this.BtnAddPageToBook = new System.Windows.Forms.Button();
+            this.LblTitle = new System.Windows.Forms.Label();
+            this.DgvPagesInBook = new System.Windows.Forms.DataGridView();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPagesInBook)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPagesInBook)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnAdd
+            // BtnAddPageToBook
             // 
-            this.btnAdd.Location = new System.Drawing.Point(752, 21);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(289, 50);
-            this.btnAdd.TabIndex = 33;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.BtnAddPageToBook.Location = new System.Drawing.Point(752, 21);
+            this.BtnAddPageToBook.Name = "BtnAddPageToBook";
+            this.BtnAddPageToBook.Size = new System.Drawing.Size(289, 50);
+            this.BtnAddPageToBook.TabIndex = 33;
+            this.BtnAddPageToBook.Text = "Add Pages To Book";
+            this.BtnAddPageToBook.UseVisualStyleBackColor = true;
+            this.BtnAddPageToBook.Click += new System.EventHandler(this.BtnAddPageToBook_Click);
             // 
-            // lblTitle
+            // LblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(14, 21);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(266, 50);
-            this.lblTitle.TabIndex = 34;
-            this.lblTitle.Text = "Pages in book";
+            this.LblTitle.AutoSize = true;
+            this.LblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblTitle.Location = new System.Drawing.Point(14, 21);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(266, 50);
+            this.LblTitle.TabIndex = 34;
+            this.LblTitle.Text = "Pages in book";
             // 
-            // dgvPagesInBook
+            // DgvPagesInBook
             // 
-            this.dgvPagesInBook.AllowUserToAddRows = false;
-            this.dgvPagesInBook.AllowUserToDeleteRows = false;
-            this.dgvPagesInBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvPagesInBook.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvPagesInBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPagesInBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvPagesInBook.AllowUserToAddRows = false;
+            this.DgvPagesInBook.AllowUserToDeleteRows = false;
+            this.DgvPagesInBook.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvPagesInBook.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DgvPagesInBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvPagesInBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PageID,
             this.StudentID,
             this.StudentName,
             this.PageName,
             this.View,
             this.Delete});
-            this.dgvPagesInBook.Location = new System.Drawing.Point(0, 85);
-            this.dgvPagesInBook.Name = "dgvPagesInBook";
-            this.dgvPagesInBook.ReadOnly = true;
-            this.dgvPagesInBook.RowHeadersWidth = 51;
-            this.dgvPagesInBook.RowTemplate.Height = 29;
-            this.dgvPagesInBook.Size = new System.Drawing.Size(1053, 401);
-            this.dgvPagesInBook.TabIndex = 35;
-            this.dgvPagesInBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagesInBook_CellContentClick);
+            this.DgvPagesInBook.Location = new System.Drawing.Point(0, 85);
+            this.DgvPagesInBook.Name = "DgvPagesInBook";
+            this.DgvPagesInBook.ReadOnly = true;
+            this.DgvPagesInBook.RowHeadersWidth = 51;
+            this.DgvPagesInBook.RowTemplate.Height = 29;
+            this.DgvPagesInBook.Size = new System.Drawing.Size(1053, 401);
+            this.DgvPagesInBook.TabIndex = 35;
+            this.DgvPagesInBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvPagesInBook_CellContentClick);
             // 
             // PageID
             // 
@@ -143,12 +143,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1053, 486);
-            this.Controls.Add(this.dgvPagesInBook);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.DgvPagesInBook);
+            this.Controls.Add(this.LblTitle);
+            this.Controls.Add(this.BtnAddPageToBook);
             this.Name = "PagesInBook";
             this.Text = "PagesInBookForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPagesInBook)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvPagesInBook)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,9 +156,9 @@
 
         #endregion
 
-        private Button btnAdd;
-        private Label lblTitle;
-        private DataGridView dgvPagesInBook;
+        private Button BtnAddPageToBook;
+        private Label LblTitle;
+        private DataGridView DgvPagesInBook;
         private DataGridViewTextBoxColumn PageID;
         private DataGridViewTextBoxColumn StudentID;
         private DataGridViewTextBoxColumn StudentName;

@@ -28,197 +28,197 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnImg = new System.Windows.Forms.Button();
-            this.lblImg = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.lblLastName = new System.Windows.Forms.Label();
-            this.txtFirstName = new System.Windows.Forms.TextBox();
-            this.lblFirstName = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.BtnImg = new System.Windows.Forms.Button();
+            this.LblImg = new System.Windows.Forms.Label();
+            this.TxtLastName = new System.Windows.Forms.TextBox();
+            this.LblLastName = new System.Windows.Forms.Label();
+            this.TxtFirstName = new System.Windows.Forms.TextBox();
+            this.LblFirstName = new System.Windows.Forms.Label();
+            this.TxtPassword = new System.Windows.Forms.TextBox();
+            this.LblID = new System.Windows.Forms.Label();
+            this.TxtID = new System.Windows.Forms.TextBox();
+            this.LblPassword = new System.Windows.Forms.Label();
+            this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.LblRole = new System.Windows.Forms.Label();
+            this.CbRole = new System.Windows.Forms.ComboBox();
+            this.BtnSubmit = new System.Windows.Forms.Button();
+            this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.LblEmail = new System.Windows.Forms.Label();
+            this.TxtEmail = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnImg
+            // BtnImg
             // 
-            this.btnImg.Location = new System.Drawing.Point(121, 341);
-            this.btnImg.Name = "btnImg";
-            this.btnImg.Size = new System.Drawing.Size(125, 29);
-            this.btnImg.TabIndex = 27;
-            this.btnImg.Text = "open";
-            this.btnImg.UseVisualStyleBackColor = true;
-            this.btnImg.Click += new System.EventHandler(this.btnImg_Click);
+            this.BtnImg.Location = new System.Drawing.Point(121, 341);
+            this.BtnImg.Name = "BtnImg";
+            this.BtnImg.Size = new System.Drawing.Size(125, 29);
+            this.BtnImg.TabIndex = 27;
+            this.BtnImg.Text = "open";
+            this.BtnImg.UseVisualStyleBackColor = true;
+            this.BtnImg.Click += new System.EventHandler(this.BtnImg_Click);
             // 
-            // lblImg
+            // LblImg
             // 
-            this.lblImg.AutoSize = true;
-            this.lblImg.Location = new System.Drawing.Point(11, 345);
-            this.lblImg.Name = "lblImg";
-            this.lblImg.Size = new System.Drawing.Size(54, 20);
-            this.lblImg.TabIndex = 28;
-            this.lblImg.Text = "Image:";
+            this.LblImg.AutoSize = true;
+            this.LblImg.Location = new System.Drawing.Point(11, 345);
+            this.LblImg.Name = "LblImg";
+            this.LblImg.Size = new System.Drawing.Size(54, 20);
+            this.LblImg.TabIndex = 28;
+            this.LblImg.Text = "Image:";
             // 
-            // txtLastName
+            // TxtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(121, 237);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(125, 27);
-            this.txtLastName.TabIndex = 22;
+            this.TxtLastName.Location = new System.Drawing.Point(121, 237);
+            this.TxtLastName.Name = "TxtLastName";
+            this.TxtLastName.Size = new System.Drawing.Size(125, 27);
+            this.TxtLastName.TabIndex = 22;
             // 
-            // lblLastName
+            // LblLastName
             // 
-            this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(11, 240);
-            this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(78, 20);
-            this.lblLastName.TabIndex = 23;
-            this.lblLastName.Text = "LastName:";
+            this.LblLastName.AutoSize = true;
+            this.LblLastName.Location = new System.Drawing.Point(11, 240);
+            this.LblLastName.Name = "LblLastName";
+            this.LblLastName.Size = new System.Drawing.Size(78, 20);
+            this.LblLastName.TabIndex = 23;
+            this.LblLastName.Text = "LastName:";
             // 
-            // txtFirstName
+            // TxtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(121, 203);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(125, 27);
-            this.txtFirstName.TabIndex = 20;
+            this.TxtFirstName.Location = new System.Drawing.Point(121, 203);
+            this.TxtFirstName.Name = "TxtFirstName";
+            this.TxtFirstName.Size = new System.Drawing.Size(125, 27);
+            this.TxtFirstName.TabIndex = 20;
             // 
-            // lblFirstName
+            // LblFirstName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(11, 205);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(79, 20);
-            this.lblFirstName.TabIndex = 21;
-            this.lblFirstName.Text = "FirstName:";
+            this.LblFirstName.AutoSize = true;
+            this.LblFirstName.Location = new System.Drawing.Point(11, 205);
+            this.LblFirstName.Name = "LblFirstName";
+            this.LblFirstName.Size = new System.Drawing.Size(79, 20);
+            this.LblFirstName.TabIndex = 21;
+            this.LblFirstName.Text = "FirstName:";
             // 
-            // txtPassword
+            // TxtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(121, 307);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(125, 27);
-            this.txtPassword.TabIndex = 26;
+            this.TxtPassword.Location = new System.Drawing.Point(121, 307);
+            this.TxtPassword.Name = "TxtPassword";
+            this.TxtPassword.Size = new System.Drawing.Size(125, 27);
+            this.TxtPassword.TabIndex = 26;
             // 
-            // lblID
+            // LblID
             // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(11, 171);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(31, 20);
-            this.lblID.TabIndex = 18;
-            this.lblID.Text = "ID: ";
+            this.LblID.AutoSize = true;
+            this.LblID.Location = new System.Drawing.Point(11, 171);
+            this.LblID.Name = "LblID";
+            this.LblID.Size = new System.Drawing.Size(31, 20);
+            this.LblID.TabIndex = 18;
+            this.LblID.Text = "ID: ";
             // 
-            // txtID
+            // TxtID
             // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(121, 167);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(125, 27);
-            this.txtID.TabIndex = 19;
+            this.TxtID.Enabled = false;
+            this.TxtID.Location = new System.Drawing.Point(121, 167);
+            this.TxtID.Name = "TxtID";
+            this.TxtID.Size = new System.Drawing.Size(125, 27);
+            this.TxtID.TabIndex = 19;
             // 
-            // lblPassword
+            // LblPassword
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(11, 309);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 20);
-            this.lblPassword.TabIndex = 25;
-            this.lblPassword.Text = "Password:";
+            this.LblPassword.AutoSize = true;
+            this.LblPassword.Location = new System.Drawing.Point(11, 309);
+            this.LblPassword.Name = "LblPassword";
+            this.LblPassword.Size = new System.Drawing.Size(73, 20);
+            this.LblPassword.TabIndex = 25;
+            this.LblPassword.Text = "Password:";
             // 
-            // pictureBox
+            // PictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(11, 12);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(234, 139);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 17;
-            this.pictureBox.TabStop = false;
+            this.PictureBox.Location = new System.Drawing.Point(11, 12);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(234, 139);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox.TabIndex = 17;
+            this.PictureBox.TabStop = false;
             // 
-            // lblRole
+            // LblRole
             // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Location = new System.Drawing.Point(11, 380);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(42, 20);
-            this.lblRole.TabIndex = 29;
-            this.lblRole.Text = "Role:";
+            this.LblRole.AutoSize = true;
+            this.LblRole.Location = new System.Drawing.Point(11, 380);
+            this.LblRole.Name = "LblRole";
+            this.LblRole.Size = new System.Drawing.Size(42, 20);
+            this.LblRole.TabIndex = 29;
+            this.LblRole.Text = "Role:";
             // 
-            // cbRole
+            // CbRole
             // 
-            this.cbRole.Enabled = false;
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
+            this.CbRole.Enabled = false;
+            this.CbRole.FormattingEnabled = true;
+            this.CbRole.Items.AddRange(new object[] {
             "Student",
             "Lecturer",
             "Admin"});
-            this.cbRole.Location = new System.Drawing.Point(121, 377);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(125, 28);
-            this.cbRole.TabIndex = 30;
+            this.CbRole.Location = new System.Drawing.Point(121, 377);
+            this.CbRole.Name = "CbRole";
+            this.CbRole.Size = new System.Drawing.Size(125, 28);
+            this.CbRole.TabIndex = 30;
             // 
-            // btnSubmit
+            // BtnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(12, 427);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(234, 40);
-            this.btnSubmit.TabIndex = 31;
-            this.btnSubmit.Text = "Add";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.BtnSubmit.Location = new System.Drawing.Point(12, 427);
+            this.BtnSubmit.Name = "BtnSubmit";
+            this.BtnSubmit.Size = new System.Drawing.Size(234, 40);
+            this.BtnSubmit.TabIndex = 31;
+            this.BtnSubmit.Text = "Add";
+            this.BtnSubmit.UseVisualStyleBackColor = true;
+            this.BtnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
             // 
-            // openFileDialog1
+            // OpenFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.OpenFileDialog.FileName = "openFileDialog1";
             // 
-            // lblEmail
+            // LblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(11, 275);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(49, 20);
-            this.lblEmail.TabIndex = 24;
-            this.lblEmail.Text = "Email:";
+            this.LblEmail.AutoSize = true;
+            this.LblEmail.Location = new System.Drawing.Point(11, 275);
+            this.LblEmail.Name = "LblEmail";
+            this.LblEmail.Size = new System.Drawing.Size(49, 20);
+            this.LblEmail.TabIndex = 24;
+            this.LblEmail.Text = "Email:";
             // 
-            // txtEmail
+            // TxtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(121, 272);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(125, 27);
-            this.txtEmail.TabIndex = 25;
+            this.TxtEmail.Location = new System.Drawing.Point(121, 272);
+            this.TxtEmail.Name = "TxtEmail";
+            this.TxtEmail.Size = new System.Drawing.Size(125, 27);
+            this.TxtEmail.TabIndex = 25;
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(258, 479);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.cbRole);
-            this.Controls.Add(this.lblRole);
-            this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.btnImg);
-            this.Controls.Add(this.lblImg);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.lblFirstName);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtID);
-            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.TxtEmail);
+            this.Controls.Add(this.LblEmail);
+            this.Controls.Add(this.BtnSubmit);
+            this.Controls.Add(this.CbRole);
+            this.Controls.Add(this.LblRole);
+            this.Controls.Add(this.PictureBox);
+            this.Controls.Add(this.BtnImg);
+            this.Controls.Add(this.LblImg);
+            this.Controls.Add(this.TxtLastName);
+            this.Controls.Add(this.LblLastName);
+            this.Controls.Add(this.TxtFirstName);
+            this.Controls.Add(this.LblFirstName);
+            this.Controls.Add(this.TxtPassword);
+            this.Controls.Add(this.LblID);
+            this.Controls.Add(this.TxtID);
+            this.Controls.Add(this.LblPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "UserForm";
             this.Text = "UserForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,22 +226,22 @@
 
         #endregion
 
-        private Button btnImg;
-        private Label lblImg;
-        private TextBox txtLastName;
-        private Label lblLastName;
-        private TextBox txtFirstName;
-        private Label lblFirstName;
-        private TextBox txtPassword;
-        private Label lblID;
-        private TextBox txtID;
-        private Label lblPassword;
-        private PictureBox pictureBox;
-        private Label lblRole;
-        private ComboBox cbRole;
-        private Button btnSubmit;
-        private OpenFileDialog openFileDialog1;
-        private Label lblEmail;
-        private TextBox txtEmail;
+        private Button BtnImg;
+        private Label LblImg;
+        private TextBox TxtLastName;
+        private Label LblLastName;
+        private TextBox TxtFirstName;
+        private Label LblFirstName;
+        private TextBox TxtPassword;
+        private Label LblID;
+        private TextBox TxtID;
+        private Label LblPassword;
+        private PictureBox PictureBox;
+        private Label LblRole;
+        private ComboBox CbRole;
+        private Button BtnSubmit;
+        private OpenFileDialog OpenFileDialog;
+        private Label LblEmail;
+        private TextBox TxtEmail;
     }
 }

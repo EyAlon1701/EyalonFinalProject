@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvProjectPage = new System.Windows.Forms.DataGridView();
+            this.LblWelcome = new System.Windows.Forms.Label();
+            this.BtnAddPage = new System.Windows.Forms.Button();
+            this.DgvProjectPage = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageCreationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,39 +40,39 @@
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnEditUser = new System.Windows.Forms.Button();
-            this.btnPartner = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).BeginInit();
+            this.BtnEditUser = new System.Windows.Forms.Button();
+            this.BtnPartner = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProjectPage)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblWelcome
+            // LblWelcome
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWelcome.Location = new System.Drawing.Point(24, 33);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(167, 46);
-            this.lblWelcome.TabIndex = 0;
-            this.lblWelcome.Text = "Welcome";
+            this.LblWelcome.AutoSize = true;
+            this.LblWelcome.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblWelcome.Location = new System.Drawing.Point(24, 33);
+            this.LblWelcome.Name = "LblWelcome";
+            this.LblWelcome.Size = new System.Drawing.Size(167, 46);
+            this.LblWelcome.TabIndex = 0;
+            this.LblWelcome.Text = "Welcome";
             // 
-            // btnAdd
+            // BtnAddPage
             // 
-            this.btnAdd.Location = new System.Drawing.Point(994, 27);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(289, 45);
-            this.btnAdd.TabIndex = 34;
-            this.btnAdd.Text = "Add Page";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.BtnAddPage.Location = new System.Drawing.Point(994, 27);
+            this.BtnAddPage.Name = "BtnAddPage";
+            this.BtnAddPage.Size = new System.Drawing.Size(289, 45);
+            this.BtnAddPage.TabIndex = 34;
+            this.BtnAddPage.Text = "Add Page";
+            this.BtnAddPage.UseVisualStyleBackColor = true;
+            this.BtnAddPage.Click += new System.EventHandler(this.BtnAddPage_Click);
             // 
-            // dgvProjectPage
+            // DgvProjectPage
             // 
-            this.dgvProjectPage.AllowUserToAddRows = false;
-            this.dgvProjectPage.AllowUserToDeleteRows = false;
-            this.dgvProjectPage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvProjectPage.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvProjectPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProjectPage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvProjectPage.AllowUserToAddRows = false;
+            this.DgvProjectPage.AllowUserToDeleteRows = false;
+            this.DgvProjectPage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvProjectPage.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DgvProjectPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProjectPage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.PageName,
             this.PageCreationDate,
@@ -82,14 +82,14 @@
             this.View,
             this.Edit,
             this.Delete});
-            this.dgvProjectPage.Location = new System.Drawing.Point(0, 161);
-            this.dgvProjectPage.Name = "dgvProjectPage";
-            this.dgvProjectPage.ReadOnly = true;
-            this.dgvProjectPage.RowHeadersWidth = 51;
-            this.dgvProjectPage.RowTemplate.Height = 29;
-            this.dgvProjectPage.Size = new System.Drawing.Size(1295, 410);
-            this.dgvProjectPage.TabIndex = 35;
-            this.dgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProjectPage_CellContentClick);
+            this.DgvProjectPage.Location = new System.Drawing.Point(0, 161);
+            this.DgvProjectPage.Name = "DgvProjectPage";
+            this.DgvProjectPage.ReadOnly = true;
+            this.DgvProjectPage.RowHeadersWidth = 51;
+            this.DgvProjectPage.RowTemplate.Height = 29;
+            this.DgvProjectPage.Size = new System.Drawing.Size(1295, 410);
+            this.DgvProjectPage.TabIndex = 35;
+            this.DgvProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProjectPage_CellContentClick);
             // 
             // ID
             // 
@@ -167,25 +167,25 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
-            // btnEditUser
+            // BtnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(994, 78);
-            this.btnEditUser.Name = "btnEditUser";
-            this.btnEditUser.Size = new System.Drawing.Size(289, 45);
-            this.btnEditUser.TabIndex = 37;
-            this.btnEditUser.Text = "Edit User";
-            this.btnEditUser.UseVisualStyleBackColor = true;
-            this.btnEditUser.Click += new System.EventHandler(this.btnEditUser_Click);
+            this.BtnEditUser.Location = new System.Drawing.Point(994, 78);
+            this.BtnEditUser.Name = "BtnEditUser";
+            this.BtnEditUser.Size = new System.Drawing.Size(289, 45);
+            this.BtnEditUser.TabIndex = 37;
+            this.BtnEditUser.Text = "Edit User";
+            this.BtnEditUser.UseVisualStyleBackColor = true;
+            this.BtnEditUser.Click += new System.EventHandler(this.BtnEditUser_Click);
             // 
-            // btnPartner
+            // BtnPartner
             // 
-            this.btnPartner.Location = new System.Drawing.Point(24, 110);
-            this.btnPartner.Name = "btnPartner";
-            this.btnPartner.Size = new System.Drawing.Size(289, 45);
-            this.btnPartner.TabIndex = 38;
-            this.btnPartner.Text = "Partner Requests";
-            this.btnPartner.UseVisualStyleBackColor = true;
-            this.btnPartner.Click += new System.EventHandler(this.btnPartner_Click);
+            this.BtnPartner.Location = new System.Drawing.Point(24, 110);
+            this.BtnPartner.Name = "BtnPartner";
+            this.BtnPartner.Size = new System.Drawing.Size(289, 45);
+            this.BtnPartner.TabIndex = 38;
+            this.BtnPartner.Text = "Partner Requests";
+            this.BtnPartner.UseVisualStyleBackColor = true;
+            this.BtnPartner.Click += new System.EventHandler(this.BtnPartner_Click);
             // 
             // StudentForm
             // 
@@ -193,16 +193,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1295, 571);
-            this.Controls.Add(this.btnPartner);
-            this.Controls.Add(this.btnEditUser);
-            this.Controls.Add(this.dgvProjectPage);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.BtnPartner);
+            this.Controls.Add(this.BtnEditUser);
+            this.Controls.Add(this.DgvProjectPage);
+            this.Controls.Add(this.BtnAddPage);
+            this.Controls.Add(this.LblWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "StudentForm";
             this.Text = "StudentForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProjectPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvProjectPage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,11 +210,11 @@
 
         #endregion
 
-        private Label lblWelcome;
-        private Button btnAdd;
-        private DataGridView dgvProjectPage;
-        private Button btnEditUser;
-        private Button btnPartner;
+        private Label LblWelcome;
+        private Button BtnAddPage;
+        private DataGridView DgvProjectPage;
+        private Button BtnEditUser;
+        private Button BtnPartner;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn PageCreationDate;

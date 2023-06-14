@@ -23,17 +23,17 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.bookID = bookID;
-            updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
+            UpdatePagesInBookDataGridView(dbc.GetProjectPagesIDByProjectBookID(bookID));
         }
 
-        private void updatePagesInBookDataGridView(DataTable dt)
+        private void UpdatePagesInBookDataGridView(DataTable dt)
         {
-            dgvPagesInBook.Rows.Clear();
+            DgvPagesInBook.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    DataTable stu = dbc.getStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
+                    DataTable stu = dbc.GetStudentsByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString()));
                     string stuID = "",stuName="";
                     for (int stuRow = 0; stuRow < stu.Rows.Count; stuRow++)
                     {
@@ -42,37 +42,37 @@ namespace EyalonFinalProject
                     }
                     stuID = stuID.Remove(stuID.Length - 2);
                     stuName = stuName.Remove(stuName.Length - 2);
-                    dgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.getProjectPageNameByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
+                    DgvPagesInBook.Rows.Add(dt.Rows[row]["ProjectPageID"].ToString(), stuID, stuName, dbc.GetProjectPageNameByProjectPageID(int.Parse(dt.Rows[row]["ProjectPageID"].ToString())), "View", "Delete");
                 }
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAddPageToBook_Click(object sender, EventArgs e)
         {
             AddPageToBookForm addPageToBookForm = new AddPageToBookForm(bookID);
             addPageToBookForm.ShowDialog();
-            updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
+            UpdatePagesInBookDataGridView(dbc.GetProjectPagesIDByProjectBookID(bookID));
         }
 
-        private void dgvPagesInBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvPagesInBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
 
-            DataGridViewRow selectedRow = dgvPagesInBook.Rows[e.RowIndex];
-            if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "View")
+            DataGridViewRow selectedRow = DgvPagesInBook.Rows[e.RowIndex];
+            if (DgvPagesInBook.Columns[e.ColumnIndex].Name == "View")
             {
                 ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["PageID"].Value.ToString()), true);
                 viewPageForm.ShowDialog();
             }
-            if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "Delete")
+            if (DgvPagesInBook.Columns[e.ColumnIndex].Name == "Delete")
             {
                 if (MessageBox.Show("Are you sure you want to delete this project page from the book?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbc.deleteProjectPageInBookByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
-                    updatePagesInBookDataGridView(dbc.getProjectPagesIDByProjectBookID(bookID));
+                    dbc.DeleteProjectPageInBookByProjectPageID(int.Parse(selectedRow.Cells["PageID"].Value.ToString()));
+                    UpdatePagesInBookDataGridView(dbc.GetProjectPagesIDByProjectBookID(bookID));
                 }
             }
         }

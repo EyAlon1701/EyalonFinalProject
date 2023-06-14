@@ -14,75 +14,77 @@ namespace EyalonFinalProject
     {
         DBConnection dbc = new DBConnection();
         string userID = "";
+
         public LecturerForm()
         {
             InitializeComponent();
         }
+
         public LecturerForm(DataRow userRow)
         {
             InitializeComponent();
             this.userID = userRow["UserID"].ToString();
-            lblWelcome.Text += " " + userRow["FirstName"].ToString();
-            updateProjectBookDataGridView(dbc.getAllProjectBook());
+            LblWelcome.Text += " " + userRow["FirstName"].ToString();
+            UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
         }
 
-        private void updateProjectBookDataGridView(DataTable dt)
+        private void UpdateProjectBookDataGridView(DataTable dt)
         {
-            dgvProjectBook.Rows.Clear();
+            DgvProjectBook.Rows.Clear();
             if (dt != null)
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View", "Edit", "Delete");
+                    DgvProjectBook.Rows.Add(dt.Rows[row]["ProjectBookID"], dt.Rows[row]["ProjectBookName"], dt.Rows[row]["ProjectBookYear"], dt.Rows[row]["ProjectBookOpenPage"], "View", "Edit", "Delete");
                 }
             }
         }
 
 
-        private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
             {
                 return;
             }
-            DataGridViewRow selectedRow = dgvProjectBook.Rows[e.RowIndex];
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "View")
+            DataGridViewRow selectedRow = DgvProjectBook.Rows[e.RowIndex];
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "View")
             {
                 ViewForm viewPageForm = new ViewForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), false);
                 viewPageForm.ShowDialog();
             }
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Edit")
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "Edit")
             {
                 BookForm bookForm = new BookForm(int.Parse(selectedRow.Cells["ID"].Value.ToString()), selectedRow.Cells["BookName"].Value.ToString(), int.Parse(selectedRow.Cells["BookYear"].Value.ToString()), selectedRow.Cells["BookOpenPage"].Value.ToString());
                 bookForm.ShowDialog();
             }
-            if (dgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")
+            if (DgvProjectBook.Columns[e.ColumnIndex].Name == "Delete")
             {
                 if (MessageBox.Show("Are you sure you want to delete this book?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    dbc.deleteProjectBookByProjectBookID(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
+                    dbc.DeleteProjectBookByProjectBookID(int.Parse(selectedRow.Cells["ID"].Value.ToString()));
                 }
             }
-            updateProjectBookDataGridView(dbc.getAllProjectBook());
+            UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             BookForm bookForm = new BookForm();
             bookForm.ShowDialog();
-            updateProjectBookDataGridView(dbc.getAllProjectBook());
+            UpdateProjectBookDataGridView(dbc.GetAllProjectBook());
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
+            UpdateProjectBookDataGridView(dbc.GetProjectBooksByName(TxtSearch.Text));
         }
 
-        private void btnEditUser_Click(object sender, EventArgs e)
+        private void BtnEditUser_Click(object sender, EventArgs e)
         {
             UserForm userForm = new UserForm(int.Parse(Program.LECTURER_ROLE), userID);
             userForm.ShowDialog();
-            lblWelcome.Text = "Welcome " + dbc.getUserByID(userID)["FirstName"].ToString();//name can change after update
+            LblWelcome.Text = "Welcome " + dbc.GetUserByID(userID)["FirstName"].ToString();//name can change after update
         }
     }
 }

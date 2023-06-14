@@ -24,53 +24,55 @@ namespace EyalonFinalProject
         public ViewForm(int id, Boolean isPage)
         {
             InitializeComponent();
-            if(isPage)
+            if(isPage)//true - is page
             {
-                makePage(dbc.getProjectPageByProjectPageID(id));
+                MakePage(dbc.GetProjectPageByProjectPageID(id));
             }
-            else
+            else//false - is book
             {
-                makeBook(dbc.getProjectBookByProjectBookID(id));
+                MakeBook(dbc.GetProjectBookByProjectBookID(id));
             }
         }
 
-        private void makePage(DataRow page)
+        private void MakePage(DataRow page)
         {
-            saveFileDialog1.FileName = dbc.getStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString();
-            AppendText(dbc.getStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString() + "\n", titleFont);
+            SaveFileDialog.FileName = dbc.GetStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString();
+            AppendText(dbc.GetStudentNameByProjectPageID(int.Parse(page["ProjectPageID"].ToString())) + " - " + page["ProjectPageName"].ToString() + "\n", titleFont);
             AppendText(page["ProjectPageData"].ToString(), dataFont);
         }
 
-        private void makeBook(DataRow book)
+        private void MakeBook(DataRow book)
         {
             MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(book["ProjectBookOpenPage"].ToString()));
-            rtbPageData.LoadFile(stream, RichTextBoxStreamType.RichText);
+            RtbPageData.LoadFile(stream, RichTextBoxStreamType.RichText);
 
-            rtbPageData.AppendText("\n\n");
-            DataTable pages = dbc.getProjectPagesIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
+            RtbPageData.AppendText("\n\n");
+
+            DataTable pages = dbc.GetProjectPagesIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
             for(int i = 0; i < pages.Rows.Count; i++)
             {
-                rtbPageData.AppendText("\n  \n");
-                makePage(dbc.getProjectPageByProjectPageID(int.Parse(pages.Rows[i][0].ToString())));
+                RtbPageData.AppendText("\n\n");
+                MakePage(dbc.GetProjectPageByProjectPageID(int.Parse(pages.Rows[i][0].ToString())));
             }
-            saveFileDialog1.FileName = book["ProjectBookName"].ToString() + " - " + book["ProjectBookYear"].ToString();
+
+            SaveFileDialog.FileName = book["ProjectBookName"].ToString() + " - " + book["ProjectBookYear"].ToString();
         }
 
         private void AppendText(string text, Font font)
         {
-            rtbPageData.SelectionStart = rtbPageData.TextLength;
-            rtbPageData.SelectionFont = font;
-            rtbPageData.AppendText(text);
+            RtbPageData.SelectionStart = RtbPageData.TextLength;
+            RtbPageData.SelectionFont = font;
+            RtbPageData.AppendText(text);
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (SaveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                rtbPageData.SaveFile(saveFileDialog1.FileName+".rtf");
+                RtbPageData.SaveFile(SaveFileDialog.FileName+".rtf");
             }
         } 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -28,325 +28,324 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.lblLoginID = new System.Windows.Forms.Label();
-            this.lblLoginPassword = new System.Windows.Forms.Label();
-            this.txtLoginID = new System.Windows.Forms.TextBox();
-            this.txtLoginPassword = new System.Windows.Forms.TextBox();
-            this.pnlLogin = new System.Windows.Forms.Panel();
-            this.lblLogin = new System.Windows.Forms.Label();
-            this.btnGoReg = new System.Windows.Forms.Button();
-            this.pnlReg = new System.Windows.Forms.Panel();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.btnGoLogin = new System.Windows.Forms.Button();
-            this.btnReg = new System.Windows.Forms.Button();
-            this.lblReg = new System.Windows.Forms.Label();
-            this.txtRegEmail = new System.Windows.Forms.TextBox();
-            this.lblRegEmail = new System.Windows.Forms.Label();
-            this.btnRegImg = new System.Windows.Forms.Button();
-            this.lblImg = new System.Windows.Forms.Label();
-            this.txtRegLastName = new System.Windows.Forms.TextBox();
-            this.lblRegLastName = new System.Windows.Forms.Label();
-            this.txtRegFirstName = new System.Windows.Forms.TextBox();
-            this.lblRegFirstName = new System.Windows.Forms.Label();
-            this.txtRegPassword = new System.Windows.Forms.TextBox();
-            this.lblRegID = new System.Windows.Forms.Label();
-            this.txtRegID = new System.Windows.Forms.TextBox();
-            this.lblRegPassword = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.pnlLogin.SuspendLayout();
-            this.pnlReg.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.BtnLogin = new System.Windows.Forms.Button();
+            this.LblLoginID = new System.Windows.Forms.Label();
+            this.LblLoginPassword = new System.Windows.Forms.Label();
+            this.TxtLoginID = new System.Windows.Forms.TextBox();
+            this.TxtLoginPassword = new System.Windows.Forms.TextBox();
+            this.PnlLogin = new System.Windows.Forms.Panel();
+            this.LblLogin = new System.Windows.Forms.Label();
+            this.BtnGoReg = new System.Windows.Forms.Button();
+            this.PnlReg = new System.Windows.Forms.Panel();
+            this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.BtnGoLogin = new System.Windows.Forms.Button();
+            this.BtnReg = new System.Windows.Forms.Button();
+            this.LblReg = new System.Windows.Forms.Label();
+            this.TxtRegEmail = new System.Windows.Forms.TextBox();
+            this.LblRegEmail = new System.Windows.Forms.Label();
+            this.BtnRegImg = new System.Windows.Forms.Button();
+            this.LblImg = new System.Windows.Forms.Label();
+            this.TxtRegLastName = new System.Windows.Forms.TextBox();
+            this.LblRegLastName = new System.Windows.Forms.Label();
+            this.TxtRegFirstName = new System.Windows.Forms.TextBox();
+            this.LblRegFirstName = new System.Windows.Forms.Label();
+            this.TxtRegPassword = new System.Windows.Forms.TextBox();
+            this.LblRegID = new System.Windows.Forms.Label();
+            this.TxtRegID = new System.Windows.Forms.TextBox();
+            this.LblRegPassword = new System.Windows.Forms.Label();
+            this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.PnlLogin.SuspendLayout();
+            this.PnlReg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnLogin
+            // BtnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(13, 163);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(234, 35);
-            this.btnLogin.TabIndex = 3;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.BtnLogin.Location = new System.Drawing.Point(13, 163);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(234, 35);
+            this.BtnLogin.TabIndex = 3;
+            this.BtnLogin.Text = "Login";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
-            // lblLoginID
+            // LblLoginID
             // 
-            this.lblLoginID.AutoSize = true;
-            this.lblLoginID.Location = new System.Drawing.Point(13, 85);
-            this.lblLoginID.Name = "lblLoginID";
-            this.lblLoginID.Size = new System.Drawing.Size(31, 20);
-            this.lblLoginID.TabIndex = 1;
-            this.lblLoginID.Text = "ID: ";
+            this.LblLoginID.AutoSize = true;
+            this.LblLoginID.Location = new System.Drawing.Point(13, 85);
+            this.LblLoginID.Name = "LblLoginID";
+            this.LblLoginID.Size = new System.Drawing.Size(31, 20);
+            this.LblLoginID.TabIndex = 1;
+            this.LblLoginID.Text = "ID: ";
             // 
-            // lblLoginPassword
+            // LblLoginPassword
             // 
-            this.lblLoginPassword.AutoSize = true;
-            this.lblLoginPassword.Location = new System.Drawing.Point(13, 119);
-            this.lblLoginPassword.Name = "lblLoginPassword";
-            this.lblLoginPassword.Size = new System.Drawing.Size(70, 20);
-            this.lblLoginPassword.TabIndex = 4;
-            this.lblLoginPassword.Text = "Password";
+            this.LblLoginPassword.AutoSize = true;
+            this.LblLoginPassword.Location = new System.Drawing.Point(13, 119);
+            this.LblLoginPassword.Name = "LblLoginPassword";
+            this.LblLoginPassword.Size = new System.Drawing.Size(70, 20);
+            this.LblLoginPassword.TabIndex = 4;
+            this.LblLoginPassword.Text = "Password";
             // 
-            // txtLoginID
+            // TxtLoginID
             // 
-            this.txtLoginID.Location = new System.Drawing.Point(122, 83);
-            this.txtLoginID.Name = "txtLoginID";
-            this.txtLoginID.Size = new System.Drawing.Size(125, 27);
-            this.txtLoginID.TabIndex = 0;
+            this.TxtLoginID.Location = new System.Drawing.Point(122, 83);
+            this.TxtLoginID.Name = "TxtLoginID";
+            this.TxtLoginID.Size = new System.Drawing.Size(125, 27);
+            this.TxtLoginID.TabIndex = 0;
             // 
-            // txtLoginPassword
+            // TxtLoginPassword
             // 
-            this.txtLoginPassword.Location = new System.Drawing.Point(122, 116);
-            this.txtLoginPassword.Name = "txtLoginPassword";
-            this.txtLoginPassword.Size = new System.Drawing.Size(125, 27);
-            this.txtLoginPassword.TabIndex = 2;
+            this.TxtLoginPassword.Location = new System.Drawing.Point(122, 116);
+            this.TxtLoginPassword.Name = "TxtLoginPassword";
+            this.TxtLoginPassword.Size = new System.Drawing.Size(125, 27);
+            this.TxtLoginPassword.TabIndex = 2;
             // 
-            // pnlLogin
+            // PnlLogin
             // 
-            this.pnlLogin.Controls.Add(this.lblLogin);
-            this.pnlLogin.Controls.Add(this.btnGoReg);
-            this.pnlLogin.Controls.Add(this.txtLoginPassword);
-            this.pnlLogin.Controls.Add(this.lblLoginID);
-            this.pnlLogin.Controls.Add(this.btnLogin);
-            this.pnlLogin.Controls.Add(this.txtLoginID);
-            this.pnlLogin.Controls.Add(this.lblLoginPassword);
-            this.pnlLogin.Location = new System.Drawing.Point(45, 26);
-            this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(260, 370);
-            this.pnlLogin.TabIndex = 5;
+            this.PnlLogin.Controls.Add(this.LblLogin);
+            this.PnlLogin.Controls.Add(this.BtnGoReg);
+            this.PnlLogin.Controls.Add(this.TxtLoginPassword);
+            this.PnlLogin.Controls.Add(this.LblLoginID);
+            this.PnlLogin.Controls.Add(this.BtnLogin);
+            this.PnlLogin.Controls.Add(this.TxtLoginID);
+            this.PnlLogin.Controls.Add(this.LblLoginPassword);
+            this.PnlLogin.Location = new System.Drawing.Point(45, 26);
+            this.PnlLogin.Name = "PnlLogin";
+            this.PnlLogin.Size = new System.Drawing.Size(260, 370);
+            this.PnlLogin.TabIndex = 5;
             // 
-            // lblLogin
+            // LblLogin
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLogin.Location = new System.Drawing.Point(66, 16);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(127, 54);
-            this.lblLogin.TabIndex = 6;
-            this.lblLogin.Text = "Login";
+            this.LblLogin.AutoSize = true;
+            this.LblLogin.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblLogin.Location = new System.Drawing.Point(66, 16);
+            this.LblLogin.Name = "LblLogin";
+            this.LblLogin.Size = new System.Drawing.Size(127, 54);
+            this.LblLogin.TabIndex = 6;
+            this.LblLogin.Text = "Login";
             // 
-            // btnGoReg
+            // BtnGoReg
             // 
-            this.btnGoReg.Location = new System.Drawing.Point(13, 203);
-            this.btnGoReg.Name = "btnGoReg";
-            this.btnGoReg.Size = new System.Drawing.Size(234, 35);
-            this.btnGoReg.TabIndex = 5;
-            this.btnGoReg.Text = "Register";
-            this.btnGoReg.UseVisualStyleBackColor = true;
-            this.btnGoReg.Click += new System.EventHandler(this.btnGoReg_Click);
+            this.BtnGoReg.Location = new System.Drawing.Point(13, 203);
+            this.BtnGoReg.Name = "BtnGoReg";
+            this.BtnGoReg.Size = new System.Drawing.Size(234, 35);
+            this.BtnGoReg.TabIndex = 5;
+            this.BtnGoReg.Text = "Register";
+            this.BtnGoReg.UseVisualStyleBackColor = true;
+            this.BtnGoReg.Click += new System.EventHandler(this.BtnGoReg_Click);
             // 
-            // pnlReg
+            // PnlReg
             // 
-            this.pnlReg.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlReg.Controls.Add(this.pictureBox);
-            this.pnlReg.Controls.Add(this.btnGoLogin);
-            this.pnlReg.Controls.Add(this.btnReg);
-            this.pnlReg.Controls.Add(this.lblReg);
-            this.pnlReg.Controls.Add(this.txtRegEmail);
-            this.pnlReg.Controls.Add(this.lblRegEmail);
-            this.pnlReg.Controls.Add(this.btnRegImg);
-            this.pnlReg.Controls.Add(this.lblImg);
-            this.pnlReg.Controls.Add(this.txtRegLastName);
-            this.pnlReg.Controls.Add(this.lblRegLastName);
-            this.pnlReg.Controls.Add(this.txtRegFirstName);
-            this.pnlReg.Controls.Add(this.lblRegFirstName);
-            this.pnlReg.Controls.Add(this.txtRegPassword);
-            this.pnlReg.Controls.Add(this.lblRegID);
-            this.pnlReg.Controls.Add(this.txtRegID);
-            this.pnlReg.Controls.Add(this.lblRegPassword);
-            this.pnlReg.Location = new System.Drawing.Point(45, 26);
-            this.pnlReg.Name = "pnlReg";
-            this.pnlReg.Size = new System.Drawing.Size(260, 370);
-            this.pnlReg.TabIndex = 6;
+            this.PnlReg.BackColor = System.Drawing.SystemColors.Control;
+            this.PnlReg.Controls.Add(this.PictureBox);
+            this.PnlReg.Controls.Add(this.BtnGoLogin);
+            this.PnlReg.Controls.Add(this.BtnReg);
+            this.PnlReg.Controls.Add(this.LblReg);
+            this.PnlReg.Controls.Add(this.TxtRegEmail);
+            this.PnlReg.Controls.Add(this.LblRegEmail);
+            this.PnlReg.Controls.Add(this.BtnRegImg);
+            this.PnlReg.Controls.Add(this.LblImg);
+            this.PnlReg.Controls.Add(this.TxtRegLastName);
+            this.PnlReg.Controls.Add(this.LblRegLastName);
+            this.PnlReg.Controls.Add(this.TxtRegFirstName);
+            this.PnlReg.Controls.Add(this.LblRegFirstName);
+            this.PnlReg.Controls.Add(this.TxtRegPassword);
+            this.PnlReg.Controls.Add(this.LblRegID);
+            this.PnlReg.Controls.Add(this.TxtRegID);
+            this.PnlReg.Controls.Add(this.LblRegPassword);
+            this.PnlReg.Location = new System.Drawing.Point(45, 26);
+            this.PnlReg.Name = "PnlReg";
+            this.PnlReg.Size = new System.Drawing.Size(260, 370);
+            this.PnlReg.TabIndex = 6;
             // 
-            // pictureBox
+            // PictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(130, 165);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(110, 109);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox.TabIndex = 7;
-            this.pictureBox.TabStop = false;
+            this.PictureBox.Location = new System.Drawing.Point(130, 165);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(110, 109);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox.TabIndex = 7;
+            this.PictureBox.TabStop = false;
             // 
-            // btnGoLogin
+            // BtnGoLogin
             // 
-            this.btnGoLogin.Location = new System.Drawing.Point(13, 327);
-            this.btnGoLogin.Name = "btnGoLogin";
-            this.btnGoLogin.Size = new System.Drawing.Size(234, 35);
-            this.btnGoLogin.TabIndex = 18;
-            this.btnGoLogin.Text = "Login";
-            this.btnGoLogin.UseVisualStyleBackColor = true;
-            this.btnGoLogin.Click += new System.EventHandler(this.btnGoLogin_Click);
+            this.BtnGoLogin.Location = new System.Drawing.Point(13, 327);
+            this.BtnGoLogin.Name = "BtnGoLogin";
+            this.BtnGoLogin.Size = new System.Drawing.Size(234, 35);
+            this.BtnGoLogin.TabIndex = 18;
+            this.BtnGoLogin.Text = "Login";
+            this.BtnGoLogin.UseVisualStyleBackColor = true;
+            this.BtnGoLogin.Click += new System.EventHandler(this.BtnGoLogin_Click);
             // 
-            // btnReg
+            // BtnReg
             // 
-            this.btnReg.Location = new System.Drawing.Point(13, 287);
-            this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(234, 35);
-            this.btnReg.TabIndex = 17;
-            this.btnReg.Text = "Register";
-            this.btnReg.UseVisualStyleBackColor = true;
-            this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
+            this.BtnReg.Location = new System.Drawing.Point(13, 287);
+            this.BtnReg.Name = "BtnReg";
+            this.BtnReg.Size = new System.Drawing.Size(234, 35);
+            this.BtnReg.TabIndex = 17;
+            this.BtnReg.Text = "Register";
+            this.BtnReg.UseVisualStyleBackColor = true;
+            this.BtnReg.Click += new System.EventHandler(this.BtnReg_Click);
             // 
-            // lblReg
+            // LblReg
             // 
-            this.lblReg.AutoSize = true;
-            this.lblReg.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblReg.Location = new System.Drawing.Point(41, 16);
-            this.lblReg.Name = "lblReg";
-            this.lblReg.Size = new System.Drawing.Size(178, 54);
-            this.lblReg.TabIndex = 7;
-            this.lblReg.Text = "Register";
+            this.LblReg.AutoSize = true;
+            this.LblReg.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblReg.Location = new System.Drawing.Point(41, 16);
+            this.LblReg.Name = "LblReg";
+            this.LblReg.Size = new System.Drawing.Size(178, 54);
+            this.LblReg.TabIndex = 7;
+            this.LblReg.Text = "Register";
             // 
-            // txtRegEmail
+            // TxtRegEmail
             // 
-            this.txtRegEmail.Location = new System.Drawing.Point(122, 181);
-            this.txtRegEmail.Name = "txtRegEmail";
-            this.txtRegEmail.Size = new System.Drawing.Size(125, 27);
-            this.txtRegEmail.TabIndex = 10;
+            this.TxtRegEmail.Location = new System.Drawing.Point(122, 181);
+            this.TxtRegEmail.Name = "TxtRegEmail";
+            this.TxtRegEmail.Size = new System.Drawing.Size(125, 27);
+            this.TxtRegEmail.TabIndex = 10;
             // 
-            // lblRegEmail
+            // LblRegEmail
             // 
-            this.lblRegEmail.AutoSize = true;
-            this.lblRegEmail.Location = new System.Drawing.Point(13, 185);
-            this.lblRegEmail.Name = "lblRegEmail";
-            this.lblRegEmail.Size = new System.Drawing.Size(49, 20);
-            this.lblRegEmail.TabIndex = 18;
-            this.lblRegEmail.Text = "Email:";
+            this.LblRegEmail.AutoSize = true;
+            this.LblRegEmail.Location = new System.Drawing.Point(13, 185);
+            this.LblRegEmail.Name = "LblRegEmail";
+            this.LblRegEmail.Size = new System.Drawing.Size(49, 20);
+            this.LblRegEmail.TabIndex = 18;
+            this.LblRegEmail.Text = "Email:";
             // 
-            // btnRegImg
+            // BtnRegImg
             // 
-            this.btnRegImg.Location = new System.Drawing.Point(122, 252);
-            this.btnRegImg.Name = "btnRegImg";
-            this.btnRegImg.Size = new System.Drawing.Size(125, 29);
-            this.btnRegImg.TabIndex = 16;
-            this.btnRegImg.Text = "open";
-            this.btnRegImg.UseVisualStyleBackColor = true;
-            this.btnRegImg.Click += new System.EventHandler(this.btnRegImg_Click);
+            this.BtnRegImg.Location = new System.Drawing.Point(122, 252);
+            this.BtnRegImg.Name = "BtnRegImg";
+            this.BtnRegImg.Size = new System.Drawing.Size(125, 29);
+            this.BtnRegImg.TabIndex = 16;
+            this.BtnRegImg.Text = "open";
+            this.BtnRegImg.UseVisualStyleBackColor = true;
+            this.BtnRegImg.Click += new System.EventHandler(this.BtnRegImg_Click);
             // 
-            // lblImg
+            // LblImg
             // 
-            this.lblImg.AutoSize = true;
-            this.lblImg.Location = new System.Drawing.Point(13, 255);
-            this.lblImg.Name = "lblImg";
-            this.lblImg.Size = new System.Drawing.Size(51, 20);
-            this.lblImg.TabIndex = 15;
-            this.lblImg.Text = "Image";
-            this.lblImg.MouseLeave += new System.EventHandler(this.lblImg_MouseLeave);
-            this.lblImg.MouseHover += new System.EventHandler(this.lblImg_MouseHover);
+            this.LblImg.AutoSize = true;
+            this.LblImg.Location = new System.Drawing.Point(13, 255);
+            this.LblImg.Name = "LblImg";
+            this.LblImg.Size = new System.Drawing.Size(51, 20);
+            this.LblImg.TabIndex = 15;
+            this.LblImg.Text = "Image";
+            this.LblImg.MouseLeave += new System.EventHandler(this.LblImg_MouseLeave);
+            this.LblImg.MouseHover += new System.EventHandler(this.LblImg_MouseHover);
             // 
-            // txtRegLastName
+            // TxtRegLastName
             // 
-            this.txtRegLastName.Location = new System.Drawing.Point(122, 147);
-            this.txtRegLastName.Name = "txtRegLastName";
-            this.txtRegLastName.Size = new System.Drawing.Size(125, 27);
-            this.txtRegLastName.TabIndex = 9;
+            this.TxtRegLastName.Location = new System.Drawing.Point(122, 147);
+            this.TxtRegLastName.Name = "TxtRegLastName";
+            this.TxtRegLastName.Size = new System.Drawing.Size(125, 27);
+            this.TxtRegLastName.TabIndex = 9;
             // 
-            // lblRegLastName
+            // LblRegLastName
             // 
-            this.lblRegLastName.AutoSize = true;
-            this.lblRegLastName.Location = new System.Drawing.Point(13, 149);
-            this.lblRegLastName.Name = "lblRegLastName";
-            this.lblRegLastName.Size = new System.Drawing.Size(75, 20);
-            this.lblRegLastName.TabIndex = 13;
-            this.lblRegLastName.Text = "LastName";
+            this.LblRegLastName.AutoSize = true;
+            this.LblRegLastName.Location = new System.Drawing.Point(13, 149);
+            this.LblRegLastName.Name = "LblRegLastName";
+            this.LblRegLastName.Size = new System.Drawing.Size(75, 20);
+            this.LblRegLastName.TabIndex = 13;
+            this.LblRegLastName.Text = "LastName";
             // 
-            // txtRegFirstName
+            // TxtRegFirstName
             // 
-            this.txtRegFirstName.Location = new System.Drawing.Point(122, 112);
-            this.txtRegFirstName.Name = "txtRegFirstName";
-            this.txtRegFirstName.Size = new System.Drawing.Size(125, 27);
-            this.txtRegFirstName.TabIndex = 8;
+            this.TxtRegFirstName.Location = new System.Drawing.Point(122, 112);
+            this.TxtRegFirstName.Name = "TxtRegFirstName";
+            this.TxtRegFirstName.Size = new System.Drawing.Size(125, 27);
+            this.TxtRegFirstName.TabIndex = 8;
             // 
-            // lblRegFirstName
+            // LblRegFirstName
             // 
-            this.lblRegFirstName.AutoSize = true;
-            this.lblRegFirstName.Location = new System.Drawing.Point(13, 115);
-            this.lblRegFirstName.Name = "lblRegFirstName";
-            this.lblRegFirstName.Size = new System.Drawing.Size(76, 20);
-            this.lblRegFirstName.TabIndex = 11;
-            this.lblRegFirstName.Text = "FirstName";
+            this.LblRegFirstName.AutoSize = true;
+            this.LblRegFirstName.Location = new System.Drawing.Point(13, 115);
+            this.LblRegFirstName.Name = "LblRegFirstName";
+            this.LblRegFirstName.Size = new System.Drawing.Size(76, 20);
+            this.LblRegFirstName.TabIndex = 11;
+            this.LblRegFirstName.Text = "FirstName";
             // 
-            // txtRegPassword
+            // TxtRegPassword
             // 
-            this.txtRegPassword.Location = new System.Drawing.Point(122, 217);
-            this.txtRegPassword.Name = "txtRegPassword";
-            this.txtRegPassword.Size = new System.Drawing.Size(125, 27);
-            this.txtRegPassword.TabIndex = 12;
+            this.TxtRegPassword.Location = new System.Drawing.Point(122, 217);
+            this.TxtRegPassword.Name = "TxtRegPassword";
+            this.TxtRegPassword.Size = new System.Drawing.Size(125, 27);
+            this.TxtRegPassword.TabIndex = 12;
             // 
-            // lblRegID
+            // LblRegID
             // 
-            this.lblRegID.AutoSize = true;
-            this.lblRegID.Location = new System.Drawing.Point(13, 80);
-            this.lblRegID.Name = "lblRegID";
-            this.lblRegID.Size = new System.Drawing.Size(31, 20);
-            this.lblRegID.TabIndex = 5;
-            this.lblRegID.Text = "ID: ";
+            this.LblRegID.AutoSize = true;
+            this.LblRegID.Location = new System.Drawing.Point(13, 80);
+            this.LblRegID.Name = "LblRegID";
+            this.LblRegID.Size = new System.Drawing.Size(31, 20);
+            this.LblRegID.TabIndex = 5;
+            this.LblRegID.Text = "ID: ";
             // 
-            // txtRegID
+            // TxtRegID
             // 
-            this.txtRegID.Location = new System.Drawing.Point(122, 77);
-            this.txtRegID.Name = "txtRegID";
-            this.txtRegID.Size = new System.Drawing.Size(125, 27);
-            this.txtRegID.TabIndex = 7;
+            this.TxtRegID.Location = new System.Drawing.Point(122, 77);
+            this.TxtRegID.Name = "TxtRegID";
+            this.TxtRegID.Size = new System.Drawing.Size(125, 27);
+            this.TxtRegID.TabIndex = 7;
             // 
-            // lblRegPassword
+            // LblRegPassword
             // 
-            this.lblRegPassword.AutoSize = true;
-            this.lblRegPassword.Location = new System.Drawing.Point(13, 220);
-            this.lblRegPassword.Name = "lblRegPassword";
-            this.lblRegPassword.Size = new System.Drawing.Size(70, 20);
-            this.lblRegPassword.TabIndex = 6;
-            this.lblRegPassword.Text = "Password";
+            this.LblRegPassword.AutoSize = true;
+            this.LblRegPassword.Location = new System.Drawing.Point(13, 220);
+            this.LblRegPassword.Name = "LblRegPassword";
+            this.LblRegPassword.Size = new System.Drawing.Size(70, 20);
+            this.LblRegPassword.TabIndex = 6;
+            this.LblRegPassword.Text = "Password";
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(354, 421);
-            this.Controls.Add(this.pnlReg);
-            this.Controls.Add(this.pnlLogin);
+            this.Controls.Add(this.PnlReg);
+            this.Controls.Add(this.PnlLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "HomeForm";
             this.Text = "HomeForm";
-            this.Load += new System.EventHandler(this.HomeForm_Load);
-            this.pnlLogin.ResumeLayout(false);
-            this.pnlLogin.PerformLayout();
-            this.pnlReg.ResumeLayout(false);
-            this.pnlReg.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.PnlLogin.ResumeLayout(false);
+            this.PnlLogin.PerformLayout();
+            this.PnlReg.ResumeLayout(false);
+            this.PnlReg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Button btnLogin;
-        private Label lblLoginID;
-        private Label lblLoginPassword;
-        private TextBox txtLoginID;
-        private TextBox txtLoginPassword;
-        private Panel pnlLogin;
-        private Panel pnlReg;
-        private TextBox txtRegPassword;
-        private Label lblRegID;
-        private TextBox txtRegID;
-        private Label lblRegPassword;
-        private TextBox txtRegFirstName;
-        private Label lblRegFirstName;
-        private TextBox txtRegLastName;
-        private Label lblRegLastName;
-        private OpenFileDialog openFileDialog1;
-        private Button btnRegImg;
-        private Label lblImg;
-        private Button btnGoReg;
-        private TextBox txtRegEmail;
-        private Label lblRegEmail;
-        private Label lblLogin;
-        private Button btnGoLogin;
-        private Button btnReg;
-        private Label lblReg;
-        private PictureBox pictureBox;
+        private Button BtnLogin;
+        private Label LblLoginID;
+        private Label LblLoginPassword;
+        private TextBox TxtLoginID;
+        private TextBox TxtLoginPassword;
+        private Panel PnlLogin;
+        private Panel PnlReg;
+        private TextBox TxtRegPassword;
+        private Label LblRegID;
+        private TextBox TxtRegID;
+        private Label LblRegPassword;
+        private TextBox TxtRegFirstName;
+        private Label LblRegFirstName;
+        private TextBox TxtRegLastName;
+        private Label LblRegLastName;
+        private OpenFileDialog OpenFileDialog;
+        private Button BtnRegImg;
+        private Label LblImg;
+        private Button BtnGoReg;
+        private TextBox TxtRegEmail;
+        private Label LblRegEmail;
+        private Label LblLogin;
+        private Button BtnGoLogin;
+        private Button BtnReg;
+        private Label LblReg;
+        private PictureBox PictureBox;
     }
 }

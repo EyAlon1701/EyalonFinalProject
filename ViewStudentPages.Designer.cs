@@ -28,38 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStuPages = new System.Windows.Forms.DataGridView();
+            this.DgvStuPages = new System.Windows.Forms.DataGridView();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PartnerDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStuPages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvStuPages)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvStuPages
+            // DgvStuPages
             // 
-            this.dgvStuPages.AllowUserToAddRows = false;
-            this.dgvStuPages.AllowUserToDeleteRows = false;
-            this.dgvStuPages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStuPages.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvStuPages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStuPages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvStuPages.AllowUserToAddRows = false;
+            this.DgvStuPages.AllowUserToDeleteRows = false;
+            this.DgvStuPages.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvStuPages.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DgvStuPages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvStuPages.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PageID,
             this.PageName,
             this.BookName,
             this.PartnerDetails,
             this.View});
-            this.dgvStuPages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvStuPages.Location = new System.Drawing.Point(0, 0);
-            this.dgvStuPages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvStuPages.Name = "dgvStuPages";
-            this.dgvStuPages.ReadOnly = true;
-            this.dgvStuPages.RowHeadersWidth = 51;
-            this.dgvStuPages.RowTemplate.Height = 29;
-            this.dgvStuPages.Size = new System.Drawing.Size(728, 325);
-            this.dgvStuPages.TabIndex = 0;
-            this.dgvStuPages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStuPages_CellContentClick);
+            this.DgvStuPages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvStuPages.Location = new System.Drawing.Point(0, 0);
+            this.DgvStuPages.Name = "DgvStuPages";
+            this.DgvStuPages.ReadOnly = true;
+            this.DgvStuPages.RowHeadersWidth = 51;
+            this.DgvStuPages.RowTemplate.Height = 29;
+            this.DgvStuPages.Size = new System.Drawing.Size(832, 433);
+            this.DgvStuPages.TabIndex = 0;
+            this.DgvStuPages.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStuPages_CellContentClick);
             // 
             // PageID
             // 
@@ -68,7 +67,7 @@
             this.PageID.MinimumWidth = 6;
             this.PageID.Name = "PageID";
             this.PageID.ReadOnly = true;
-            this.PageID.Width = 69;
+            this.PageID.Width = 85;
             // 
             // PageName
             // 
@@ -98,27 +97,26 @@
             this.View.MinimumWidth = 6;
             this.View.Name = "View";
             this.View.ReadOnly = true;
-            this.View.Width = 38;
+            this.View.Width = 47;
             // 
             // ViewStudentPages
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 325);
-            this.Controls.Add(this.dgvStuPages);
+            this.ClientSize = new System.Drawing.Size(832, 433);
+            this.Controls.Add(this.DgvStuPages);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "ViewStudentPages";
             this.Text = "ViewStudentPages";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStuPages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvStuPages)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dgvStuPages;
+        private DataGridView DgvStuPages;
         private DataGridViewTextBoxColumn PageID;
         private DataGridViewTextBoxColumn PageName;
         private DataGridViewTextBoxColumn BookName;

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStudents = new System.Windows.Forms.DataGridView();
+            this.DgvStudents = new System.Windows.Forms.DataGridView();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dgvFriendRequestProjectPage = new System.Windows.Forms.DataGridView();
+            this.DgvFriendRequestProjectPage = new System.Windows.Forms.DataGridView();
             this.PageStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageStudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PageID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,31 +40,31 @@
             this.BookName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Approve = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Reject = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnDel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendRequestProjectPage)).BeginInit();
+            this.LblTitle = new System.Windows.Forms.Label();
+            this.BtnDel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvStudents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFriendRequestProjectPage)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvStudents
+            // DgvStudents
             // 
-            this.dgvStudents.AllowUserToAddRows = false;
-            this.dgvStudents.AllowUserToDeleteRows = false;
-            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStudents.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvStudents.AllowUserToAddRows = false;
+            this.DgvStudents.AllowUserToDeleteRows = false;
+            this.DgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvStudents.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentID,
             this.StudentName,
             this.Add});
-            this.dgvStudents.Location = new System.Drawing.Point(0, 161);
-            this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.ReadOnly = true;
-            this.dgvStudents.RowHeadersWidth = 51;
-            this.dgvStudents.RowTemplate.Height = 29;
-            this.dgvStudents.Size = new System.Drawing.Size(698, 310);
-            this.dgvStudents.TabIndex = 1;
-            this.dgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStudents_CellContentClick);
+            this.DgvStudents.Location = new System.Drawing.Point(0, 161);
+            this.DgvStudents.Name = "DgvStudents";
+            this.DgvStudents.ReadOnly = true;
+            this.DgvStudents.RowHeadersWidth = 51;
+            this.DgvStudents.RowTemplate.Height = 29;
+            this.DgvStudents.Size = new System.Drawing.Size(698, 310);
+            this.DgvStudents.TabIndex = 1;
+            this.DgvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStudents_CellContentClick);
             // 
             // StudentID
             // 
@@ -91,14 +91,14 @@
             this.Add.ReadOnly = true;
             this.Add.Width = 43;
             // 
-            // dgvFriendRequestProjectPage
+            // DgvFriendRequestProjectPage
             // 
-            this.dgvFriendRequestProjectPage.AllowUserToAddRows = false;
-            this.dgvFriendRequestProjectPage.AllowUserToDeleteRows = false;
-            this.dgvFriendRequestProjectPage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFriendRequestProjectPage.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.dgvFriendRequestProjectPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFriendRequestProjectPage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DgvFriendRequestProjectPage.AllowUserToAddRows = false;
+            this.DgvFriendRequestProjectPage.AllowUserToDeleteRows = false;
+            this.DgvFriendRequestProjectPage.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvFriendRequestProjectPage.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DgvFriendRequestProjectPage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvFriendRequestProjectPage.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PageStudentID,
             this.PageStudentName,
             this.PageID,
@@ -106,14 +106,14 @@
             this.BookName,
             this.Approve,
             this.Reject});
-            this.dgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 161);
-            this.dgvFriendRequestProjectPage.Name = "dgvFriendRequestProjectPage";
-            this.dgvFriendRequestProjectPage.ReadOnly = true;
-            this.dgvFriendRequestProjectPage.RowHeadersWidth = 51;
-            this.dgvFriendRequestProjectPage.RowTemplate.Height = 29;
-            this.dgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 310);
-            this.dgvFriendRequestProjectPage.TabIndex = 2;
-            this.dgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFriendRequestProjectPage_CellContentClick);
+            this.DgvFriendRequestProjectPage.Location = new System.Drawing.Point(0, 161);
+            this.DgvFriendRequestProjectPage.Name = "DgvFriendRequestProjectPage";
+            this.DgvFriendRequestProjectPage.ReadOnly = true;
+            this.DgvFriendRequestProjectPage.RowHeadersWidth = 51;
+            this.DgvFriendRequestProjectPage.RowTemplate.Height = 29;
+            this.DgvFriendRequestProjectPage.Size = new System.Drawing.Size(698, 310);
+            this.DgvFriendRequestProjectPage.TabIndex = 2;
+            this.DgvFriendRequestProjectPage.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvFriendRequestProjectPage_CellContentClick);
             // 
             // PageStudentID
             // 
@@ -172,25 +172,25 @@
             this.Reject.ReadOnly = true;
             this.Reject.Width = 56;
             // 
-            // lblTitle
+            // LblTitle
             // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(698, 107);
-            this.lblTitle.TabIndex = 34;
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.LblTitle.Location = new System.Drawing.Point(0, 0);
+            this.LblTitle.Name = "LblTitle";
+            this.LblTitle.Size = new System.Drawing.Size(698, 107);
+            this.LblTitle.TabIndex = 34;
+            this.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnDel
+            // BtnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(258, 111);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(185, 45);
-            this.btnDel.TabIndex = 39;
-            this.btnDel.Text = "Delete Request";
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            this.BtnDel.Location = new System.Drawing.Point(258, 111);
+            this.BtnDel.Name = "BtnDel";
+            this.BtnDel.Size = new System.Drawing.Size(185, 45);
+            this.BtnDel.TabIndex = 39;
+            this.BtnDel.Text = "Delete Request";
+            this.BtnDel.UseVisualStyleBackColor = true;
+            this.BtnDel.Click += new System.EventHandler(this.BtnDel_Click);
             // 
             // PartnerForm
             // 
@@ -198,27 +198,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(698, 471);
-            this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.dgvFriendRequestProjectPage);
-            this.Controls.Add(this.dgvStudents);
+            this.Controls.Add(this.BtnDel);
+            this.Controls.Add(this.LblTitle);
+            this.Controls.Add(this.DgvFriendRequestProjectPage);
+            this.Controls.Add(this.DgvStudents);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "PartnerForm";
             this.Text = "PartnerForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFriendRequestProjectPage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvStudents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFriendRequestProjectPage)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DataGridView dgvStudents;
+        private DataGridView DgvStudents;
         private DataGridViewTextBoxColumn StudentID;
         private DataGridViewTextBoxColumn StudentName;
         private DataGridViewButtonColumn Add;
-        private DataGridView dgvFriendRequestProjectPage;
+        private DataGridView DgvFriendRequestProjectPage;
         private DataGridViewTextBoxColumn PageStudentID;
         private DataGridViewTextBoxColumn PageStudentName;
         private DataGridViewTextBoxColumn PageID;
@@ -226,7 +226,7 @@
         private DataGridViewTextBoxColumn BookName;
         private DataGridViewButtonColumn Approve;
         private DataGridViewButtonColumn Reject;
-        private Label lblTitle;
-        private Button btnDel;
+        private Label LblTitle;
+        private Button BtnDel;
     }
 }
