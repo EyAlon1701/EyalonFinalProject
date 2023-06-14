@@ -60,6 +60,7 @@ namespace EyalonFinalProject
             {
                 return;
             }
+
             DataGridViewRow selectedRow = dgvPagesInBook.Rows[e.RowIndex];
             if (dgvPagesInBook.Columns[e.ColumnIndex].Name == "View")
             {

@@ -42,7 +42,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(499, 21);
+            this.btnAdd.Location = new System.Drawing.Point(752, 21);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(289, 50);
             this.btnAdd.TabIndex = 33;
@@ -79,7 +79,7 @@
             this.dgvPagesInBook.ReadOnly = true;
             this.dgvPagesInBook.RowHeadersWidth = 51;
             this.dgvPagesInBook.RowTemplate.Height = 29;
-            this.dgvPagesInBook.Size = new System.Drawing.Size(800, 401);
+            this.dgvPagesInBook.Size = new System.Drawing.Size(1053, 401);
             this.dgvPagesInBook.TabIndex = 35;
             this.dgvPagesInBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPagesInBook_CellContentClick);
             // 
@@ -95,17 +95,15 @@
             // 
             // StudentID
             // 
-            this.StudentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.StudentID.FillWeight = 120F;
+            this.StudentID.FillWeight = 60F;
             this.StudentID.HeaderText = "StudentID";
             this.StudentID.MinimumWidth = 6;
             this.StudentID.Name = "StudentID";
             this.StudentID.ReadOnly = true;
-            this.StudentID.Width = 104;
             // 
             // StudentName
             // 
-            this.StudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.StudentName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.StudentName.FillWeight = 43.31802F;
             this.StudentName.HeaderText = "StudentName";
             this.StudentName.MinimumWidth = 30;
@@ -144,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 486);
+            this.ClientSize = new System.Drawing.Size(1053, 486);
             this.Controls.Add(this.dgvPagesInBook);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnAdd);

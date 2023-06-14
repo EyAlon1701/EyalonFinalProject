@@ -190,7 +190,7 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSearch.Location = new System.Drawing.Point(324, 106);
+            this.txtSearch.Location = new System.Drawing.Point(313, 106);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(314, 34);
             this.txtSearch.TabIndex = 3;
@@ -202,9 +202,9 @@
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSearch.Location = new System.Drawing.Point(24, 100);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(137, 37);
+            this.lblSearch.Size = new System.Drawing.Size(101, 37);
             this.lblSearch.TabIndex = 4;
-            this.lblSearch.Text = "Search by:";
+            this.lblSearch.Text = "Search:";
             // 
             // dgvProjectBook
             // 
@@ -415,7 +415,7 @@
             "LECTURERS",
             "ADMINS",
             "ALL"});
-            this.cbRole.Location = new System.Drawing.Point(167, 104);
+            this.cbRole.Location = new System.Drawing.Point(156, 104);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(151, 36);
             this.cbRole.TabIndex = 39;

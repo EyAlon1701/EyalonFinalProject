@@ -214,7 +214,7 @@ namespace EyalonFinalProject
                 dgvProjectBook.Visible = false;
                 dgvProjectPage.Visible = false;
                 cbRole.Visible = true;
-                lblSearch.Text = "Search by:";
+                lblSearch.Text = "Search:";
                 btnAdd.Text = "Add User";
                 btnAdd.Visible = true;
                 updateUserDataGridView(dbc.getAllUsers());
