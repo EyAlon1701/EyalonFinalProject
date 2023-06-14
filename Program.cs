@@ -2,9 +2,12 @@ namespace EyalonFinalProject
 {
     internal static class Program
     {
-        public const string studentRole = "0";
-        public const string lecturerRole = "1";
-        public const string adminRole = "2";
+        //Roles
+        public const string STUDENT_ROLE = "0";
+        public const string LECTURER_ROLE = "1";
+        public const string ADMIN_ROLE = "2";
+
+        public const int MAX_STUDENTS_PER_PAGE = 2;
 
         /// <summary>
         ///  The main entry point for the application.

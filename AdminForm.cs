@@ -15,14 +15,21 @@ namespace EyalonFinalProject
 {
     public partial class AdminForm : Form
     {
+        //Tables
+        public const int USERS_TABLE = 0;
+        public const int BOOKS_TABLE = 1;
+        public const int PAGES_TABLE = 2;
+
+        public const int ALL_USERS = 3;
+
         DBConnection dbc = new DBConnection();
-        int tableMod = 0; //DEFAULT 0-USERS
+        int tableMod = USERS_TABLE;
         public AdminForm()
         {
             InitializeComponent();
             updateUserDataGridView(dbc.getAllUsers());
             cbSelectTable.SelectedIndex = tableMod;
-            cbRole.SelectedIndex = 3;
+            cbRole.SelectedIndex = ALL_USERS;
         }
 
         private void updateUserDataGridView(DataTable dt)
@@ -32,7 +39,7 @@ namespace EyalonFinalProject
             {
                 for (int row = 0; row < dt.Rows.Count; row++)
                 {
-                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"].ToString() == Program.studentRole ? "Student" : dt.Rows[row]["Role"].ToString() == Program.lecturerRole ? "Lecturer" : "Admin" , "More", "Edit", "Delete");
+                    dgvUsers.Rows.Add(dt.Rows[row]["UserID"], dt.Rows[row]["FirstName"], dt.Rows[row]["LastName"], dt.Rows[row]["Email"], dt.Rows[row]["Password"], dt.Rows[row]["Image"], dt.Rows[row]["Role"].ToString() == Program.STUDENT_ROLE ? "Student" : dt.Rows[row]["Role"].ToString() == Program.LECTURER_ROLE ? "Lecturer" : "Admin" , "More", "Edit", "Delete");
                 }
             }
         }
@@ -91,7 +98,7 @@ namespace EyalonFinalProject
             }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "EditUser")
             {
-                UserForm userForm = new UserForm(int.Parse(Program.adminRole), selectedRow.Cells["UserID"].Value.ToString());
+                UserForm userForm = new UserForm(int.Parse(Program.ADMIN_ROLE), selectedRow.Cells["UserID"].Value.ToString());
                 userForm.ShowDialog();
             }
             if (dgvUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
@@ -109,7 +116,7 @@ namespace EyalonFinalProject
                 }
             }
             updateUserDataGridView(dbc.getAllUsers());
-            cbRole.SelectedIndex = 3;//SHOW ALL USERS
+            cbRole.SelectedIndex = ALL_USERS;//SHOW ALL USERS
         }
 
         private void dgvProjectBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -169,13 +176,13 @@ namespace EyalonFinalProject
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (cbSelectTable.SelectedIndex == 0) // USERS
+            if (cbSelectTable.SelectedIndex == USERS_TABLE)
             {
-                UserForm userForm = new UserForm(int.Parse(Program.adminRole));
+                UserForm userForm = new UserForm(int.Parse(Program.ADMIN_ROLE));
                 userForm.ShowDialog();
                 updateUserDataGridView(dbc.getAllUsers());
             }
-            else if (cbSelectTable.SelectedIndex == 1) // BOOKS
+            else if (cbSelectTable.SelectedIndex == BOOKS_TABLE) 
             {
                 BookForm bookForm = new BookForm();
                 bookForm.ShowDialog();
@@ -185,22 +192,22 @@ namespace EyalonFinalProject
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            if(cbSelectTable.SelectedIndex == 0) // USERS
+            if(cbSelectTable.SelectedIndex == USERS_TABLE)
             {
-                if(cbRole.SelectedIndex == 3) //ALL USERS
+                if(cbRole.SelectedIndex == ALL_USERS)
                 {
                     updateUserDataGridView(dbc.getUsersByName(txtSearch.Text));
                 }
-                else //user by role
+                else //User by role
                 {
                     updateUserDataGridView(dbc.getUsersByRoleAndName(cbRole.SelectedIndex,txtSearch.Text));
                 }
             }
-            else if (cbSelectTable.SelectedIndex == 1)// BOOKS
+            else if (cbSelectTable.SelectedIndex == BOOKS_TABLE)
             {
                 updateProjectBookDataGridView(dbc.getProjectBooksByName(txtSearch.Text));
             }
-            else if(cbSelectTable.SelectedIndex == 2)// PAGES
+            else if(cbSelectTable.SelectedIndex == PAGES_TABLE)
             {
                 updateProjectPageDataGridView(dbc.getProjectPagesAndProjectBookIDByProjectPageName(txtSearch.Text));
             }
@@ -208,7 +215,7 @@ namespace EyalonFinalProject
 
         private void cbSelectTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbSelectTable.SelectedIndex==0) // USERS
+            if(cbSelectTable.SelectedIndex==USERS_TABLE)
             {
                 dgvUsers.Visible = true;
                 dgvProjectBook.Visible = false;
@@ -219,7 +226,7 @@ namespace EyalonFinalProject
                 btnAdd.Visible = true;
                 updateUserDataGridView(dbc.getAllUsers());
             }
-            else if(cbSelectTable.SelectedIndex == 1) // BOOKS
+            else if(cbSelectTable.SelectedIndex == BOOKS_TABLE)
             {
                 dgvUsers.Visible = false;
                 dgvProjectBook.Visible = true;
@@ -230,7 +237,7 @@ namespace EyalonFinalProject
                 btnAdd.Visible = true;
                 updateProjectBookDataGridView(dbc.getAllProjectBook());
             }
-            else if(cbSelectTable.SelectedIndex == 2) // PAGES
+            else if(cbSelectTable.SelectedIndex == PAGES_TABLE)
             {
                 dgvUsers.Visible = false;
                 dgvProjectBook.Visible = false;
@@ -244,17 +251,17 @@ namespace EyalonFinalProject
 
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbRole.SelectedIndex == int.Parse(Program.studentRole))
+            if (cbRole.SelectedIndex == int.Parse(Program.STUDENT_ROLE))
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.STUDENT_ROLE)));
             }
-            else if(cbRole.SelectedIndex == int.Parse(Program.lecturerRole))
+            else if(cbRole.SelectedIndex == int.Parse(Program.LECTURER_ROLE))
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.lecturerRole)));
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.LECTURER_ROLE)));
             }
-            else if (cbRole.SelectedIndex == int.Parse(Program.adminRole))
+            else if (cbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))
             {
-                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.adminRole)));
+                updateUserDataGridView(dbc.getUsersByRole(int.Parse(Program.ADMIN_ROLE)));
             }
             else
             {

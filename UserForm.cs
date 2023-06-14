@@ -25,11 +25,11 @@ namespace EyalonFinalProject
         public UserForm(int accessRole)
         {
             InitializeComponent();
-            if (accessRole == int.Parse(Program.adminRole))
+            if (accessRole == int.Parse(Program.ADMIN_ROLE))
             {
                 txtID.Enabled = true;
                 cbRole.Enabled = true;
-                cbRole.Items.RemoveAt(2);
+                cbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
                 cbRole.SelectedIndex = 0;
             }
         }
@@ -41,11 +41,11 @@ namespace EyalonFinalProject
             DataRow userRow = dbc.getUserByID(userID);
             setData(userRow["UserID"].ToString(), userRow["FirstName"].ToString(), userRow["LastName"].ToString(), userRow["Email"].ToString(), userRow["Password"].ToString(), userRow["Image"].ToString(), int.Parse(userRow["Role"].ToString()));
 
-            if(accessRole == int.Parse(Program.adminRole))
+            if(accessRole == int.Parse(Program.ADMIN_ROLE))
             {
-                cbRole.Items.RemoveAt(2);
+                cbRole.Items.RemoveAt(int.Parse(Program.ADMIN_ROLE));
                 cbRole.Enabled = true;
-                if (cbRole.SelectedIndex == 2)//if user is admin
+                if (cbRole.SelectedIndex == int.Parse(Program.ADMIN_ROLE))//If user is admin
                 {
                     lblRole.Visible = false;
                     cbRole.Visible = false;

@@ -28,21 +28,21 @@ namespace EyalonFinalProject
             if(dt.Rows.Count > 0)//User exist
             {
                 this.Hide();
-                if (dt.Rows[0]["Role"].ToString() == Program.studentRole)
+                if (dt.Rows[0]["Role"].ToString() == Program.STUDENT_ROLE)
                 {
                     StudentForm studentForm = new StudentForm(dt.Rows[0]);
                     studentForm.ShowDialog();
                     HomeForm homeForm = new HomeForm();
                     homeForm.ShowDialog();
                 }
-                else if (dt.Rows[0]["Role"].ToString() == Program.lecturerRole)
+                else if (dt.Rows[0]["Role"].ToString() == Program.LECTURER_ROLE)
                 {
                     LecturerForm lecturerForm = new LecturerForm(dt.Rows[0]);
                     lecturerForm.ShowDialog();
                     HomeForm homeForm = new HomeForm();
                     homeForm.ShowDialog();
                 }
-                else if (dt.Rows[0]["Role"].ToString() == Program.adminRole)
+                else if (dt.Rows[0]["Role"].ToString() == Program.ADMIN_ROLE)
                 {
                     AdminForm adminForm = new AdminForm();
                     adminForm.ShowDialog();
@@ -72,7 +72,7 @@ namespace EyalonFinalProject
             }
             else
             {
-                int num = dbc.addUser(txtRegID.Text, txtRegFirstName.Text, txtRegLastName.Text, txtRegEmail.Text, txtRegPassword.Text, pictureBox.ImageLocation, int.Parse(Program.studentRole));
+                int num = dbc.addUser(txtRegID.Text, txtRegFirstName.Text, txtRegLastName.Text, txtRegEmail.Text, txtRegPassword.Text, pictureBox.ImageLocation, int.Parse(Program.STUDENT_ROLE));
                 if (num == 1)
                 {
                     MessageBox.Show("Registration successfully completed. Sign in now");

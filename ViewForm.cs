@@ -46,11 +46,11 @@ namespace EyalonFinalProject
             MemoryStream stream = new MemoryStream(ASCIIEncoding.Default.GetBytes(book["ProjectBookOpenPage"].ToString()));
             rtbPageData.LoadFile(stream, RichTextBoxStreamType.RichText);
 
-            rtbPageData.AppendText("\n\n\n");
+            rtbPageData.AppendText("\n\n");
             DataTable pages = dbc.getProjectPagesIDByProjectBookID(int.Parse(book["ProjectBookID"].ToString()));
             for(int i = 0; i < pages.Rows.Count; i++)
             {
-                rtbPageData.AppendText("\n");
+                rtbPageData.AppendText("\n  \n");
                 makePage(dbc.getProjectPageByProjectPageID(int.Parse(pages.Rows[i][0].ToString())));
             }
             saveFileDialog1.FileName = book["ProjectBookName"].ToString() + " - " + book["ProjectBookYear"].ToString();

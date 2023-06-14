@@ -18,7 +18,7 @@ namespace EyalonFinalProject
         {
             InitializeComponent();
             this.bookID = bookID;
-            updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+            updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.STUDENT_ROLE)));
         }
 
         private void updateStudentsPagesDataGridView(DataTable dt)
@@ -48,7 +48,7 @@ namespace EyalonFinalProject
                 dbc.addProjectPage(dbc.getProjectBookNameByID(bookID), "");
                 dbc.addStudentProjectPage(selectedRow.Cells["UserID"].Value.ToString(), dbc.getLastProjectPageID());
                 dbc.addProjectPageInBook(dbc.getLastProjectPageID(), bookID);
-                updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.studentRole)));
+                updateStudentsPagesDataGridView(dbc.getUsersByRole(int.Parse(Program.STUDENT_ROLE)));
                 if (dgvStudentsPages.Rows.Count == 0)
                 {
                     this.Close();
