@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace EyalonFinalProject
 {
-    public partial class PagesInBook : Form
+    public partial class PagesInBookForm : Form
     {
         DBConnection dbc = new DBConnection();
         int bookID = -1;
 
-        public PagesInBook()
+        public PagesInBookForm()
         {
             InitializeComponent();
         }
-        public PagesInBook(int bookID)
+        public PagesInBookForm(int bookID)
         {
             InitializeComponent();
             this.bookID = bookID;

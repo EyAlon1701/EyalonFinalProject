@@ -77,7 +77,7 @@ namespace EyalonFinalProject
         {
             if (TxtID.Text == "" || TxtFirstName.Text == "" || TxtLastName.Text == "" || TxtEmail.Text == "" || TxtPassword.Text == "")
             {
-                MessageBox.Show("You must fill in all fields (image is not required)", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You must fill in all fields (image is not required)!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (TxtID.Text.Length > 9)
             {

@@ -62,19 +62,26 @@ namespace EyalonFinalProject
 
         private void BtnSumbit_Click(object sender, EventArgs e)
         {
-            if (isAdd)//true - add project page
+            if (TxtPageName.Text == "")
             {
-                int num = dbc.AddProjectPage(TxtPageName.Text, RtfPageData.Text);
-                if (num == 1)
+                MessageBox.Show("You must fill in the page name!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (isAdd)//true - add project page
                 {
-                    dbc.AddStudentProjectPage(userID, dbc.GetLastProjectPageID());
+                    int num = dbc.AddProjectPage(TxtPageName.Text, RtfPageData.Text);
+                    if (num == 1)
+                    {
+                        dbc.AddStudentProjectPage(userID, dbc.GetLastProjectPageID());
+                        this.Close();
+                    }
+                }
+                else //false - update project page
+                {
+                    dbc.UpdateProjectPage(pageID, TxtPageName.Text, RtfPageData.Text);
                     this.Close();
                 }
-            }
-            else //false - update project page
-            {
-                dbc.UpdateProjectPage(pageID, TxtPageName.Text, RtfPageData.Text);
-                this.Close();
             }
         }
 

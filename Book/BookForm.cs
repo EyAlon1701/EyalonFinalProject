@@ -46,32 +46,42 @@ namespace EyalonFinalProject
 
         private void BtnSumbit_Click(object sender, EventArgs e)
         {
-            try
+            if (TxtBookName.Text == "" || TxtBookYear.Text == "")
             {
-                if (isAdd)//true - add project book
+                MessageBox.Show("You must fill in all fields!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
                 {
-                    int num = dbc.AddProjectBook(TxtBookName.Text, int.Parse(TxtBookYear.Text), RtbOpenPage.Rtf);
-                    if (num == 1)
+                    int bookYear = int.Parse(TxtBookYear.Text);
+
+                    if (isAdd)//true - add project book
                     {
+                        int num = dbc.AddProjectBook(TxtBookName.Text, bookYear, RtbOpenPage.Rtf);
+                        if (num == 1)
+                        {
+                            this.Close();
+                        }
+                    }
+                    else//false - update project book
+                    {
+                        dbc.UpdateProjectBook(bookID, TxtBookName.Text, bookYear, RtbOpenPage.Rtf);
                         this.Close();
                     }
                 }
-                else//false - update project book
+                catch (Exception error)
                 {
-                    dbc.UpdateProjectBook(bookID, TxtBookName.Text, int.Parse(TxtBookYear.Text), RtbOpenPage.Rtf);
+                    MessageBox.Show("You need to enter a year as an integer", "System message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch(Exception error)
-            {
-                MessageBox.Show("You need to enter a year as an integer","System message",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
 
         private void BtnPages_Click(object sender, EventArgs e)
         {
-            PagesInBook pagesInBook = new PagesInBook(bookID);
-            pagesInBook.ShowDialog();
+            PagesInBookForm pagesInBookForm = new PagesInBookForm(bookID);
+            pagesInBookForm.ShowDialog();
         }
 
         private void FontToolStripMenuItem_Click(object sender, EventArgs e)

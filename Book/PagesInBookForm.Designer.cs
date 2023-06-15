@@ -1,6 +1,6 @@
 ﻿namespace EyalonFinalProject
 {
-    partial class PagesInBook
+    partial class PagesInBookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.BtnAddPageToBook.Name = "BtnAddPageToBook";
             this.BtnAddPageToBook.Size = new System.Drawing.Size(289, 50);
             this.BtnAddPageToBook.TabIndex = 33;
-            this.BtnAddPageToBook.Text = "Add Pages To Book";
+            this.BtnAddPageToBook.Text = "Add Page To Book";
             this.BtnAddPageToBook.UseVisualStyleBackColor = true;
             this.BtnAddPageToBook.Click += new System.EventHandler(this.BtnAddPageToBook_Click);
             // 
@@ -137,7 +137,7 @@
             this.Delete.ReadOnly = true;
             this.Delete.Width = 59;
             // 
-            // PagesInBook
+            // PagesInBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,7 +146,7 @@
             this.Controls.Add(this.DgvPagesInBook);
             this.Controls.Add(this.LblTitle);
             this.Controls.Add(this.BtnAddPageToBook);
-            this.Name = "PagesInBook";
+            this.Name = "PagesInBookForm";
             this.Text = "PagesInBookForm";
             ((System.ComponentModel.ISupportInitialize)(this.DgvPagesInBook)).EndInit();
             this.ResumeLayout(false);
